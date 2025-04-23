@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,5 +21,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+        $admin = Role::create(['name' => 'admin']);
+        $editor = Role::create(['name' => 'editor']);
+
+        Permission::create(['name' => 'view dashboard']);
+        Permission::create(['name' => 'manage posts']);
+
+        $admin->givePermissionTo(['view dashboard', 'manage posts']);
+        $editor->givePermissionTo('view dashboard');
+
+        // Assign to user
+        $user = User::first();
+        $user->assignRole('admin');
     }
 }
