@@ -21,17 +21,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-        $admin = Role::create(['name' => 'admin']);
-        $editor = Role::create(['name' => 'editor']);
 
-        Permission::create(['name' => 'view dashboard']);
-        Permission::create(['name' => 'manage posts']);
-
-        $admin->givePermissionTo(['view dashboard', 'manage posts']);
-        $editor->givePermissionTo('view dashboard');
-
-        // Assign to user
-        $user = User::first();
-        $user->assignRole('admin');
+        $this->call(PermissionSeeder::class);
     }
 }

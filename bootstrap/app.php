@@ -14,9 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->encryptCookies(except: ['appearance', 'sidebar_state']);
-
         $middleware->alias([
+            'auth' => \Illuminate\Auth\Middleware\Authenticate::class,  // Updated path
             'permission' => \App\Http\Middleware\CheckPermission::class,
         ]);
 

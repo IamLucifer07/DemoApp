@@ -8,16 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CheckPermission
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle($request, Closure $next, $permission)
+    public function handle(Request $request, Closure $next, $permission): Response
     {
-        if (!\Illuminate\Support\Facades\Auth::check() || !\Illuminate\Support\Facades\Auth::user()->can($permission)) {
-            return response()->json(['message' => 'Forbidden'], 403);
+        if (!$request->user() || !$request->user()->hasPermissionTo($permission)) {
+            abort(403, 'Unauthorized action.');
         }
+
         return $next($request);
     }
 }
