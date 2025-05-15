@@ -4,6 +4,7 @@ import type { Config } from 'ziggy-js';
 
 export interface Auth {
     user: User;
+    user: AuthUser;
 }
 
 export interface BreadcrumbItem {
@@ -35,5 +36,10 @@ export interface User {
     created_at: string;
     updated_at: string;
 }
-
+export interface AuthUser {
+    id: number;
+    name: string;
+    email: string;
+    avatar?: string;
+}
 export type BreadcrumbItemType = BreadcrumbItem;

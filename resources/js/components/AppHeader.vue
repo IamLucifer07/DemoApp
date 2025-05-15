@@ -16,11 +16,11 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import UserMenuContent from '@/components/UserMenuContent.vue';
 import { getInitials } from '@/composables/useInitials';
+import type { Auth } from '@/types/auth';
 import type { BreadcrumbItem, NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
 import { LayoutGrid, Menu, Search } from 'lucide-vue-next';
 import { computed } from 'vue';
-
 interface Props {
     breadcrumbs?: BreadcrumbItem[];
 }
@@ -30,7 +30,8 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const page = usePage();
-const auth = computed(() => page.props.auth);
+// const auth = computed(() => page.props.auth);
+const auth = computed(() => page.props.auth as Auth);
 
 const isCurrentRoute = computed(() => (url: string) => page.url === url);
 
