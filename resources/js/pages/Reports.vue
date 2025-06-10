@@ -686,7 +686,7 @@ export default {
           weak: [2, 4],
           worst: 2
         },
-        "Trading": {
+        "Tradings": {
           best: 12,
           better: [8, 12],
           good: [5, 8],
@@ -745,7 +745,7 @@ export default {
           weak: [10, 15],
           worst: 10
         },
-        "Insurance(Non-Life)": {
+        "Non Life Insurance": {
           best: 35,
           better: [25, 35],
           good: [20, 25],
@@ -753,7 +753,7 @@ export default {
           weak: [10, 15],
           worst: 10
         },
-        "Insurance(Life)": {
+        "Life Insurance": {
           best: 25,
           better: [20, 25],
           good: [15, 20],
@@ -761,7 +761,7 @@ export default {
           weak: [5, 10],
           worst: 5
         },
-        "Manufacturing": {
+        "Manufacturing And Processing": {
           best: 20,
           better: [15, 20],
           good: [10, 15],
@@ -769,7 +769,7 @@ export default {
           weak: [5, 8],
           worst: 5
         },
-        "Trading": {
+        "Tradings": {
           best: 15,
           better: [12, 15],
           good: [10, 12],
@@ -777,7 +777,7 @@ export default {
           weak: [5, 7],
           worst: 5
         },
-        "Hotels & Tourism": {
+        "Hotels And Tourism": {
           best: 20,
           better: [15, 20],
           good: [10, 15],
@@ -828,7 +828,7 @@ export default {
             poor: [40, 45],
             critical: 40
         },
-        "Finance Companies": {
+        "Finance": {
             excellent: 55,
             good: [50, 55],
             average: [45, 50],
@@ -836,7 +836,7 @@ export default {
             poor: [35, 40],
             critical: 35
         },
-        "HydroPower": {
+        "Hydro Power": {
             excellent: 85,
             good: [80, 85],
             average: [75, 80],
@@ -844,7 +844,7 @@ export default {
             poor: [65, 70],
             critical: 65
         },
-        "Non-Life Insurance": {
+        "Non Life Insurance": {
             excellent: 70,
             good: [65, 70],
             average: [60, 65],
@@ -876,7 +876,7 @@ export default {
             poor: [30, 35],
             critical: 30
         },
-        "Trading": {
+        "Tradings": {
             excellent: 35,
             good: [30, 35],
             average: [25, 30],
@@ -943,12 +943,12 @@ export default {
             fairlyvalued: [12, 20],
             undervalued: 12
         },
-        "Trading": {
+        "Tradings": {
            overvalued: 15,
             fairlyvalued: [8, 12],
             undervalued: 8
         },
-        "Hotels & Tourism": {
+        "Hotels And Tourism": {
             overvalued: 25,
             fairlyvalued: [15, 20],
             undervalued: 15
@@ -981,12 +981,12 @@ export default {
             fairlyvalued: [0.9, 1.6],
             undervalued: 0.9
         },
-        "HydroPower": {
+        "Hydro Power": {
             overvalued: 2.8,
             fairlyvalued: [1.5, 2.8],
             undervalued: 1.5
         },
-        "Non-Life Insurance": {
+        "Non Life Insurance": {
             overvalued: 2.0,
             fairlyvalued: [1.1, 2.0],
             undervalued: 1.1
@@ -1001,17 +1001,17 @@ export default {
             fairlyvalued: [1.0, 1.7],
             undervalued: 1.0
         },
-        "Manufacturing": {
+        "Manufacturing And Processing": {
             overvalued: 3.0,
             fairlyvalued: [2.0, 3.0],
             undervalued: 2.0
         },
-        "Trading": {
+        "Tradings": {
            overvalued: 1.5,
             fairlyvalued: [0.7, 1.5],
             undervalued: 0.7
         },
-        "Hotels & Tourism": {
+        "Hotels And Tourism": {
             overvalued: 2.0,
             fairlyvalued: [1.0, 2.0],
             undervalued: 1.0
@@ -1044,12 +1044,12 @@ export default {
             fairlyvalued: [1.2, 2.8],
             undervalued: 1.2
         },
-        "HydroPower": {
+        "Hydro Power": {
             overvalued: 5.0,
             fairlyvalued: [2.5, 5.0],
             undervalued: 2.5
         },
-        "Non-Life Insurance": {
+        "Non Life Insurance": {
             overvalued: 3.5,
             fairlyvalued: [1.5, 3.5],
             undervalued: 1.5
@@ -1064,17 +1064,17 @@ export default {
             fairlyvalued: [1.5, 3.2],
             undervalued: 1.5
         },
-        "Manufacturing": {
+        "Manufacturing And Processing": {
             overvalued: 3.5,
             fairlyvalued: [1.2, 3.5],
             undervalued: 1.2
         },
-        "Trading": {
+        "Tradings": {
             overvalued: 2.5,
             fairlyvalued: [0.8, 2.5],
             undervalued: 0.8
         },
-        "Hotels & Tourism": {
+        "Hotels And Tourism": {
             overvalued: 3.5,
             fairlyvalued: [1.5, 3.5],
             undervalued: 1.5
@@ -1107,12 +1107,12 @@ export default {
             fairlyvalued: [4.5, 7.5],
             undervalued: 4.5
         },
-        "HydroPower": {
+        "Hydro Power": {
             overvalued: 15.0,
             fairlyvalued: [8.0, 15.0],
             undervalued: 8.0
         },
-        "Non-Life Insurance": {
+        "Non Life Insurance": {
             overvalued: 11.0,
             fairlyvalued: [6.0, 11.0],
             undervalued: 6.0
@@ -1127,17 +1127,17 @@ export default {
             fairlyvalued: [5.5, 9.5],
             undervalued: 5.5
         },
-        "Manufacturing": {
+        "Manufacturing And Processing": {
             overvalued: 12.0,
             fairlyvalued: [6.5, 12.0],
             undervalued: 6.5
         },
-        "Trading": {
+        "Tradings": {
             overvalued: 7.0,
             fairlyvalued: [3.5, 7.0],
             undervalued: 3.5
         },
-        "Hotels & Tourism": {
+        "Hotels And Tourism": {
             overvalued: 15.0,
             fairlyvalued: [8.0, 15.0],
             undervalued: 8.0
@@ -1197,7 +1197,7 @@ export default {
             low_stable_growth: [5, 10],
             declining_revenue: 5
         },
-        "Manufacturing": {
+        "Manufacturing And Processing": {
             high_growth: 25,
             moderate_growth: [10, 25],
             low_stable_growth: [0, 10],
@@ -1272,14 +1272,14 @@ export default {
             declining: [0, 8],
             loss_making: 0
         },
-        "Non-Life Insurance": {
+        "Non Life Insurance": {
             high_growth: 20,
             steady_growth: [12, 20],
             stable: [5, 12],
             declining: [0, 5],
             loss_making: 0
         },
-        "Manufacturing": {
+        "Manufacturing And Processing": {
             high_growth: 25,
             steady_growth: [15, 25],
             stable: [5, 15],
@@ -1293,7 +1293,7 @@ export default {
             declining: [0, 5],
             loss_making: 0
         },
-        "Trading": {
+        "Tradings": {
             high_growth: 40,
             steady_growth: [20, 40],
             stable: [5, 20],
@@ -1341,7 +1341,7 @@ export default {
             slow_growth: [5, 15],
             stagnant: [0, 5]
         },
-        "HydroPower": {
+        "Hydro Power": {
             high_growth: 20,
             stable_growth: [10, 20],
             slow_growth: [5, 10],
@@ -1353,25 +1353,25 @@ export default {
             slow_growth: [5, 10],
             stagnant: [0, 5]
         },
-        "Non-Life Insurance": {
+        "Non Life Insurance": {
             high_growth: 15,
             stable_growth: [8, 15],
             slow_growth: [3, 8],
             stagnant: [0, 3]
         },
-        "Manufacturing": {
+        "Manufacturing And Processing": {
             high_growth: 15,
             stable_growth: [8, 15],
             slow_growth: [3, 8],
             stagnant: [0, 3]
         },
-        "Hotels & Tourism": {
+        "Hotels And Tourism": {
             high_growth: 15,
             stable_growth: [5, 15],
             slow_growth: [3, 5],
             stagnant: [0, 3]
         },
-        "Trading": {
+        "Tradings": {
             high_growth: 15,
             stable_growth: [5, 15],
             slow_growth: [3, 5],
@@ -1420,7 +1420,7 @@ export default {
             stagnant: [0, 15],
             declining: 0
         },
-        "Hydropower": {
+        "Hydro Power": {
             strong_growth: 35,
             healthy_growth: [20, 35],
             moderate_growth: [10, 20],
@@ -1434,28 +1434,28 @@ export default {
             stagnant: [0, 10],
             declining: 0
         },
-        "Non-Life Insurance": {
+        "Non Life Insurance": {
             strong_growth: 25,
             healthy_growth: [15, 25],
             moderate_growth: [8, 15],
             stagnant: [0, 8],
             declining: 0
         },
-        "Manufacturing": {
+        "Manufacturing And Processing": {
             strong_growth: 30,
             healthy_growth: [20, 30],
             moderate_growth: [10, 20],
             stagnant: [0, 10],
             declining: 0
         },
-        "Hotels & Tourism": {
+        "Hotels And Tourism": {
             strong_growth: 60,
             healthy_growth: [30, 60],
             moderate_growth: [5, 30],
             stagnant: [0, 5],
             declining: 0
         },
-        "Trading": {
+        "Tradings": {
             strong_growth: 50,
             healthy_growth: [25, 50],
             moderate_growth: [5, 25],
