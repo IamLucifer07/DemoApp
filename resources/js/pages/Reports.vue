@@ -2495,10 +2495,478 @@ export default {
         }
     },
 
-  },
-}
+    //Peer Comparison
+    //P/E vs Sector rating ranges
+      peRatioRanges : {
+        "Commercial Banks": {
+            very_cheap: 12,
+            undervalued: [12, 16],
+            fair_value: [16, 20],
+            overvalued: [20, 25],
+            very_expensive: 25
+        },
+        "Development Banks": {
+            very_cheap: 10,
+            undervalued: [10, 14],
+            fair_value: [14, 18],
+            overvalued: [18, 22],
+            very_expensive: 22
+        },
+        "Finance": {
+            very_cheap: 8,
+            undervalued: [8, 12],
+            fair_value: [12, 15],
+            overvalued: [15, 20],
+            very_expensive: 20
+        },
+        "Life Insurance": {
+            very_cheap: 15,
+            undervalued: [15, 20],
+            fair_value: [20, 25],
+            overvalued: [25, 30],
+            very_expensive: 30
+        },
+        "Non Life Insurance": {
+            very_cheap: 15,
+            undervalued: [15, 20],
+            fair_value: [20, 25],
+            overvalued: [25, 30],
+            very_expensive: 30
+        },
+        "Hydro Power": {
+            very_cheap: 14,
+            undervalued: [14, 18],
+            fair_value: [18, 22],
+            overvalued: [22, 28],
+            very_expensive: 28
+        },
+        "Microfinance": {
+            very_cheap: 10,
+            undervalued: [10, 14],
+            fair_value: [14, 18],
+            overvalued: [18, 22],
+            very_expensive: 22
+        },
+        "Manufacturing And Processing": {
+            very_cheap: 12,
+            undervalued: [12, 16],
+            fair_value: [16, 20],
+            overvalued: [20, 25],
+            very_expensive: 25
+        },
+        "Tradings": {
+            very_cheap: 8,
+            undervalued: [8, 12],
+            fair_value: [12, 15],
+            overvalued: [15, 20],
+            very_expensive: 20
+        },
+        "Hotels And Tourism": {
+            very_cheap: 10,
+            undervalued: [10, 15],
+            fair_value: [15, 20],
+            overvalued: [20, 25],
+            very_expensive: 25
+        },
+        "Investment": {
+            very_cheap: 8,
+            undervalued: [8, 12],
+            fair_value: [12, 15],
+            overvalued: [15, 20],
+            very_expensive: 20
+        },
+        "Others": {
+            very_cheap: 8,
+            undervalued: [8, 12],
+            fair_value: [12, 15],
+            overvalued: [15, 20],
+            very_expensive: 20
+        }
+    },
+    //Market Share
+      marketShareRanges : {
+        "Commercial Banks": {
+            dominant: 15,
+            strong: [10, 15],
+            moderate: [5, 10],
+            small: [2, 5],
+            marginal: 2
+        },
+        "Development Banks": {
+            dominant: 12,
+            strong: [8, 12],
+            moderate: [4, 8],
+            small: [1.5, 4],
+            marginal: 1.5
+        },
+        "Finance": {
+            dominant: 10,
+            strong: [6, 10],
+            moderate: [3, 6],
+            small: [1, 3],
+            marginal: 1
+        },
+        "Life Insurance": {
+            dominant: 20,
+            strong: [12, 20],
+            moderate: [6, 12],
+            small: [2, 6],
+            marginal: 2
+        },
+        "Non Life Insurance": {
+            dominant: 20,
+            strong: [12, 20],
+            moderate: [6, 12],
+            small: [2, 6],
+            marginal: 2
+        },
+        "Hydro Power": {
+            dominant: 25,
+            strong: [15, 25],
+            moderate: [8, 15],
+            small: [3, 8],
+            marginal: 3
+        },
+        "Microfinance": {
+            dominant: 8,
+            strong: [5, 8],
+            moderate: [2, 5],
+            small: [1, 2],
+            marginal: 1
+        },
+        "Manufacturing And Processing": {
+            dominant: 30,
+            strong: [20, 30],
+            moderate: [10, 20],
+            small: [5, 10],
+            marginal: 5
+        },
+        "Tradings": {
+            dominant: 15,
+            strong: [8, 15],
+            moderate: [4, 8],
+            small: [1, 4],
+            marginal: 1
+        },
+        "Hotels And Tourism": {
+            dominant: 20,
+            strong: [12, 20],
+            moderate: [6, 12],
+            small: [2, 6],
+            marginal: 2
+        },
+        "Investment": {
+            dominant: 15,
+            strong: [8, 15],
+            moderate: [4, 8],
+            small: [1, 4],
+            marginal: 1
+        },
+        "Others": {
+            dominant: 15,
+            strong: [8, 15],
+            moderate: [4, 8],
+            small: [1, 4],
+            marginal: 1
+        },
+        //ebitda margin rating ranges
+      ebitdaMarginRanges : {
+        "Commercial Banks": {
+            excellent: 55,
+            good: [45, 55],
+            average: [35, 45],
+            weak: [25, 35],
+            poor: 25
+        },
+        "Development Banks": {
+            excellent: 50,
+            good: [40, 50],
+            average: [30, 40],
+            weak: [20, 30],
+            poor: 20
+        },
+        "Finance": {
+            excellent: 45,
+            good: [35, 45],
+            average: [25, 35],
+            weak: [15, 25],
+            poor: 15
+        },
+        "Life Insurance": {
+            excellent: 60,
+            good: [50, 60],
+            average: [40, 50],
+            weak: [30, 40],
+            poor: 30
+        },
+        "Non Life Insurance": {
+            excellent: 60,
+            good: [50, 60],
+            average: [40, 50],
+            weak: [30, 40],
+            poor: 30
+        },
+        "Hydro Power": {
+            excellent: 70,
+            good: [60, 70],
+            average: [50, 60],
+            weak: [40, 50],
+            poor: 40
+        },
+        "Microfinance": {
+            excellent: 50,
+            good: [40, 50],
+            average: [30, 40],
+            weak: [20, 30],
+            poor: 20
+        },
+        "Manufacturing And Processing": {
+            excellent: 35,
+            good: [25, 35],
+            average: [15, 25],
+            weak: [10, 15],
+            poor: 10
+        },
+        "Tradings": {
+            excellent: 30,
+            good: [20, 30],
+            average: [15, 20],
+            weak: [10, 15],
+            poor: 10
+        },
+        "Hotels And Tourism": {
+            excellent: 40,
+            good: [30, 40],
+            average: [20, 30],
+            weak: [15, 20],
+            poor: 15
+        },
+        "Investment": {
+            excellent: 30,
+            good: [20, 30],
+            average: [15, 20],
+            weak: [10, 15],
+            poor: 10
+        },
+        "Others": {
+            excellent: 30,
+            good: [20, 30],
+            average: [15, 20],
+            weak: [10, 15],
+            poor: 10
+        },
+      },
+      //P/B ratio vs Sector rating ranges
+      pbRatioRanges : {
+        "Commercial Banks": {
+            undervalued: 1.2,
+            fairvalued: [1.2, 1.8],
+            overvalued: [1.8, 2.5],
+            highlyOvervalued: 2.5
+        },
+        "Development Banks": {
+            undervalued: 1.0,
+            fairvalued: [1.0, 1.5],
+            overvalued: [1.5, 2.0],
+            highlyOvervalued: 2.0
+        },
+        "Finance": {
+            undervalued: 0.8,
+            fairvalued: [0.8, 1.2],
+            overvalued: [1.2, 1.6],
+            highlyOvervalued: 1.6
+        },
+        "Life Insurance": {
+            undervalued: 1.5,
+            fairvalued: [1.5, 2.5],
+            overvalued: [2.5, 3.5],
+            highlyOvervalued: 3.5
+        },
+        "Non Life Insurance": {
+            undervalued: 1.2,
+            fairvalued: [1.2, 1.8],
+            overvalued: [1.8, 2.4],
+            highlyOvervalued: 2.4
+        },
+        "Hydro Power": {
+            undervalued: 1.3,
+            fairvalued: [1.3, 2.0],
+            overvalued: [2.0, 3.0],
+            highlyOvervalued: 3.0
+        },
+        "Microfinance": {
+            undervalued: 1.0,
+            fairvalued: [1.0, 1.5],
+            overvalued: [1.5, 2.0],
+            highlyOvervalued: 2.0
+        },
+        "Manufacturing And Processing": {
+            undervalued: 0.9,
+            fairvalued: [0.9, 1.4],
+            overvalued: [1.4, 2.0],
+            highlyOvervalued: 2.0
+        },
+        "Tradings": {
+            undervalued: 0.7,
+            fairvalued: [0.7, 1.1],
+            overvalued: [1.1, 1.6],
+            highlyOvervalued: 1.6
+        },
+        "Investment": {
+            undervalued: 0.7,
+            fairValue: [0.7, 1.1],
+            overvalued: [1.1, 1.6],
+            highlyOvervalued: 1.6
+        },
+        "Hotels And Tourism": {
+            undervalued: 0.8,
+            fairvalued: [0.8, 1.3],
+            overvalued: [1.3, 2.0],
+            highlyOvervalued: 2.0
+        }
+    },
 
-  },
+    },
+    //Ebitda Margin Rating Ranges
+      ebitdaMarginRanges : {
+        "Commercial Banks": {
+            excellent: 55,
+            good: [45, 55],
+            average: [35, 45],
+            weak: [25, 35],
+            poor: 25
+        },
+        "Development Banks": {
+            excellent: 50,
+            good: [40, 50],
+            average: [30, 40],
+            weak: [20, 30],
+            poor: 20
+        },
+        "Finance Companies": {
+            excellent: 45,
+            good: [35, 45],
+            average: [25, 35],
+            weak: [15, 25],
+            poor: 15
+        },
+        "Insurance (Life/Non-Life)": {
+            excellent: 60,
+            good: [50, 60],
+            average: [40, 50],
+            weak: [30, 40],
+            poor: 30
+        },
+        "Hydro/Energy Projects": {
+            excellent: 70,
+            good: [60, 70],
+            average: [50, 60],
+            weak: [40, 50],
+            poor: 40
+        },
+        "Microfinance (MFIs)": {
+            excellent: 50,
+            good: [40, 50],
+            average: [30, 40],
+            weak: [20, 30],
+            poor: 20
+        },
+        "Manufacturing": {
+            excellent: 35,
+            good: [25, 35],
+            average: [15, 25],
+            weak: [10, 15],
+            poor: 10
+        },
+        "Trading/Other/Investment": {
+            excellent: 30,
+            good: [20, 30],
+            average: [15, 20],
+            weak: [10, 15],
+            poor: 10
+        },
+        "Hotels & Tourism": {
+            excellent: 40,
+            good: [30, 40],
+            average: [20, 30],
+            weak: [15, 20],
+            poor: 15
+        },
+    },
+    //P/B Ratio vs Sector Rating Ranges
+      pbRatioRanges : {
+        "Commercial Banks": {
+            undervalued: 1.2,
+            fairValue: [1.2, 1.8],
+            overvalued: [1.8, 2.5],
+            highlyOvervalued: 2.5
+        },
+        "Development Banks": {
+            undervalued: 1.0,
+            fairValue: [1.0, 1.5],
+            overvalued: [1.5, 2.0],
+            highlyOvervalued: 2.0
+        },
+        "Finance": {
+            undervalued: 0.8,
+            fairValue: [0.8, 1.2],
+            overvalued: [1.2, 1.6],
+            highlyOvervalued: 1.6
+        },
+        "Life Insurance": {
+            undervalued: 1.5,
+            fairValue: [1.5, 2.5],
+            overvalued: [2.5, 3.5],
+            highlyOvervalued: 3.5
+        },
+        "Non Life Insurance": {
+            undervalued: 1.2,
+            fairValue: [1.2, 1.8],
+            overvalued: [1.8, 2.4],
+            highlyOvervalued: 2.4
+        },
+        "Hydro Power": {
+            undervalued: 1.3,
+            fairValue: [1.3, 2.0],
+            overvalued: [2.0, 3.0],
+            highlyOvervalued: 3.0
+        },
+        "Microfinance": {
+            undervalued: 1.0,
+            fairValue: [1.0, 1.5],
+            overvalued: [1.5, 2.0],
+            highlyOvervalued: 2.0
+        },
+        "Manufacturing And Processing": {
+            undervalued: 0.9,
+            fairValue: [0.9, 1.4],
+            overvalued: [1.4, 2.0],
+            highlyOvervalued: 2.0
+        },
+        "Investment": {
+            undervalued: 0.7,
+            fairValue: [0.7, 1.1],
+            overvalued: [1.1, 1.6],
+            highlyOvervalued: 1.6
+        },
+        "Tradings": {
+            undervalued: 0.7,
+            fairValue: [0.7, 1.1],
+            overvalued: [1.1, 1.6],
+            highlyOvervalued: 1.6
+        },
+        "Hotels And Tourism": {
+            undervalued: 0.8,
+            fairValue: [0.8, 1.3],
+            overvalued: [1.3, 2.0],
+            highlyOvervalued: 2.0
+        }
+    },
+
+
+  }
+}
+   },
   async created() {
     await this.fetchMetrics();
   },
@@ -2915,12 +3383,14 @@ export default {
         },
         { 
             name: "Market Share", 
-            value: apiData.valuation_metrics?.total_shares || "N/A", 
+            value: apiData.valuation_metrics?.total_shares ?
+            `${apiData.valuation_metrics.total_shares}%` : "N/A", 
             sector: sectorInfo.sector_description 
         },
         { 
             name: "EBITDA Margin", 
-            value: apiData.other_metrics?.ebitda_margin || "N/A", 
+            value: apiData.other_metrics?.ebitda_margin ?
+            `${apiData.other_metrics.ebitda_margin}%` : "N/A",
             sector: sectorInfo.sector_description 
         },
         { 
@@ -3046,6 +3516,7 @@ export default {
                 case 'exceptional':
                 case 'over valued':
                 case 'high growth':
+                case 'very expensive':
                 case 'Strong growth':
                 case 'very strong':
                     return 'pill excellent';
@@ -3056,6 +3527,7 @@ export default {
                 case 'moderate growth':
                 case 'stable growth':
                 case 'Healthy growth':
+                case 'Highly Over valued':
                 case 'steady growth':
                     return 'pill good';
 
@@ -3074,6 +3546,8 @@ export default {
                 case 'weak':
                 case 'under valued':
                 case 'poor':
+                case 'Small':
+                case 'Very cheap':
                 case 'weak to moderate':
                 case 'below average':
                     return 'pill poor';
@@ -3089,6 +3563,7 @@ export default {
                 case 'destroying value':
                 case 'value erosion':
                 case 'negligible':
+                case 'Marginal':
                     return 'pill worst';
 
                 case 'n/a':
@@ -3380,6 +3855,51 @@ export default {
             else if (value >= ranges.moderate[0]) return "Moderate";
             else if (value >= ranges.weak[0]) return "Weak";
             else return "Negligible";
+        }
+
+        //Peer Comparison Metrics
+        if(item.name === "P/E vs Sector") {
+            const ranges = this.RatingRanges.peRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.very_expensive) return "Very Expensive";
+            else if (value >= ranges.overvalued[0]) return "Over Valued";
+            else if (value >= ranges.fair_value[0]) return "Fairly Valued";
+            else if (value >= ranges.undervalued[0]) return "Under Valued";
+            else return "Very Cheap";
+        }
+        if(item.name === "Market Share") {
+            const ranges = this.RatingRanges.marketShareRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.dominant) return "Dominant";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.small[0]) return "Small";
+            else return "Marginal";
+        }
+        if(item.name === "EBITDA Margin") {
+            const ranges = this.RatingRanges.ebitdaMarginRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.excellent) return "Excellent";
+            else if (value >= ranges.good[0]) return "Good";
+            else if (value >= ranges.average[0]) return "Average";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Poor";
+        }
+        if(item.name === "P/B vs Sector") {
+            const ranges = this.RatingRanges.pbRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.highlyOvervalued) return "Highly Over Valued";
+            else if (value >= ranges.overvalued[0]) return "Over Valued";
+            else if (value >= ranges.fairlyvalued[0]) return "Fairly Valued";
+            else return "Under Valued";
         }
 
         return item.rating || "N/A";
