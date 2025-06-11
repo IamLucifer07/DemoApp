@@ -2201,6 +2201,300 @@ export default {
         }
     },
 
+    //Shareholder Value
+    //EVA
+      evaRatingRanges : {
+        "Commercial Banks": {
+            outstanding: 1500,
+            strong: [750, 1500],
+            moderate: [250, 750],
+            weak: [50, 250],
+            destroying_value: 50
+        },
+        "Development Banks": {
+            outstanding: 800,
+            strong: [400, 800],
+            moderate: [150, 400],
+            weak: [30, 150],
+            destroying_value: 30
+        },
+        "Finance": {
+            outstanding: 600,
+            strong: [300, 600],
+            moderate: [100, 300],
+            weak: [20, 100],
+            destroying_value: 20
+        },
+        "Life Insurance": {
+            outstanding: 1200,
+            strong: [600, 1200],
+            moderate: [200, 600],
+            weak: [40, 200],
+            destroying_value: 40
+        },
+        "Non Life Insurance": {
+            outstanding: 1200,
+            strong: [600, 1200],
+            moderate: [200, 600],
+            weak: [40, 200],
+            destroying_value: 40
+        },
+        "Hydro Power": {
+            outstanding: 2000,
+            strong: [1000, 2000],
+            moderate: [300, 1000],
+            weak: [50, 300],
+            destroying_value: 50
+        },
+        "Microfinance": {
+            outstanding: 200,
+            strong: [100, 200],
+            moderate: [30, 100],
+            weak: [5, 30],
+            destroying_value: 5
+        },
+        "Manufacturing And Processing": {
+            outstanding: 900,
+            strong: [450, 900],
+            moderate: [150, 450],
+            weak: [25, 150],
+            destroying_value: 25
+        },
+        "Tradings": {
+            outstanding: 400,
+            strong: [200, 400],
+            moderate: [50, 200],
+            weak: [10, 50],
+            destroying_value: 10
+        },
+        "Hotels And Tourism": {
+            outstanding: 300,
+            strong: [150, 300],
+            moderate: [40, 150],
+            weak: [5, 40],
+            destroying_value: 5
+        }
+    },
+    //MVA rating ranges
+      mvaRatingRanges : {
+        "Commercial Banks": {
+            exceptional: 25,
+            strong: [10, 25],
+            moderate: [3, 10],
+            weak: [0.5, 3],
+            value_erosion: 0.5
+        },
+        "Development Banks": {
+            exceptional: 12,
+            strong: [5, 12],
+            moderate: [1.5, 5],
+            weak: [0.3, 1.5],
+            value_erosion: 0.3
+        },
+        "Finance": {
+            exceptional: 8,
+            strong: [3, 8],
+            moderate: [1, 3],
+            weak: [0.2, 1],
+            value_erosion: 0.2
+        },
+        "Life Insurance": {
+            exceptional: 15,
+            strong: [6, 15],
+            moderate: [2, 6],
+            weak: [0.4, 2],
+            value_erosion: 0.4
+        },
+        "Non Life Insurance": {
+            exceptional: 15,
+            strong: [6, 15],
+            moderate: [2, 6],
+            weak: [0.4, 2],
+            value_erosion: 0.4
+        },
+        "Hydro Power": {
+            exceptional: 30,
+            strong: [12, 30],
+            moderate: [4, 12],
+            weak: [0.8, 4],
+            value_erosion: 0.8
+        },
+        "Microfinance": {
+            exceptional: 3,
+            strong: [1.2, 3],
+            moderate: [0.4, 1.2],
+            weak: [0.1, 0.4],
+            value_erosion: 0.1
+        },
+        "Manufacturing And Processing": {
+            exceptional: 10,
+            strong: [4, 10],
+            moderate: [1.2, 4],
+            weak: [0.25, 1.2],
+            value_erosion: 0.25
+        },
+        "Tradings": {
+            exceptional: 5,
+            strong: [2, 5],
+            moderate: [0.6, 2],
+            weak: [0.15, 0.6],
+            value_erosion: 0.15
+        },
+        "Hotels And Tourism": {
+            exceptional: 4,
+            strong: [1.5, 4],
+            moderate: [0.5, 1.5],
+            weak: [0.1, 0.5],
+            value_erosion: 0.1
+        }
+    },
+    //TSR 1 year rating ranges
+      tsr1YrRatingRanges : {
+        "Commercial Banks": {
+            outstanding: 35,
+            strong: [20, 35],
+            moderate: [8, 20],
+            weak: [-5, 8],
+            destroying_value: -5
+        },
+        "Development Banks": {
+            outstanding: 30,
+            strong: [15, 30],
+            moderate: [5, 15],
+            weak: [-8, 5],
+            destroying_value: -8
+        },
+        "Finance": {
+            outstanding: 40,
+            strong: [25, 40],
+            moderate: [10, 25],
+            weak: [-3, 10],
+            destroying_value: -3
+        },
+        "Life Insurance": {
+            outstanding: 45,
+            strong: [30, 45],
+            moderate: [12, 30],
+            weak: [-5, 12],
+            destroying_value: -5
+        },
+        "Non Life Insurance": {
+            outstanding: 45,
+            strong: [30, 45],
+            moderate: [12, 30],
+            weak: [-5, 12],
+            destroying_value: -5
+        },
+        "Hydro Power": {
+            outstanding: 50,
+            strong: [35, 50],
+            moderate: [15, 35],
+            weak: [0, 15],
+            destroying_value: 0
+        },
+        "Microfinance": {
+            outstanding: 25,
+            strong: [12, 25],
+            moderate: [0, 12],
+            weak: [-10, 0],
+            destroying_value: -10
+        },
+        "Manufacturing And Processing": {
+            outstanding: 30,
+            strong: [18, 30],
+            moderate: [5, 18],
+            weak: [-7, 5],
+            destroying_value: -7
+        },
+        "Tradings": {
+            outstanding: 60,
+            strong: [40, 60],
+            moderate: [20, 40],
+            weak: [5, 20],
+            destroying_value: 5
+        },
+        "Hotels And Tourism": {
+            outstanding: 55,
+            strong: [35, 55],
+            moderate: [10, 35],
+            weak: [-15, 10],
+            destroying_value: -15
+        }
+    },
+    //Buyback Yield Rating Ranges
+      buybackYieldRatingRanges : {
+        "Commercial Banks": {
+            outstanding: 5,
+            strong: [3, 5],
+            moderate: [1.5, 3],
+            weak: [0.5, 1.5],
+            destroying_value: 0.5
+        },
+        "Development Banks": {
+            outstanding: 4,
+            strong: [2.5, 4],
+            moderate: [1, 2.5],
+            weak: [0.3, 1],
+            destroying_value: 0.3
+        },
+        "Finance": {
+            outstanding: 6,
+            strong: [4, 6],
+            moderate: [2, 4],
+            weak: [0.8, 2],
+            destroying_value: 0.8
+        },
+        "Life Insurance": {
+            outstanding: 3,
+            strong: [2, 3],
+            moderate: [1, 2],
+            weak: [0.4, 1],
+            destroying_value: 0.4
+        },
+        "Non Life Insurance": {
+            outstanding: 3,
+            strong: [2, 3],
+            moderate: [1, 2],
+            weak: [0.4, 1],
+            destroying_value: 0.4
+        },
+        "Hydro Power": {
+            outstanding: 7,
+            strong: [5, 7],
+            moderate: [3, 5],
+            weak: [1, 3],
+            destroying_value: 1
+        },
+        "Microfinance": {
+            outstanding: 2,
+            strong: [1.2, 2],
+            moderate: [0.5, 1.2],
+            weak: [0.2, 0.5],
+            destroying_value: 0.2
+        },
+        "Manufacturing And Proccesing": {
+            outstanding: 4,
+            strong: [2.5, 4],
+            moderate: [1.2, 2.5],
+            weak: [0.6, 1.2],
+            destroying_value: 0.6
+        },
+        "Tradings": {
+            outstanding: 8,
+            strong: [6, 8],
+            moderate: [3, 6],
+            weak: [1.5, 3],
+            destroying_value: 1.5
+        },
+        "Hotels And Tourism": {
+            outstanding: 3,
+            strong: [2, 3],
+            moderate: [1, 2],
+            weak: [0.5, 1],
+            destroying_value: 0.5
+        }
+    },
+
   },
 }
 
@@ -2638,22 +2932,28 @@ export default {
       this.shareholderValueMetrics = [
         { 
             name: "EVA", 
-            value: apiData.other_metrics?.eva || "N/A", 
+            value: apiData.other_metrics?.eva 
+            ? ((apiData.other_metrics.eva) / 1_000_000).toFixed(2) + "M NPR"
+            : "N/A",             
             sector: sectorInfo.sector_description 
         },
         { 
             name: "MVA", 
-            value: apiData.other_metrics?.MVA || "N/A", 
+            value: apiData.other_metrics?.MVA 
+            ? ((apiData.other_metrics.MVA) / 1_000_000_000).toFixed(2) + "B NPR"
+            : "N/A", 
             sector: sectorInfo.sector_description 
         },
         { 
             name: "TSR (1 Year)", 
-            value: apiData.other_metrics?.tsr_1y || "N/A", 
+            value: apiData.other_metrics?.tsr_1y ? 
+            `${apiData.other_metrics.tsr_1y}%` : "N/A",
             sector: sectorInfo.sector_description 
         },
         { 
             name: "Buyback Yield", 
-            value: apiData.shareholder_value?.buyback_yield || "N/A", 
+            value: apiData.shareholder_value?.buyback_yield ?
+            `${apiData.shareholder_value.buyback_yield}%` : "N/A", 
             sector: sectorInfo.sector_description 
         }
       ];
@@ -2742,6 +3042,8 @@ export default {
             switch (rating) {
                 case 'best':
                 case 'excellent':
+                case 'outstanding':
+                case 'exceptional':
                 case 'over valued':
                 case 'high growth':
                 case 'Strong growth':
@@ -2783,6 +3085,10 @@ export default {
                 case 'very weak':
                 case 'declining':
                 case 'stagnant':
+                case 'under performing':
+                case 'destroying value':
+                case 'value erosion':
+                case 'negligible':
                     return 'pill worst';
 
                 case 'n/a':
@@ -3030,6 +3336,51 @@ export default {
             else return "High Risk";
         }
 
+        //Shareholder Value Indicators
+        if(item.name === "EVA") {
+            const ranges = this.RatingRanges.evaRatingRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.outstanding) return "Outstaning";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Destroying Value";
+        }
+        if(item.name === "MVA") {
+            const ranges = this.RatingRanges.mvaRatingRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.exceptional) return "Exceptional";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Value Erosion";
+        }
+        if(item.name === "TSR (1 Year)") {
+            const ranges = this.RatingRanges.tsrRatingRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.outstanding) return "Outstanding";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Underperforming";
+        }
+        if(item.name === "Buyback Yield") {
+            const ranges = this.RatingRanges.buybackYieldRatingRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.exceptional) return "Exceptional";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Negligible";
+        }
 
         return item.rating || "N/A";
     },
