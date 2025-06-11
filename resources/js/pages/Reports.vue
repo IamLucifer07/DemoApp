@@ -1565,7 +1565,7 @@ export default {
         }
     },
 
-    //Balance Sheet Ratios
+    //Balance Sheet Health
     //Equity Ratio Rating Ranges
     equityRatioRatingRanges: {
       "Commercial Banks": {
@@ -1879,7 +1879,327 @@ export default {
         },
       },
 
-    //
+    //Earnings Quality
+    // Accrual Ratio Rating Ranges
+    accrualRatioRatingRanges: {
+        "Commercial Banks": {
+            very_strong: 0.05,
+            strong: [0.05, 0.10],
+            moderate: [0.10, 0.15],
+            weak: [0.15, 0.20],
+            very_weak: 0.20
+        },
+        "Development Banks": {
+            very_strong: 0.06,
+            strong: [0.06, 0.12],
+            moderate: [0.12, 0.18],
+            weak: [0.18, 0.24],
+            very_weak: 0.24
+        },
+        "Finance Companies": {
+            very_strong: 0.08,
+            strong: [0.08, 0.14],
+            moderate: [0.14, 0.20],
+            weak: [0.20, 0.26],
+            very_weak: 0.26
+        },
+        "Life Insurance": {
+            very_strong: 0.08,
+            strong: [0.08, 0.12],
+            moderate: [0.12, 0.20],
+            weak: [0.20, 0.30],
+            very_weak: 0.30
+        },
+        "Non Life Insurance": {
+            very_strong: 0.08,
+            strong: [0.08, 0.12],
+            moderate: [0.12, 0.20],
+            weak: [0.20, 0.30],
+            very_weak: 0.30
+        },
+        "Hydro Power": {
+            very_strong: 0.20,
+            strong: [0.20, 0.30],
+            moderate: [0.30, 0.45],
+            weak: [0.45, 0.60],
+            very_weak: 0.60
+        },
+        "Microfinance": {
+            very_strong: 0.18,
+            strong: [0.18, 0.25],
+            moderate: [0.25, 0.35],
+            weak: [0.35, 0.50],
+            very_weak: 0.50
+        },
+        "Manufacturing And Processing": {
+            very_strong: 0.15,
+            strong: [0.15, 0.22],
+            moderate: [0.22, 0.35],
+            weak: [0.35, 0.50],
+            very_weak: 0.50
+        },
+        "Tradings": {
+            very_strong: 0.25,
+            strong: [0.25, 0.40],
+            moderate: [0.40, 0.60],
+            weak: [0.60, 0.80],
+            very_weak: 0.80
+        },
+        "Hotels And Tourism": {
+            very_strong: 0.30,
+            strong: [0.30, 0.45],
+            moderate: [0.45, 0.65],
+            weak: [0.65, 0.85],
+            very_weak: 0.85
+        },
+        "Investment": {
+            very_strong: 0.25,
+            strong: [0.25, 0.40],
+            moderate: [0.40, 0.60],
+            weak: [0.60, 0.80],
+            very_weak: 0.80
+        },
+        "Others": {
+            very_strong: 0.25,
+            strong: [0.25, 0.40],
+            moderate: [0.40, 0.60],
+            weak: [0.60, 0.80],
+            very_weak: 0.80
+        }
+      },
+    //Earnings stability Rating Ranges
+    earningsStabilityRatingRanges : {
+        "Commercial Banks": {
+            excellent: 10,
+            good: [10, 15],
+            moderate: [15, 25],
+            volatile: [25, 35],
+            highly_unstable: 35
+        },
+        "Development Banks": {
+            excellent: 12,
+            good: [12, 18],
+            moderate: [18, 28],
+            volatile: [28, 38],
+            highly_unstable: 38
+        },
+        "Finance": {
+            excellent: 15,
+            good: [15, 22],
+            moderate: [22, 32],
+            volatile: [32, 42],
+            highly_unstable: 42
+        },
+        "Life Insurance": {
+            excellent: 8,
+            good: [8, 12],
+            moderate: [12, 20],
+            volatile: [20, 30],
+            highly_unstable: 30
+        },
+        "Non Life Insurance": {
+            excellent: 8,
+            good: [8, 12],
+            moderate: [12, 20],
+            volatile: [20, 30],
+            highly_unstable: 30
+        },
+        "Hydro Power": {
+            excellent: 20,
+            good: [20, 30],
+            moderate: [30, 45],
+            volatile: [45, 60],
+            highly_unstable: 60
+        },
+        "Microfinance": {
+            excellent: 18,
+            good: [18, 25],
+            moderate: [25, 35],
+            volatile: [35, 50],
+            highly_unstable: 50
+        },
+        "Manufacturing And Processing": {
+            excellent: 15,
+            good: [15, 22],
+            moderate: [22, 35],
+            volatile: [35, 50],
+            highly_unstable: 50
+        },
+        "Tradings": {
+            excellent: 25,
+            good: [25, 40],
+            moderate: [40, 60],
+            volatile: [60, 80],
+            highly_unstable: 80
+        },
+        "Hotels And Tourism": {
+            excellent: 30,
+            good: [30, 45],
+            moderate: [45, 65],
+            volatile: [65, 85],
+            highly_unstable: 85
+        },
+        "Investment": {
+            excellent: 25,
+            good: [25, 40],
+            moderate: [40, 60],
+            volatile: [60, 80],
+            highly_unstable: 80
+        },
+        "Others": {
+            excellent: 25,
+            good: [25, 40],
+            moderate: [40, 60],
+            volatile: [60, 80],
+            highly_unstable: 80
+        }
+      },
+      //Revenue Recognition Rating Ranges
+      revenueRecognitionRatingRanges : {
+        "Commercial Banks": {
+            very_strong: 5,
+            strong: [5, 10],
+            moderate: [10, 20],
+            weak: [20, 30],
+            very_weak: 30
+        },
+        "Development Banks": {
+            very_strong: 7,
+            strong: [7, 12],
+            moderate: [12, 22],
+            weak: [22, 32],
+            very_weak: 32
+        },
+        "Finance": {
+            very_strong: 8,
+            strong: [8, 15],
+            moderate: [15, 25],
+            weak: [25, 35],
+            very_weak: 35
+        },
+        "Non Life Insurance": {
+            very_strong: 3,
+            strong: [3, 8],
+            moderate: [8, 15],
+            weak: [15, 25],
+            very_weak: 25
+        },
+        "Life Insurance": {
+            very_strong: 3,
+            strong: [3, 8],
+            moderate: [8, 15],
+            weak: [15, 25],
+            very_weak: 25
+        },
+        "Hydro Power": {
+            very_strong: 10,
+            strong: [10, 20],
+            moderate: [20, 35],
+            weak: [35, 50],
+            very_weak: 50
+        },
+        "Microfinance": {
+            very_strong: 12,
+            strong: [12, 18],
+            moderate: [18, 28],
+            weak: [28, 38],
+            very_weak: 38
+        },
+        "Manufacturing And Processing": {
+            very_strong: 7,
+            strong: [7, 14],
+            moderate: [14, 24],
+            weak: [24, 34],
+            very_weak: 34
+        },
+        "Tradings": {
+            very_strong: 15,
+            strong: [15, 25],
+            moderate: [25, 40],
+            weak: [40, 55],
+            very_weak: 55
+        },
+        "Hotels And Tourism": {
+            very_strong: 20,
+            strong: [20, 30],
+            moderate: [30, 45],
+            weak: [45, 60],
+            very_weak: 60
+        }
+    },
+    //Deferred Revenue Rating Ranges
+      deferredRevenueRatingRanges : {
+        "Commercial Banks": {
+            very_healthy: 5,
+            healthy: [5, 10],
+            moderate: [10, 15],
+            concerning: [15, 20],
+            high_risk: 20
+        },
+        "Development Banks": {
+            very_healthy: 7,
+            healthy: [7, 12],
+            moderate: [12, 18],
+            concerning: [18, 25],
+            high_risk: 25
+        },
+        "Finance": {
+            very_healthy: 8,
+            healthy: [8, 15],
+            moderate: [15, 22],
+            concerning: [22, 30],
+            high_risk: 30
+        },
+        "Life Insurance": {
+            very_healthy: 10,
+            healthy: [10, 15],
+            moderate: [15, 20],
+            concerning: [20, 30],
+            high_risk: 30
+        },
+        "Non Life Insurance": {
+            very_healthy: 10,
+            healthy: [10, 15],
+            moderate: [15, 20],
+            concerning: [20, 30],
+            high_risk: 30
+        },
+        "Hydro Power": {
+            very_healthy: 12,
+            healthy: [12, 20],
+            moderate: [20, 30],
+            concerning: [30, 40],
+            high_risk: 40
+        },
+        "Microfinance": {
+            very_healthy: 15,
+            healthy: [15, 22],
+            moderate: [22, 32],
+            concerning: [32, 45],
+            high_risk: 45
+        },
+        "Manufacturing And Processing": {
+            very_healthy: 10,
+            healthy: [10, 17],
+            moderate: [17, 25],
+            concerning: [25, 35],
+            high_risk: 35
+        },
+        "Tradings": {
+            very_healthy: 20,
+            healthy: [20, 30],
+            moderate: [30, 45],
+            concerning: [45, 60],
+            high_risk: 60
+        },
+        "Hotels And Tourism": {
+            very_healthy: 25,
+            healthy: [25, 35],
+            moderate: [35, 50],
+            concerning: [50, 70],
+            high_risk: 70
+        }
+    },
 
   },
 }
@@ -2345,17 +2665,20 @@ export default {
         },
         { 
             name: "Earnings Stability", 
-            value: apiData.earnings_quality?.earnings_stability || "N/A", 
+            value: apiData.earnings_quality?.earnings_stability ? 
+            `${apiData.earnings_quality.earnings_stability}%` : "N/A", 
             sector: sectorInfo.sector_description 
         },
         { 
             name: "Revenue Recognition", 
-            value: apiData.earnings_quality?.revenue_recognition || "N/A", 
+            value: apiData.earnings_quality?.revenue_recognition ?
+            `${apiData.earnings_quality.revenue_recognition}%` : "N/A",
             sector: sectorInfo.sector_description 
         },
         { 
             name: "Deferred Revenue", 
-            value: apiData.earnings_quality?.deferred_revenue || "N/A", 
+            value: apiData.earnings_quality?.deferred_revenue ?
+            `${apiData.earnings_quality.deferred_revenue}%` : "N/A",
             sector: sectorInfo.sector_description 
         }
       ];
@@ -2662,50 +2985,50 @@ export default {
         }
 
         //Earnings Quality Indicators
-        // if(item.name === "Accrual Ratio") {
-        //     const ranges = this.RatingRanges.accrualRatioRatingRanges[sector];
+        if(item.name === "Accrual Ratio") {
+            const ranges = this.RatingRanges.accrualRatioRatingRanges[sector];
             
-        //     if (!ranges || isNaN(value)) return "N/A";
+            if (!ranges || isNaN(value)) return "N/A";
             
-        //     if (value >= ranges.very_strong) return "Very Strong";
-        //     else if (value >= ranges.strong[0]) return "Strong";
-        //     else if (value >= ranges.moderate[0]) return "Moderate";
-        //     else if (value >= ranges.weak[0]) return "Weak";
-        //     else return "Very Weak";
-        // }
-        // if(item.name === "Earnings Stability") {
-        //     const ranges = this.RatingRanges.earningsStabilityRatingRanges[sector];
+            if (value <= ranges.very_strong) return "Very Strong";
+            else if (value <= ranges.strong[0]) return "Strong";
+            else if (value <= ranges.moderate[0]) return "Moderate";
+            else if (value <= ranges.weak[0]) return "Weak";
+            else return "Very Weak";
+        }
+        if(item.name === "Earnings Stability") {
+            const ranges = this.RatingRanges.earningsStabilityRatingRanges[sector];
             
-        //     if (!ranges || isNaN(value)) return "N/A";
+            if (!ranges || isNaN(value)) return "N/A";
             
-        //     if (value >= ranges.very_stable) return "Very Stable";
-        //     else if (value >= ranges.stable[0]) return "Stable";
-        //     else if (value >= ranges.moderate[0]) return "Moderate";
-        //     else if (value >= ranges.weak[0]) return "Weak";
-        //     else return "Very Weak";
-        // }
-        // if(item.name === "Revenue Recognition") {
-        //     const ranges = this.RatingRanges.revenueRecognitionRatingRanges[sector];
+            if (value <= ranges.excellent) return "Excellent";
+            else if (value <= ranges.good[0]) return "Good";
+            else if (value <= ranges.moderate[0]) return "Moderate";
+            else if (value <= ranges.volatile[0]) return "Volatile";
+            else return "Highly Unstable";
+        }
+        if(item.name === "Revenue Recognition") {
+            const ranges = this.RatingRanges.revenueRecognitionRatingRanges[sector];
             
-        //     if (!ranges || isNaN(value)) return "N/A";
+            if (!ranges || isNaN(value)) return "N/A";
             
-        //     if (value >= ranges.very_strong) return "Very Strong";
-        //     else if (value >= ranges.strong[0]) return "Strong";
-        //     else if (value >= ranges.moderate[0]) return "Moderate";
-        //     else if (value >= ranges.weak[0]) return "Weak";
-        //     else return "Very Weak";
-        // }
-        // if(item.name === "Deferred Revenue") {
-        //     const ranges = this.RatingRanges.deferredRevenueRatingRanges[sector];
+            if (value <= ranges.very_strong) return "Very Strong";
+            else if (value <= ranges.strong[0]) return "Strong";
+            else if (value <= ranges.moderate[0]) return "Moderate";
+            else if (value <= ranges.weak[0]) return "Weak";
+            else return "Very Weak";
+        }
+        if(item.name === "Deferred Revenue") {
+            const ranges = this.RatingRanges.deferredRevenueRatingRanges[sector];
             
-        //     if (!ranges || isNaN(value)) return "N/A";
+            if (!ranges || isNaN(value)) return "N/A";
             
-        //     if (value >= ranges.very_strong) return "Very Strong";
-        //     else if (value >= ranges.strong[0]) return "Strong";
-        //     else if (value >= ranges.moderate[0]) return "Moderate";
-        //     else if (value >= ranges.weak[0]) return "Weak";
-        //     else return "Very Weak";
-        // }
+            if (value <= ranges.very_healthy) return "Very Healthy";
+            else if (value <= ranges.healthy[0]) return "Healthy";
+            else if (value <= ranges.moderate[0]) return "Moderate";
+            else if (value <= ranges.concerning[0]) return "Concerning";
+            else return "High Risk";
+        }
 
 
         return item.rating || "N/A";
