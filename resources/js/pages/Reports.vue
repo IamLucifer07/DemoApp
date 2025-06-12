@@ -2963,6 +2963,263 @@ export default {
         }
     },
 
+    //Stock Activity 
+    // Daily Average Volume
+      avgDailyVolumeRanges : {
+        "Commercial Banks": {
+            highlyLiquid: 50000,
+            liquid: [20000, 50000],
+            moderate: [5000, 20000],
+            low: [1000, 5000],
+            illiquid: 1000
+        },
+        "Development Banks": {
+            highlyLiquid: 30000,
+            liquid: [10000, 30000],
+            moderate: [3000, 10000],
+            low: [500, 3000],
+            illiquid: 500
+        },
+        "Finance": {
+            highlyLiquid: 20000,
+            liquid: [5000, 20000],
+            moderate: [1000, 5000],
+            low: [200, 1000],
+            illiquid: 200
+        },
+        "Life Insurance": {
+            highlyLiquid: 15000,
+            liquid: [5000, 15000],
+            moderate: [1000, 5000],
+            low: [300, 1000],
+            illiquid: 300
+        },
+        "Non Life Insurance": {
+            highlyLiquid: 10000,
+            liquid: [3000, 10000],
+            moderate: [500, 3000],
+            low: [100, 500],
+            illiquid: 100
+        },
+        "Hydro Power": {
+            highlyLiquid: 25000,
+            liquid: [10000, 25000],
+            moderate: [2000, 10000],
+            low: [500, 2000],
+            illiquid: 500
+        },
+        "Microfinance": {
+            highlyLiquid: 8000,
+            liquid: [3000, 8000],
+            moderate: [1000, 3000],
+            low: [200, 1000],
+            illiquid: 200
+        },
+        "Manufacturing And Processing": {
+            highlyLiquid: 5000,
+            liquid: [2000, 5000],
+            moderate: [500, 2000],
+            low: [100, 500],
+            illiquid: 100
+        },
+        "Tradings": {
+            highlyLiquid: 3000,
+            liquid: [1000, 3000],
+            moderate: [300, 1000],
+            low: [50, 300],
+            illiquid: 50
+        },
+        "Investment": {
+            highlyLiquid: 3000,
+            liquid: [1000, 3000],
+            moderate: [300, 1000],
+            low: [50, 300],
+            illiquid: 50
+        },
+        "Hotels And Tourism": {
+            highlyLiquid: 4000,
+            liquid: [1500, 4000],
+            moderate: [500, 1500],
+            low: [100, 500],
+            illiquid: 100
+        }
+    },
+    //Short Interest Ratio
+
+    //Float
+      floatRanges : {
+        "Commercial Banks": {
+            veryHigh: 40,
+            high: [30, 40],
+            moderate: [20, 30],
+            low: [10, 20],
+            veryLow: 10
+        },
+        "Development Banks": {
+            veryHigh: 35,
+            high: [25, 35],
+            moderate: [15, 25],
+            low: [8, 15],
+            veryLow: 8
+        },
+        "Finance": {
+            veryHigh: 30,
+            high: [20, 30],
+            moderate: [12, 20],
+            low: [5, 12],
+            veryLow: 5
+        },
+        "Life Insurance": {
+            veryHigh: 25,
+            high: [18, 25],
+            moderate: [10, 18],
+            low: [5, 10],
+            veryLow: 5
+        },
+        "Non Life Insurance": {
+            veryHigh: 25,
+            high: [18, 25],
+            moderate: [10, 18],
+            low: [5, 10],
+            veryLow: 5
+        },
+        "Hydro Power": {
+            veryHigh: 20,
+            high: [15, 20],
+            moderate: [10, 15],
+            low: [5, 10],
+            veryLow: 5
+        },
+        "Microfinance": {
+            veryHigh: 15,
+            high: [10, 15],
+            moderate: [7, 10],
+            low: [3, 7],
+            veryLow: 3
+        },
+        "Manufacturing And Processing": {
+            veryHigh: 20,
+            high: [15, 20],
+            moderate: [10, 15],
+            low: [5, 10],
+            veryLow: 5
+        },
+        "Tradings": {
+            veryHigh: 12,
+            high: [8, 12],
+            moderate: [5, 8],
+            low: [2, 5],
+            veryLow: 2
+        },
+        "Hotels And Tourism": {
+            veryHigh: 15,
+            high: [10, 15],
+            moderate: [7, 10],
+            low: [3, 7],
+            veryLow: 3
+        },
+        "Investment": {
+            veryHigh: 12,
+            high: [8, 12],
+            moderate: [5, 8],
+            low: [2, 5],
+            veryLow: 2
+        },
+        "Others": {
+            veryHigh: 12,
+            high: [8, 12],
+            moderate: [5, 8],
+            low: [2, 5],
+            veryLow: 2
+        },
+    },
+    //Insider Ownership 
+      insiderOwnershipRanges : {
+        "Commercial Banks": {
+            veryLow: 30,
+            low: [30, 45],
+            moderate: [45, 60],
+            high: [60, 75],
+            veryHigh: 75
+        },
+        "Development Banks": {
+            veryLow: 40,
+            low: [40, 55],
+            moderate: [55, 70],
+            high: [70, 85],
+            veryHigh: 85
+        },
+        "Finance": {
+            veryLow: 50,
+            low: [50, 65],
+            moderate: [65, 80],
+            high: [80, 90],
+            veryHigh: 90
+        },
+        "Life Insurance": {
+            veryLow: 35,
+            low: [35, 50],
+            moderate: [50, 65],
+            high: [65, 80],
+            veryHigh: 80
+        },
+        "Non Life Insurance": {
+            veryLow: 35,
+            low: [35, 50],
+            moderate: [50, 65],
+            high: [65, 80],
+            veryHigh: 80
+        },
+        "Hydro Power": {
+            veryLow: 25,
+            low: [25, 40],
+            moderate: [40, 55],
+            high: [55, 70],
+            veryHigh: 70
+        },
+        "Microfinance": {
+            veryLow: 60,
+            low: [60, 75],
+            moderate: [75, 85],
+            high: [85, 95],
+            veryHigh: 95
+        },
+        "Manufacturing And Processing": {
+            veryLow: 45,
+            low: [45, 60],
+            moderate: [60, 75],
+            high: [75, 85],
+            veryHigh: 85
+        },
+        "Tradings": {
+            veryLow: 65,
+            low: [65, 80],
+            moderate: [80, 90],
+            high: [90, 95],
+            veryHigh: 95
+        },
+        "Hotels And Tourism": {
+            veryLow: 55,
+            low: [55, 70],
+            moderate: [70, 80],
+            high: [80, 90],
+            veryHigh: 90
+        },
+        "Investment": {
+            veryLow: 65,
+            low: [65, 80],
+            moderate: [80, 90],
+            high: [90, 95],
+            veryHigh: 95
+        },
+        "Others": {
+            veryLow: 65,
+            low: [65, 80],
+            moderate: [80, 90],
+            high: [90, 95],
+            veryHigh: 95
+        }
+    },
 
   }
 }
@@ -3342,12 +3599,14 @@ export default {
         },
         { 
         name: "Float", 
-        value: apiData.other_metrics?.float || "N/A", 
+        value: apiData.valuation_metrics?.float ?
+            `${apiData.valuation_metrics.float}%` : "N/A", 
         sector: sectorInfo.sector_description
         },
         { 
         name: "Insider Ownership",
-        value: apiData.other_metrics?.insider_ownership || "N/A", 
+        value: apiData.other_metrics?.insider_ownership ?
+            `${apiData.other_metrics.insider_ownership}%` : "N/A", 
         sector: sectorInfo.sector_description
         }
       ];
@@ -3516,14 +3775,18 @@ export default {
                 case 'exceptional':
                 case 'over valued':
                 case 'high growth':
+                case 'very high':
                 case 'very expensive':
                 case 'Strong growth':
                 case 'very strong':
+                case 'highly liquid':
                     return 'pill excellent';
 
                 case 'better':
                 case 'good':
                 case 'strong':
+                case 'liquid':
+                case 'high':
                 case 'moderate growth':
                 case 'stable growth':
                 case 'Healthy growth':
@@ -3540,16 +3803,19 @@ export default {
                 case 'moderate to weak':
                 case 'moderate':
                 case 'Moderate growth':
+                case 'Moderately liquid':
                 case 'slow growth':
                     return 'pill fair';
 
                 case 'weak':
                 case 'under valued':
                 case 'poor':
+                case 'low':
                 case 'Small':
                 case 'Very cheap':
                 case 'weak to moderate':
                 case 'below average':
+                case 'low liquid':
                     return 'pill poor';
 
                 case 'worst':
@@ -3562,8 +3828,10 @@ export default {
                 case 'under performing':
                 case 'destroying value':
                 case 'value erosion':
+                case 'very low':
                 case 'negligible':
                 case 'Marginal':
+                case 'Illiquid':
                     return 'pill worst';
 
                 case 'n/a':
@@ -3900,6 +4168,52 @@ export default {
             else if (value >= ranges.overvalued[0]) return "Over Valued";
             else if (value >= ranges.fairlyvalued[0]) return "Fairly Valued";
             else return "Under Valued";
+        }
+
+        //Stock Activity Indicators
+        if(item.name === "Avg Daily Volume") {
+            const ranges = this.RatingRanges.avgDailyVolumeRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.highlyLiquid) return "Highly Liquid";
+            else if (value >= ranges.liquid[0]) return "Very Liquid";
+            else if (value >= ranges.moderately[0]) return "Moderately Liquid";
+            else if (value >= ranges.low[0]) return "Low Liquid";
+            else return "Illiquid";
+        }
+        if(item.name === "Short Interest Ratio") {
+            const ranges = this.RatingRanges.shortInterestRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.veryHigh) return "Very High";
+            else if (value >= ranges.high[0]) return "High";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.low[0]) return "Low";
+            else return "Very Low";
+        }
+        if(item.name === "Float") {
+            const ranges = this.RatingRanges.floatRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.veryHigh) return "Very High";
+            else if (value >= ranges.high[0]) return "High";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.low[0]) return "Low";
+            else return "Very Low";
+        }
+        if(item.name === "Insider Ownership") {
+            const ranges = this.RatingRanges.insiderOwnershipRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.veryHigh) return "Very High";
+            else if (value >= ranges.high[0]) return "High";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.low[0]) return "Low";
+            else return "Very Low";
         }
 
         return item.rating || "N/A";
