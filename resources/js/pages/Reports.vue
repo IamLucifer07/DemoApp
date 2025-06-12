@@ -1477,6 +1477,8 @@ export default {
             declining: 0
         }
     },
+
+    // Liquidity Ratios
     // Current Ratio Rating Ranges
       currentRatioRatingRanges: {
         "Commercial Banks": {
@@ -1562,6 +1564,305 @@ export default {
             stable: [0.05, 0.20],
             declining: [0.0, 0.05],
             loss_making: 0.0
+        }
+    },
+    //Operating Cash Flow Ratio
+      operatingCashFlowRanges : {
+        "Commercial Banks": {
+            best: 1.8,
+            better: [1.4, 1.8],
+            good: [1.0, 1.4],
+            neutral: [0.7, 1.0],
+            weak: [0.4, 0.7],
+            worst: 0.4
+        },
+        "Development Banks": {
+            best: 2.0,
+            better: [1.6, 2.0],
+            good: [1.2, 1.6],
+            neutral: [0.8, 1.2],
+            weak: [0.5, 0.8],
+            worst: 0.5
+        },
+        "Finance": {
+            best: 2.0,
+            better: [1.6, 2.0],
+            good: [1.2, 1.6],
+            neutral: [0.8, 1.2],
+            weak: [0.5, 0.8],
+            worst: 0.5
+        },
+        "Hydro Power": {
+            best: 1.5,
+            better: [1.2, 1.5],
+            good: [0.9, 1.2],
+            neutral: [0.6, 0.9],
+            weak: [0.3, 0.6],
+            worst: 0.3
+        },
+        "Non Life Insurance": {
+            best: 1.6,
+            better: [1.3, 1.6],
+            good: [1.0, 1.3],
+            neutral: [0.7, 1.0],
+            weak: [0.4, 0.7],
+            worst: 0.4
+        },
+        "Life Insurance": {
+            best: 1.4,
+            better: [1.1, 1.4],
+            good: [0.8, 1.1],
+            neutral: [0.5, 0.8],
+            weak: [0.3, 0.5],
+            worst: 0.3
+        },
+        "Manufacturing And Processing": {
+            best: 1.3,
+            better: [1.0, 1.3],
+            good: [0.7, 1.0],
+            neutral: [0.5, 0.7],
+            weak: [0.3, 0.5],
+            worst: 0.3
+        },
+        "Tradings": {
+            best: 1.2,
+            better: [0.9, 1.2],
+            good: [0.6, 0.9],
+            neutral: [0.4, 0.6],
+            weak: [0.2, 0.4],
+            worst: 0.2
+        },
+        "Hotels And Tourism": {
+            best: 1.4,
+            better: [1.1, 1.4],
+            good: [0.8, 1.1],
+            neutral: [0.5, 0.8],
+            weak: [0.3, 0.5],
+            worst: 0.3
+        },
+        "Microfinance": {
+            best: 1.5,
+            better: [1.2, 1.5],
+            good: [0.9, 1.2],
+            neutral: [0.6, 0.9],
+            weak: [0.3, 0.6],
+            worst: 0.3
+        },
+        "Investment": {
+            best: 1.7,
+            better: [1.4, 1.7],
+            good: [1.1, 1.4],
+            neutral: [0.8, 1.1],
+            weak: [0.5, 0.8],
+            worst: 0.5
+        },
+        "Others": {
+            best: 1.2,
+            better: [0.9, 1.2],
+            good: [0.6, 0.9],
+            neutral: [0.4, 0.6],
+            weak: [0.2, 0.4],
+            worst: 0.2
+        }
+    },
+
+    //Leverage Ratios
+    //Debt-To-Equity Ratio Rating Ranges
+      debtToEquityRatioRanges : {
+        "Commercial Banks": {
+            best: 0.8,
+            better: [0.8, 1.2],
+            good: [1.2, 1.5],
+            neutral: [1.5, 2.0],
+            weak: [2.0, 3.0],
+            worst: 3.0
+        },
+        "Development Banks": {
+            best: 1.0,
+            better: [1.0, 1.5],
+            good: [1.5, 2.0],
+            neutral: [2.0, 2.5],
+            weak: [2.5, 3.5],
+            worst: 3.5
+        },
+        "Finance": {
+            best: 1.0,
+            better: [1.0, 1.5],
+            good: [1.5, 2.0],
+            neutral: [2.0, 2.5],
+            weak: [2.5, 3.5],
+            worst: 3.5
+        },
+        "Hydro Power)": {
+            best: 0.5,
+            better: [0.5, 0.8],
+            good: [0.8, 1.2],
+            neutral: [1.2, 1.5],
+            weak: [1.5, 2.0],
+            worst: 2.0
+        },
+        "Non Life Insurance": {
+            best: 0.3,
+            better: [0.3, 0.5],
+            good: [0.5, 0.7],
+            neutral: [0.7, 1.0],
+            weak: [1.0, 1.5],
+            worst: 1.5
+        },
+        "Life Insurance": {
+            best: 0.4,
+            better: [0.4, 0.6],
+            good: [0.6, 0.9],
+            neutral: [0.9, 1.2],
+            weak: [1.2, 1.8],
+            worst: 1.8
+        },
+        "Manufacturing And Processing": {
+            best: 0.6,
+            better: [0.6, 0.9],
+            good: [0.9, 1.2],
+            neutral: [1.2, 1.5],
+            weak: [1.5, 2.0],
+            worst: 2.0
+        },
+        "Tradings": {
+            best: 0.7,
+            better: [0.7, 1.0],
+            good: [1.0, 1.3],
+            neutral: [1.3, 1.6],
+            weak: [1.6, 2.0],
+            worst: 2.0
+        },
+        "Hotels And Tourism": {
+            best: 0.5,
+            better: [0.5, 0.8],
+            good: [0.8, 1.1],
+            neutral: [1.1, 1.4],
+            weak: [1.4, 2.0],
+            worst: 2.0
+        },
+        "Microfinance": {
+            best: 1.5,
+            better: [1.5, 2.0],
+            good: [2.0, 2.5],
+            neutral: [2.5, 3.0],
+            weak: [3.0, 4.0],
+            worst: 4.0
+        },
+        "Investment": {
+            best: 0.3,
+            better: [0.3, 0.6],
+            good: [0.6, 0.9],
+            neutral: [0.9, 1.2],
+            weak: [1.2, 1.8],
+            worst: 1.8
+        },
+        "Others": {
+            best: 0.7,
+            better: [0.7, 1.0],
+            good: [1.0, 1.3],
+            neutral: [1.3, 1.6],
+            weak: [1.6, 2.0],
+            worst: 2.0
+        }
+    },
+    //Debt-To-Assets Ranges
+      debtToAssetsRatioRanges : {
+        "Commercial Banks": {
+            best: 0.85,
+            better: [0.85, 0.90],
+            good: [0.90, 0.93],
+            neutral: [0.93, 0.95],
+            weak: [0.95, 0.97],
+            worst: 0.97
+        },
+        "Development Banks": {
+            best: 0.80,
+            better: [0.80, 0.85],
+            good: [0.85, 0.88],
+            neutral: [0.88, 0.90],
+            weak: [0.90, 0.93],
+            worst: 0.93
+        },
+        "Finance": {
+            best: 0.80,
+            better: [0.80, 0.85],
+            good: [0.85, 0.88],
+            neutral: [0.88, 0.90],
+            weak: [0.90, 0.93],
+            worst: 0.93
+        },
+        "Hydro Power": {
+            best: 0.50,
+            better: [0.50, 0.60],
+            good: [0.60, 0.70],
+            neutral: [0.70, 0.75],
+            weak: [0.75, 0.80],
+            worst: 0.80
+        },
+        "Non Life Insurance": {
+            best: 0.25,
+            better: [0.25, 0.35],
+            good: [0.35, 0.45],
+            neutral: [0.45, 0.50],
+            weak: [0.50, 0.60],
+            worst: 0.60
+        },
+        "Life Insurance": {
+            best: 0.30,
+            better: [0.30, 0.40],
+            good: [0.40, 0.50],
+            neutral: [0.50, 0.55],
+            weak: [0.55, 0.65],
+            worst: 0.65
+        },
+        "Manufacturing And Processing": {
+            best: 0.40,
+            better: [0.40, 0.50],
+            good: [0.50, 0.60],
+            neutral: [0.60, 0.65],
+            weak: [0.65, 0.70],
+            worst: 0.70
+        },
+        "Tradings": {
+            best: 0.45,
+            better: [0.45, 0.55],
+            good: [0.55, 0.65],
+            neutral: [0.65, 0.70],
+            weak: [0.70, 0.75],
+            worst: 0.75
+        },
+        "Hotels And Tourism": {
+            best: 0.40,
+            better: [0.40, 0.50],
+            good: [0.50, 0.60],
+            neutral: [0.60, 0.65],
+            weak: [0.65, 0.75],
+            worst: 0.75
+        },
+        "Microfinance": {
+            best: 0.75,
+            better: [0.75, 0.80],
+            good: [0.80, 0.85],
+            neutral: [0.85, 0.88],
+            weak: [0.88, 0.90],
+            worst: 0.90
+        },
+        "Investment": {
+            best: 0.20,
+            better: [0.20, 0.30],
+            good: [0.30, 0.40],
+            neutral: [0.40, 0.50],
+            weak: [0.50, 0.60],
+            worst: 0.60
+        },
+        "Others": {
+            best: 0.45,
+            better: [0.45, 0.55],
+            good: [0.55, 0.65],
+            neutral: [0.65, 0.70],
+            weak: [0.70, 0.75],
+            worst: 0.75
         }
     },
 
@@ -4159,32 +4460,32 @@ export default {
             value: apiData.dividend_metrics?.dividend_coverage_ratio || "N/A", 
             sector: sectorInfo.sector_description 
         }
-    ];
+      ]; 
     
-    this.efficiencyRatios = [
-      { 
-      name: "Asset Turnover", 
-      value: apiData.profitability_metrics?.asset_turnover_ratio, 
-      sector: sectorInfo.sector_description 
-      },
-      { 
-        name: "Inventory Turnover", 
-        value: apiData.profitability_metrics?.inventory_turnover_ratio, 
+      this.efficiencyRatios = [
+        { 
+        name: "Asset Turnover", 
+        value: apiData.profitability_metrics?.asset_turnover_ratio, 
         sector: sectorInfo.sector_description 
-      },
-      { 
-        name: "Receivables Turnover", 
-        value: apiData.profitability_metrics?.receivables_turnover_ratio, 
-        sector: sectorInfo.sector_description 
-      },
-      { 
-        name: "Payables Turnover", 
-        value: apiData.profitability_metrics?.payables_turnover_ratio, 
-        sector: sectorInfo.sector_description 
-      }
-    ];
+        },
+        { 
+          name: "Inventory Turnover", 
+          value: apiData.profitability_metrics?.inventory_turnover_ratio, 
+          sector: sectorInfo.sector_description 
+        },
+        { 
+          name: "Receivables Turnover", 
+          value: apiData.profitability_metrics?.receivables_turnover_ratio, 
+          sector: sectorInfo.sector_description 
+        },
+        { 
+          name: "Payables Turnover", 
+          value: apiData.profitability_metrics?.payables_turnover_ratio, 
+          sector: sectorInfo.sector_description 
+        }
+      ];
 
-    this.cashFlowIndicators = [
+      this.cashFlowIndicators = [
         { 
             name: "Operating Cash Flow", 
           value: apiData.profitability_metrics?.operating_cash_flow ? 
@@ -4713,6 +5014,8 @@ export default {
             else if (oigValue >= ranges.stagnant[0]) return "Stagnant";
             else return "Declining";
         }
+        
+        //Liquidity Ratios
         if(item.name==="Current Ratio"){
             const ranges = this.RatingRanges.currentRatioRatingRanges[sector];
             
@@ -4723,6 +5026,47 @@ export default {
             else if (value >= ranges.stable[0]) return "Slow Growth";
             else if (value >= ranges.declining[0]) return "Declining";
             else return "Loss Making";
+        }
+        if (item.name === "Operating Cash Flow Ratio") {
+
+            const ranges = this.RatingRanges.operatingCashFlowRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.best) return "Best";
+            else if (value >= ranges.better[0]) return "Better";
+            else if (value >= ranges.good[0]) return "Good";
+            else if (value >= ranges.neutral[0]) return "Neutral";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Worst";
+        }
+
+        //Leverage Ratios
+        if (item.name === "Debt-to-Equity") {
+
+            const ranges = this.RatingRanges.debtToEquityRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.best) return "Best";
+            else if (value >= ranges.better[0]) return "Better";
+            else if (value >= ranges.good[0]) return "Good";
+            else if (value >= ranges.neutral[0]) return "Neutral";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Worst";
+        }
+        if (item.name === "Debt-to-Assets") {
+
+            const ranges = this.RatingRanges.debtToAssetsRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.best) return "Best";
+            else if (value >= ranges.better[0]) return "Better";
+            else if (value >= ranges.good[0]) return "Good";
+            else if (value >= ranges.neutral[0]) return "Neutral";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Worst";
         }
 
         // Balance Sheet Health Indicators
