@@ -3520,6 +3520,7 @@ export default {
             poor: 0.0
         }
     },
+    //Value at Risk (95%) Ranges
       varRanges : {
         "Commercial Banks": {
             veryLowRisk: 2.0,
@@ -3663,6 +3664,299 @@ export default {
             moderate: [38, 48],
             fragile: [48, 65],
             veryFragile: 65
+        }
+    },
+
+    //Asset Utilization
+      fixedAssetTurnoverRanges : {
+        "Commercial Banks": {
+            highlyEfficient: 5.0,
+            efficient: [3.5, 5.0],
+            average: [2.5, 3.5],
+            inefficient: [1.5, 2.5],
+            veryInefficient: 1.5
+        },
+        "Development Banks": {
+            highlyEfficient: 4.5,
+            efficient: [3.0, 4.5],
+            average: [2.0, 3.0],
+            inefficient: [1.2, 2.0],
+            veryInefficient: 1.2
+        },
+        "Finance": {
+            highlyEfficient: 4.0,
+            efficient: [2.8, 4.0],
+            average: [1.8, 2.8],
+            inefficient: [1.0, 1.8],
+            veryInefficient: 1.0
+        },
+        "Life Insurance": {
+            highlyEfficient: 6.0,
+            efficient: [4.5, 6.0],
+            average: [3.0, 4.5],
+            inefficient: [2.0, 3.0],
+            veryInefficient: 2.0
+        },
+        "Non Life Insurance": {
+            highlyEfficient: 5.5,
+            efficient: [4.0, 5.5],
+            average: [2.5, 4.0],
+            inefficient: [1.5, 2.5],
+            veryInefficient: 1.5
+        },
+        "Hydro Power": {
+            highlyEfficient: 0.8,
+            efficient: [0.5, 0.8],
+            average: [0.3, 0.5],
+            inefficient: [0.2, 0.3],
+            veryInefficient: 0.2
+        },
+        "Microfinance": {
+            highlyEfficient: 8.0,
+            efficient: [6.0, 8.0],
+            average: [4.0, 6.0],
+            inefficient: [2.5, 4.0],
+            veryInefficient: 2.5
+        },
+        "Manufacturing And Processing": {
+            highlyEfficient: 2.5,
+            efficient: [1.8, 2.5],
+            average: [1.2, 1.8],
+            inefficient: [0.8, 1.2],
+            veryInefficient: 0.8
+        },
+        "Tradings": {
+            highlyEfficient: 10.0,
+            efficient: [7.0, 10.0],
+            average: [4.0, 7.0],
+            inefficient: [2.0, 4.0],
+            veryInefficient: 2.0
+        },
+        "Hotels And Tourism": {
+            highlyEfficient: 1.2,
+            efficient: [0.8, 1.2],
+            average: [0.5, 0.8],
+            inefficient: [0.3, 0.5],
+            veryInefficient: 0.3
+        }
+    },
+    //Working Capital Turnover Ratio Ranges
+      workingCapitalTurnoverRanges : {
+        "Commercial Banks": {
+            highlyEfficient: 8.0,
+            efficient: [6.0, 8.0],
+            average: [4.0, 6.0],
+            inefficient: [2.5, 4.0],
+            veryInefficient: 2.5
+        },
+        "Development Banks": {
+            highlyEfficient: 7.0,
+            efficient: [5.0, 7.0],
+            average: [3.5, 5.0],
+            inefficient: [2.0, 3.5],
+            veryInefficient: 2.0
+        },
+        "Finance": {
+            highlyEfficient: 6.5,
+            efficient: [4.5, 6.5],
+            average: [3.0, 4.5],
+            inefficient: [1.8, 3.0],
+            veryInefficient: 1.8
+        },
+        "Life Insurance": {
+            highlyEfficient: 10.0,
+            efficient: [7.0, 10.0],
+            average: [5.0, 7.0],
+            inefficient: [3.0, 5.0],
+            veryInefficient: 3.0
+        },
+        "Non Life Insurance": {
+            highlyEfficient: 9.0,
+            efficient: [6.0, 9.0],
+            average: [4.0, 6.0],
+            inefficient: [2.5, 4.0],
+            veryInefficient: 2.5
+        },
+        "Hydro Power": {
+            highlyEfficient: 4.0,
+            efficient: [2.5, 4.0],
+            average: [1.5, 2.5],
+            inefficient: [1.0, 1.5],
+            veryInefficient: 1.0
+        },
+        "Microfinance": {
+            highlyEfficient: 12.0,
+            efficient: [9.0, 12.0],
+            average: [6.0, 9.0],
+            inefficient: [4.0, 6.0],
+            veryInefficient: 4.0
+        },
+        "Manufacturing And Processing": {
+            highlyEfficient: 5.0,
+            efficient: [3.5, 5.0],
+            average: [2.5, 3.5],
+            inefficient: [1.5, 2.5],
+            veryInefficient: 1.5
+        },
+        "Tradings": {
+            highlyEfficient: 15.0,
+            efficient: [10.0, 15.0],
+            average: [7.0, 10.0],
+            inefficient: [4.0, 7.0],
+            veryInefficient: 4.0
+        },
+        "Hotels And Tourism": {
+            highlyEfficient: 3.0,
+            efficient: [2.0, 3.0],
+            average: [1.2, 2.0],
+            inefficient: [0.8, 1.2],
+            veryInefficient: 0.8
+        }
+    },
+    //Total Asset Turnover
+      totalAssetTurnoverRanges : {
+        "Commercial Banks": {
+            highlyEfficient: 0.15,
+            efficient: [0.12, 0.15],
+            average: [0.09, 0.12],
+            inefficient: [0.06, 0.09],
+            veryInefficient: 0.06
+        },
+        "Development Banks": {
+            highlyEfficient: 0.18,
+            efficient: [0.15, 0.18],
+            average: [0.12, 0.15],
+            inefficient: [0.08, 0.12],
+            veryInefficient: 0.08
+        },
+        "Finance": {
+            highlyEfficient: 0.20,
+            efficient: [0.16, 0.20],
+            average: [0.12, 0.16],
+            inefficient: [0.08, 0.12],
+            veryInefficient: 0.08
+        },
+        "Life Insurance": {
+            highlyEfficient: 0.25,
+            efficient: [0.20, 0.25],
+            average: [0.15, 0.20],
+            inefficient: [0.10, 0.15],
+            veryInefficient: 0.10
+        },
+        "Non Life Insurance": {
+            highlyEfficient: 0.30,
+            efficient: [0.25, 0.30],
+            average: [0.20, 0.25],
+            inefficient: [0.15, 0.20],
+            veryInefficient: 0.15
+        },
+        "Hydro Power": {
+            highlyEfficient: 0.08,
+            efficient: [0.06, 0.08],
+            average: [0.04, 0.06],
+            inefficient: [0.02, 0.04],
+            veryInefficient: 0.02
+        },
+        "Microfinance": {
+            highlyEfficient: 0.35,
+            efficient: [0.30, 0.35],
+            average: [0.25, 0.30],
+            inefficient: [0.20, 0.25],
+            veryInefficient: 0.20
+        },
+        "Manufacturing And Processing": {
+            highlyEfficient: 0.50,
+            efficient: [0.40, 0.50],
+            average: [0.30, 0.40],
+            inefficient: [0.20, 0.30],
+            veryInefficient: 0.20
+        },
+        "Tradings": {
+            highlyEfficient: 1.20,
+            efficient: [0.90, 1.20],
+            average: [0.60, 0.90],
+            inefficient: [0.40, 0.60],
+            veryInefficient: 0.40
+        },
+        "Hotels And Tourism": {
+            highlyEfficient: 0.25,
+            efficient: [0.20, 0.25],
+            average: [0.15, 0.20],
+            inefficient: [0.10, 0.15],
+            veryInefficient: 0.10
+        }
+    },
+    //Capital Intensity Ratio Ranges
+      capitalIntensityRanges : {
+        "Commercial Banks": {
+            veryLow: 3.0,
+            low: [3.0, 4.5],
+            moderate: [4.5, 6.0],
+            high: [6.0, 8.0],
+            veryHigh: 8.0
+        },
+        "Development Banks": {
+            veryLow: 4.0,
+            low: [4.0, 5.5],
+            moderate: [5.5, 7.0],
+            high: [7.0, 9.0],
+            veryHigh: 9.0
+        },
+        "Finance Companies": {
+            veryLow: 5.0,
+            low: [5.0, 6.5],
+            moderate: [6.5, 8.0],
+            high: [8.0, 10.0],
+            veryHigh: 10.0
+        },
+        "Insurance (Life)": {
+            veryLow: 2.5,
+            low: [2.5, 3.5],
+            moderate: [3.5, 4.5],
+            high: [4.5, 6.0],
+            veryHigh: 6.0
+        },
+        "Insurance (Non-Life)": {
+            veryLow: 3.0,
+            low: [3.0, 4.0],
+            moderate: [4.0, 5.0],
+            high: [5.0, 6.5],
+            veryHigh: 6.5
+        },
+        "Hydro/Energy": {
+            veryLow: 0.3,
+            low: [0.3, 0.5],
+            moderate: [0.5, 0.7],
+            high: [0.7, 1.0],
+            veryHigh: 1.0
+        },
+        "Microfinance": {
+            veryLow: 8.0,
+            low: [8.0, 10.0],
+            moderate: [10.0, 12.0],
+            high: [12.0, 15.0],
+            veryHigh: 15.0
+        },
+        "Manufacturing": {
+            veryLow: 1.5,
+            low: [1.5, 2.5],
+            moderate: [2.5, 3.5],
+            high: [3.5, 5.0],
+            veryHigh: 5.0
+        },
+        "Trading": {
+            veryLow: 12.0,
+            low: [12.0, 15.0],
+            moderate: [15.0, 18.0],
+            high: [18.0, 22.0],
+            veryHigh: 22.0
+        },
+        "Hotels & Tourism": {
+            veryLow: 2.0,
+            low: [2.0, 3.0],
+            moderate: [3.0, 4.0],
+            high: [4.0, 5.5],
+            veryHigh: 5.5
         }
     },
   }
@@ -4223,6 +4517,7 @@ export default {
                 case 'very high':
                 case 'very expensive':
                 case 'very efficient':
+                case 'highly efficient':
                 case 'Strong growth':
                 case 'very strong':
                 case 'highly liquid':
@@ -4246,6 +4541,7 @@ export default {
                 case 'fair':
                 case 'average':
                 case 'low stable growth':
+                case 'inefficient':
                 case 'stable':
                 case 'moderate to weak':
                 case 'moderate':
@@ -4276,6 +4572,7 @@ export default {
                 case 'destroying value':
                 case 'value erosion':
                 case 'very low':
+                case 'very inefficient':
                 case 'negligible':
                 case 'Marginal':
                 case 'Illiquid':
@@ -4732,7 +5029,7 @@ export default {
             else if (value >= ranges.weak[0]) return "Weak";
             else return "Poor";
         }
-        if(item.name=== "Value at Risk (VaR)") {
+        if(item.name=== "Value at Risk (95%)") {
             const ranges = this.RatingRanges.varRanges[sector];
             
             if (!ranges || isNaN(value)) return "N/A";
@@ -4754,6 +5051,56 @@ export default {
             else if (value <= ranges.fragile[0]) return "fragile";
             else return "Very Fragile";
         }
+
+        //Asset Utilization Metrics
+        if(item.name === "Fixed Asset Turnover") {
+            const ranges = this.RatingRanges.fixedAssetTurnoverRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.highlyEfficient) return "Highly Efficient";
+            else if (value >= ranges.efficient[0]) return "Efficient";
+            else if (value >= ranges.average[0]) return "Average";
+            else if (value >= ranges.inefficient[0]) return "Inefficient";
+            else return "Very Inefficient";
+        }
+        if(item.name === "Working Capital Turnover") {
+            const ranges = this.RatingRanges.workingCapitalTurnoverRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.highlyEfficient) return "Highly Efficient";
+            else if (value >= ranges.efficient[0]) return "Efficient";
+            else if (value >= ranges.average[0]) return "Average";
+            else if (value >= ranges.inefficient[0]) return "Inefficient";
+            else return "Very Inefficient";
+        }
+        if(item.name === "Total Asset Turnover") {
+            const ranges = this.RatingRanges.totalAssetTurnoverRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.highlyEfficient) return "Highly Efficient";
+            else if (value >= ranges.efficient[0]) return "Efficient";
+            else if (value >= ranges.average[0]) return "Average";
+            else if (value >= ranges.inefficient[0]) return "Inefficient";
+            else return "Very Inefficient";
+        }
+        if(item.name === "Capital Intensity") {
+            const ranges = this.RatingRanges.capitalIntensityRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.veryHigh) return "Very High";
+            else if (value >= ranges.high[0]) return "High";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.low[0]) return "Low";
+            else return "Very Low";
+        }
+
+
+
+
         return item.rating || "N/A";
     },
   },
