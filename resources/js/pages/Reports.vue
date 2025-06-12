@@ -346,7 +346,7 @@
           <div class="card-content">
             <table class="w-full">
               <tbody>
-                <tr v-for="(item, index) in revenueExpenseBreakdowns" :key="index">
+                <tr v-for="(item, index) in revenueExpenseIndicators" :key="index">
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
@@ -357,7 +357,7 @@
             </table>
             <div class="ai-summary">
               <h4>AI Summary</h4>
-              <p>{{ categorySummaries.revenueExpenseBreakdowns }}</p>
+              <p>{{ categorySummaries.revenueExpenseIndicators }}</p>
             </div>
           </div>
         </div>
@@ -612,7 +612,7 @@ export default {
       marketPerformanceMetrics: [ ],
       assetUtilizationRatios: [],
       riskMetrics: [],
-      revenueExpenseBreakdowns: [],
+      revenueExpenseIndicators: [],
       industrySpecificMetrics: [],
       stockActivityIndicators: [],
       esgMetrics: [],
@@ -645,7 +645,7 @@ export default {
       },
       RatingRanges: {
           // EPS Rating Ranges
-          epsRatingRanges:{
+      epsRatingRanges:{
         "Commercial Banks": {
           best: 40,
           better: [25, 40],
@@ -726,7 +726,7 @@ export default {
           weak: [1, 3],
           worst: 1
         }
-      },
+    },
       // Net Profit Margin NPM Rating Ranges
       npmRatingRanges: {
         "Commercial Banks": {
@@ -811,7 +811,7 @@ export default {
         },
     },
         // Gross Profit Margin (GPM) Rating Ranges
-        gpmRatingRanges: {
+      gpmRatingRanges: {
         "Commercial Banks": {
             excellent: 65,
             good: [60, 65],
@@ -902,7 +902,7 @@ export default {
         }
     },
      // Price-to-Earnings (P/E) Rating Ranges
-        peRatingRanges: {
+      peRatingRanges: {
         "Commercial Banks": {
             overvalued: 20,
             fairlyvalued: [12, 20],
@@ -965,7 +965,7 @@ export default {
         }
     },
     // Price-to-Book (P/B) Rating Ranges
-        pbRatingRanges: {
+      pbRatingRanges: {
         "Commercial Banks": {
             overvalued: 2.0,
             fairlyvalued: [1.2, 2.0],
@@ -1028,7 +1028,7 @@ export default {
         }
     },
     // Price-to-Sales (P/S) Rating Ranges
-        psRatingRanges: {
+      psRatingRanges: {
         "Commercial Banks": {
             overvalued: 3.5,
             fairlyvalued: [2.0, 3.5],
@@ -1091,7 +1091,7 @@ export default {
         }
     },
     // EV/EBITDA  Rating Ranges
-        ebitdaRatingRanges: {
+      ebitdaRatingRanges: {
         "Commercial Banks": {
             overvalued: 10.0,
             fairlyvalued: [6.0, 10.0],
@@ -1154,7 +1154,7 @@ export default {
         }
     },
     // Revenue Growth Rating Ranges
-    revenueGrowthRatingRanges: {
+      revenueGrowthRatingRanges: {
         "Commercial Banks": {
             high_growth: 15,
             moderate_growth: [8, 15],
@@ -1229,7 +1229,7 @@ export default {
         }
     },
     // EPS Growth Rating Ranges
-    epsGrowthRatingRanges: {
+      epsGrowthRatingRanges: {
         "Commercial Banks": {
             high_growth: 25,
             steady_growth: [12, 25],
@@ -1316,7 +1316,7 @@ export default {
         }
     },
     // Dividend Growth Rating Ranges
-    dividendGrowthRatingRanges: {
+      dividendGrowthRatingRanges: {
         "Commercial Banks": {
             high_growth: 20,
             stable_growth: [12, 20],
@@ -1391,7 +1391,7 @@ export default {
         }
     },
     // Operating Income Growth Rating Ranges
-    operatingIncomeGrowthRatingRanges: {
+      operatingIncomeGrowthRatingRanges: {
         "Commercial Banks": {
             strong_growth: 30,
             healthy_growth: [18, 30],
@@ -1478,7 +1478,7 @@ export default {
         }
     },
     // Current Ratio Rating Ranges
-    currentRatioRatingRanges: {
+      currentRatioRatingRanges: {
         "Commercial Banks": {
             high_growth: 0.25,
             steady_growth: [0.12, 0.25],
@@ -1567,7 +1567,7 @@ export default {
 
     //Balance Sheet Health
     //Equity Ratio Rating Ranges
-    equityRatioRatingRanges: {
+      equityRatioRatingRanges: {
       "Commercial Banks": {
           very_strong: 60,
           strong: [50, 60],
@@ -1654,7 +1654,7 @@ export default {
       }
     },
     //Tangible Asset Ratio Rating Ranges
-    tangibleAssetRatioRatingRanges: {
+      tangibleAssetRatioRatingRanges: {
         "Commercial Banks": {
             very_strong: 3.0,
             strong: [2.0, 3.0],
@@ -1741,7 +1741,7 @@ export default {
         },
     },
     // Working Capital Rating Ranges
-    workingCapitalRatingRanges: {
+      workingCapitalRatingRanges: {
         "Commercial Banks": {
             range: [15000, 25000],
             position: "Strong"
@@ -1790,9 +1790,9 @@ export default {
             range: [500, 2500],
             position: "Weak to Moderate"
         }
-      },
+    },
     //Retained Earnings Rating Ranges
-    retainedEarningsRatingRanges: {
+      retainedEarningsRatingRanges: {
         "Commercial Banks": {
             very_strong: 5000,
             strong: [2000, 5000],
@@ -1877,11 +1877,11 @@ export default {
             weak: [10, 50],
             very_weak: 10
         },
-      },
+    },
 
     //Earnings Quality
     // Accrual Ratio Rating Ranges
-    accrualRatioRatingRanges: {
+      accrualRatioRatingRanges: {
         "Commercial Banks": {
             very_strong: 0.05,
             strong: [0.05, 0.10],
@@ -1966,9 +1966,9 @@ export default {
             weak: [0.60, 0.80],
             very_weak: 0.80
         }
-      },
+    },
     //Earnings stability Rating Ranges
-    earningsStabilityRatingRanges : {
+      earningsStabilityRatingRanges : {
         "Commercial Banks": {
             excellent: 10,
             good: [10, 15],
@@ -2053,7 +2053,7 @@ export default {
             volatile: [60, 80],
             highly_unstable: 80
         }
-      },
+    },
       //Revenue Recognition Rating Ranges
       revenueRecognitionRatingRanges : {
         "Commercial Banks": {
@@ -2202,7 +2202,7 @@ export default {
     },
 
     //Shareholder Value
-    //EVA
+    //EVA Rating Ranges
       evaRatingRanges : {
         "Commercial Banks": {
             outstanding: 1500,
@@ -2275,7 +2275,7 @@ export default {
             destroying_value: 5
         }
     },
-    //MVA rating ranges
+    //MVA Rating Ranges
       mvaRatingRanges : {
         "Commercial Banks": {
             exceptional: 25,
@@ -2348,7 +2348,7 @@ export default {
             value_erosion: 0.1
         }
     },
-    //TSR 1 year rating ranges
+    //TSR 1 year Rating Ranges
       tsr1YrRatingRanges : {
         "Commercial Banks": {
             outstanding: 35,
@@ -2496,7 +2496,7 @@ export default {
     },
 
     //Peer Comparison
-    //P/E vs Sector rating ranges
+    //P/E vs Sector Rating Ranges
       peRatioRanges : {
         "Commercial Banks": {
             very_cheap: 12,
@@ -2583,7 +2583,7 @@ export default {
             very_expensive: 20
         }
     },
-    //Market Share
+    //Market Share Ranges
       marketShareRanges : {
         "Commercial Banks": {
             dominant: 15,
@@ -2964,7 +2964,7 @@ export default {
     },
 
     //Stock Activity 
-    // Daily Average Volume
+    // Daily Average Volume Ranges
       avgDailyVolumeRanges : {
         "Commercial Banks": {
             highlyLiquid: 50000,
@@ -3044,9 +3044,9 @@ export default {
             illiquid: 100
         }
     },
-    //Short Interest Ratio
+    //Short Interest Ratio Ranges --> N/A
 
-    //Float
+    //Float Ranges
       floatRanges : {
         "Commercial Banks": {
             veryHigh: 40,
@@ -3133,7 +3133,7 @@ export default {
             veryLow: 2
         },
     },
-    //Insider Ownership 
+    //Insider Ownership Ranges
       insiderOwnershipRanges : {
         "Commercial Banks": {
             veryLow: 30,
@@ -3221,6 +3221,450 @@ export default {
         }
     },
 
+    //Revenue & Expense 
+    //Revenue By Segment Ranges  --> N/A
+
+    // COGS Ranges:
+      cogsRanges : {
+        "Commercial Banks": {
+            veryHigh: 50000,
+            high: [30000, 50000],
+            moderate: [15000, 30000],
+            low: [5000, 15000],
+            veryLow: 5000
+        },
+        "Development Banks": {
+            veryHigh: 25000,
+            high: [15000, 25000],
+            moderate: [8000, 15000],
+            low: [2000, 8000],
+            veryLow: 2000
+        },
+        "Finance": {
+            veryHigh: 10000,
+            high: [6000, 10000],
+            moderate: [3000, 6000],
+            low: [1000, 3000],
+            veryLow: 1000
+        },
+        "Life Insurance": {
+            veryHigh: 10000,
+            high: [5000, 10000],
+            moderate: [2000, 5000],
+            low: [500, 2000],
+            veryLow: 500
+        },
+        "Non Life Insurance": {
+            veryHigh: 6000,
+            high: [3000, 6000],
+            moderate: [1500, 3000],
+            low: [300, 1500],
+            veryLow: 300
+        },
+        "Hydro Power": {
+            veryHigh: 5000,
+            high: [2000, 5000],
+            moderate: [800, 2000],
+            low: [200, 800],
+            veryLow: 200
+        },
+        "Microfinance": {
+            veryHigh: 2000,
+            high: [1000, 2000],
+            moderate: [400, 1000],
+            low: [100, 400],
+            veryLow: 100
+        },
+        "Manufacturing And Processing": {
+            veryHigh: 8000,
+            high: [3000, 8000],
+            moderate: [1000, 3000],
+            low: [300, 1000],
+            veryLow: 300
+        },
+        "Tradings": {
+            veryHigh: 3000,
+            high: [1500, 3000],
+            moderate: [600, 1500],
+            low: [200, 600],
+            veryLow: 200
+        },
+        "Hotels And Tourism": {
+            veryHigh: 3000,
+            high: [1200, 3000],
+            moderate: [500, 1200],
+            low: [150, 500],
+            veryLow: 150
+        }
+    },
+    // SG&A Ranges
+      sgaRanes:{
+        "Commercial Banks": {
+            veryEfficient: 1500,
+            efficient: [1500, 3000],
+            average: [3000, 5000],
+            high: [5000, 8000],
+            veryHigh: 8000
+        },
+        "Development Banks": {
+            veryEfficient: 800,
+            efficient: [800, 1800],
+            average: [1800, 3000],
+            high: [3000, 5000],
+            veryHigh: 5000
+        },
+        "Finance": {
+            veryEfficient: 500,
+            efficient: [500, 1200],
+            average: [1200, 2500],
+            high: [2500, 4000],
+            veryHigh: 4000
+        },
+        "Life Insurance": {
+            veryEfficient: 300,
+            efficient: [300, 800],
+            average: [800, 1500],
+            high: [1500, 3000],
+            veryHigh: 3000
+        },
+        "Non Life Insurance": {
+            veryEfficient: 200,
+            efficient: [200, 600],
+            average: [600, 1200],
+            high: [1200, 2500],
+            veryHigh: 2500
+        },
+        "Hydro Power": {
+            veryEfficient: 150,
+            efficient: [150, 400],
+            average: [400, 800],
+            high: [800, 1500],
+            veryHigh: 1500
+        },
+        "Microfinance": {
+            veryEfficient: 100,
+            efficient: [100, 300],
+            average: [300, 600],
+            high: [600, 1000],
+            veryHigh: 1000
+        },
+        "Manufacturing And Processing": {
+            veryEfficient: 200,
+            efficient: [200, 500],
+            average: [500, 1000],
+            high: [1000, 2000],
+            veryHigh: 2000
+        },
+        "Tradings": {
+            veryEfficient: 150,
+            efficient: [150, 400],
+            average: [400, 800],
+            high: [800, 1500],
+            veryHigh: 1500
+        },
+        "Hotels And Tourism": {
+            veryEfficient: 250,
+            efficient: [250, 600],
+            average: [600, 1200],
+            high: [1200, 2500],
+            veryHigh: 2500
+        } 
+      },
+      // R&D Ranges --> N/A
+
+
+      //Risk Metrics
+      //Sharpe Ratio Ranges
+      sharpeRatioRanges : {
+        "Commercial Banks": {
+            exceptional: 1.5,
+            strong: [1.0, 1.5],
+            average: [0.5, 1.0],
+            weak: [0.2, 0.5],
+            poor: 0.2
+        },
+        "Development Banks": {
+            exceptional: 1.3,
+            strong: [0.9, 1.3],
+            average: [0.4, 0.9],
+            weak: [0.1, 0.4],
+            poor: 0.1
+        },
+        "Finance": {
+            exceptional: 1.2,
+            strong: [0.8, 1.2],
+            average: [0.3, 0.8],
+            weak: [0.0, 0.3],
+            poor: 0.0
+        },
+        "Life Insurance": {
+            exceptional: 1.6,
+            strong: [1.1, 1.6],
+            average: [0.6, 1.1],
+            weak: [0.3, 0.6],
+            poor: 0.3
+        },
+        "Non Life Insurance": {
+            exceptional: 1.4,
+            strong: [0.9, 1.4],
+            average: [0.4, 0.9],
+            weak: [0.1, 0.4],
+            poor: 0.1
+        },
+        "Hydro Power": {
+            exceptional: 1.8,
+            strong: [1.3, 1.8],
+            average: [0.8, 1.3],
+            weak: [0.4, 0.8],
+            poor: 0.4
+        },
+        "Microfinance": {
+            exceptional: 1.0,
+            strong: [0.6, 1.0],
+            average: [0.2, 0.6],
+            weak: [0.0, 0.2],
+            poor: 0.0
+        },
+        "Manufacturing And Processing": {
+            exceptional: 1.1,
+            strong: [0.7, 1.1],
+            average: [0.3, 0.7],
+            weak: [0.0, 0.3],
+            poor: 0.0
+        },
+        "Tradings": {
+            exceptional: 0.9,
+            strong: [0.5, 0.9],
+            average: [0.1, 0.5],
+            weak: [-0.1, 0.1],
+            poor: -0.1
+        },
+        "Hotels And Tourism": {
+            exceptional: 1.0,
+            strong: [0.6, 1.0],
+            average: [0.2, 0.6],
+            weak: [-0.1, 0.2],
+            poor: -0.1
+        }
+    },
+    // Sortino Ratio Ranges
+      sortinoRatioRanges : {
+        "Commercial Banks": {
+            exceptional: 2.5,
+            strong: [1.8, 2.5],
+            average: [1.2, 1.8],
+            weak: [0.6, 1.2],
+            poor: 0.6
+        },
+        "Development Banks": {
+            exceptional: 2.2,
+            strong: [1.6, 2.2],
+            average: [1.0, 1.6],
+            weak: [0.4, 1.0],
+            poor: 0.4
+        },
+        "Finance": {
+            exceptional: 2.0,
+            strong: [1.4, 2.0],
+            average: [0.8, 1.4],
+            weak: [0.2, 0.8],
+            poor: 0.2
+        },
+        "Life Insurance": {
+            exceptional: 2.8,
+            strong: [2.0, 2.8],
+            average: [1.4, 2.0],
+            weak: [0.8, 1.4],
+            poor: 0.8
+        },
+        "Non Life Insurance": {
+            exceptional: 2.4,
+            strong: [1.8, 2.4],
+            average: [1.2, 1.8],
+            weak: [0.6, 1.2],
+            poor: 0.6
+        },
+        "Hydro Power": {
+            exceptional: 3.0,
+            strong: [2.2, 3.0],
+            average: [1.6, 2.2],
+            weak: [1.0, 1.6],
+            poor: 1.0
+        },
+        "Microfinance": {
+            exceptional: 1.8,
+            strong: [1.2, 1.8],
+            average: [0.6, 1.2],
+            weak: [0.2, 0.6],
+            poor: 0.2
+        },
+        "Manufacturing And Processing": {
+            exceptional: 2.0,
+            strong: [1.4, 2.0],
+            average: [0.8, 1.4],
+            weak: [0.2, 0.8],
+            poor: 0.2
+        },
+        "Tradings": {
+            exceptional: 1.5,
+            strong: [1.0, 1.5],
+            average: [0.4, 1.0],
+            weak: [0.0, 0.4],
+            poor: 0.0
+        },
+        "Hotels And Tourism": {
+            exceptional: 1.8,
+            strong: [1.2, 1.8],
+            average: [0.6, 1.2],
+            weak: [0.0, 0.6],
+            poor: 0.0
+        }
+    },
+      varRanges : {
+        "Commercial Banks": {
+            veryLowRisk: 2.0,
+            lowRisk: [2.0, 3.0],
+            moderateRisk: [3.0, 4.0],
+            highRisk: [4.0, 5.0],
+            veryHighRisk: 5.0
+        },
+        "Development Banks": {
+            veryLowRisk: 2.5,
+            lowRisk: [2.5, 3.5],
+            moderateRisk: [3.5, 4.5],
+            highRisk: [4.5, 6.0],
+            veryHighRisk: 6.0
+        },
+        "Finance": {
+            veryLowRisk: 3.0,
+            lowRisk: [3.0, 4.0],
+            moderateRisk: [4.0, 5.0],
+            highRisk: [5.0, 7.0],
+            veryHighRisk: 7.0
+        },
+        "Life Insurance": {
+            veryLowRisk: 2.2,
+            lowRisk: [2.2, 3.2],
+            moderateRisk: [3.2, 4.2],
+            highRisk: [4.2, 5.5],
+            veryHighRisk: 5.5
+        },
+        "Non Life Insurance": {
+            veryLowRisk: 2.8,
+            lowRisk: [2.8, 3.8],
+            moderateRisk: [3.8, 5.0],
+            highRisk: [5.0, 6.5],
+            veryHighRisk: 6.5
+        },
+        "Hydro Power": {
+            veryLowRisk: 1.8,
+            lowRisk: [1.8, 2.8],
+            moderateRisk: [2.8, 3.8],
+            highRisk: [3.8, 5.0],
+            veryHighRisk: 5.0
+        },
+        "Microfinance": {
+            veryLowRisk: 3.5,
+            lowRisk: [3.5, 5.0],
+            moderateRisk: [5.0, 6.5],
+            highRisk: [6.5, 8.0],
+            veryHighRisk: 8.0
+        },
+        "Manufacturing And Processing": {
+            veryLowRisk: 3.2,
+            lowRisk: [3.2, 4.5],
+            moderateRisk: [4.5, 6.0],
+            highRisk: [6.0, 8.0],
+            veryHighRisk: 8.0
+        },
+        "Tradings": {
+            veryLowRisk: 4.0,
+            lowRisk: [4.0, 6.0],
+            moderateRisk: [6.0, 8.0],
+            highRisk: [8.0, 10.0],
+            veryHighRisk: 10.0
+        },
+        "Hotels And Tourism": {
+            veryLowRisk: 3.8,
+            lowRisk: [3.8, 5.5],
+            moderateRisk: [5.5, 7.0],
+            highRisk: [7.0, 9.0],
+            veryHighRisk: 9.0
+        }
+    },
+    //Maximum Drawdown Ranges
+      maxDrawdownRanges : {
+        "Commercial Banks": {
+            veryResilient: 15,
+            resilient: [15, 25],
+            moderate: [25, 35],
+            fragile: [35, 50],
+            veryFragile: 50
+        },
+        "Development Banks": {
+            veryResilient: 20,
+            resilient: [20, 30],
+            moderate: [30, 40],
+            fragile: [40, 55],
+            veryFragile: 55
+        },
+        "Finance": {
+            veryResilient: 25,
+            resilient: [25, 35],
+            moderate: [35, 45],
+            fragile: [45, 60],
+            veryFragile: 60
+        },
+        "Life Insurance": {
+            veryResilient: 18,
+            resilient: [18, 28],
+            moderate: [28, 38],
+            fragile: [38, 50],
+            veryFragile: 50
+        },
+        "Non Life Insurance": {
+            veryResilient: 22,
+            resilient: [22, 32],
+            moderate: [32, 42],
+            fragile: [42, 55],
+            veryFragile: 55
+        },
+        "Hydro Power": {
+            veryResilient: 12,
+            resilient: [12, 20],
+            moderate: [20, 30],
+            fragile: [30, 40],
+            veryFragile: 40
+        },
+        "Microfinance": {
+            veryResilient: 30,
+            resilient: [30, 40],
+            moderate: [40, 50],
+            fragile: [50, 65],
+            veryFragile: 65
+        },
+        "Manufacturing And Processing": {
+            veryResilient: 25,
+            resilient: [25, 35],
+            moderate: [35, 45],
+            fragile: [45, 60],
+            veryFragile: 60
+        },
+        "Trading": {
+            veryResilient: 35,
+            resilient: [35, 45],
+            moderate: [45, 55],
+            fragile: [55, 70],
+            veryFragile: 70
+        },
+        "Hotels And Tourism": {
+            veryResilient: 28,
+            resilient: [28, 38],
+            moderate: [38, 48],
+            fragile: [48, 65],
+            veryFragile: 65
+        }
+    },
   }
 }
    },
@@ -3530,17 +3974,18 @@ export default {
         },
         { 
         name: "Value at Risk (95%)", 
-        value: apiData.other_metrics?.risk || "N/A", 
+        value: apiData.other_metrics?.var ?
+            `${apiData.other_metrics.var}%` : "N/A",
         sector: sectorInfo.sector_description
         },
         { 
         name: "Maximum Drawdown", 
-        value: apiData.other_metrics?.drawdown || "N/A", 
+        value: apiData.other_metrics?.drawdown ?
+            `${apiData.other_metrics.drawdown}%` : "N/A",
         sector: sectorInfo.sector_description
         }
       ];
-
-      this.revenueExpenseBreakdowns= [
+      this.revenueExpenseIndicators= [
         { 
         name: "Revenue by Segment", 
         value: apiData.other_metrics?.segment || "N/A", 
@@ -3777,6 +4222,7 @@ export default {
                 case 'high growth':
                 case 'very high':
                 case 'very expensive':
+                case 'very efficient':
                 case 'Strong growth':
                 case 'very strong':
                 case 'highly liquid':
@@ -3787,6 +4233,7 @@ export default {
                 case 'strong':
                 case 'liquid':
                 case 'high':
+                case 'efficient':
                 case 'moderate growth':
                 case 'stable growth':
                 case 'Healthy growth':
@@ -4216,6 +4663,97 @@ export default {
             else return "Very Low";
         }
 
+        //Revenue Expense Indicators
+        if(item.name === "Revenue by Segment") {
+            const ranges = this.RatingRanges.revenueBySegmentRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.veryHigh) return "Very High";
+            else if (value >= ranges.high[0]) return "High";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.low[0]) return "Low";
+            else return "Very Low";
+        }
+        if(item.name === "COGS") {
+            const ranges = this.RatingRanges.cogsRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.veryHigh) return "Very High";
+            else if (value >= ranges.high[0]) return "High";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.low[0]) return "Low";
+            else return "Very Low";
+        }
+        if(item.name === "SG&A") {
+            const ranges = this.RatingRanges.sgaRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value <= ranges.veryEfficient) return "Very Efficient";
+            else if (value <= ranges.efficient[0]) return "Efficient";
+            else if (value <= ranges.average[0]) return "Average";
+            else if (value <= ranges.high[0]) return "High";
+            else return "Very High";
+        }
+        if(item.name === "R&D") {
+            const ranges = this.RatingRanges.rdRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.veryHigh) return "Very High";
+            else if (value >= ranges.high[0]) return "High";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.low[0]) return "Low";
+            else return "Very Low";
+        }
+
+        //Risk Metrics
+        if(item.name === "Sharpe Ratio") {
+            const ranges = this.RatingRanges.sharpeRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.exceptional) return "Exceptional";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.average[0]) return "Average";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Poor";
+        }
+        if(item.name === "Sortino Ratio") {
+            const ranges = this.RatingRanges.sortinoRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.exceptional) return "Exceptional";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.average[0]) return "Average";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Poor";
+        }
+        if(item.name=== "Value at Risk (VaR)") {
+            const ranges = this.RatingRanges.varRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value <= ranges.veryLowRisk) return "Very Low Lisk";
+            else if (value <= ranges.lowRisk[0]) return "Low Risk";
+            else if (value <= ranges.moderateRisk[0]) return "Moderate Risk";
+            else if (value <= ranges.highRisk[0]) return "High Risk";
+            else return "Very High Risk";
+        }
+        if(item.name==="Maximum Drawdown") {
+            const ranges = this.RatingRanges.maxDrawdownRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value <= ranges.veryResilient) return "Very Resilient";
+            else if (value <= ranges.resilient[0]) return "Resilient";
+            else if (value <= ranges.moderate[0]) return "Moderate";
+            else if (value <= ranges.fragile[0]) return "fragile";
+            else return "Very Fragile";
+        }
         return item.rating || "N/A";
     },
   },
