@@ -5069,6 +5069,327 @@ export default {
             else return "Worst";
         }
 
+        //Asset Utilization Metrics
+        if(item.name === "Fixed Asset Turnover") {
+          const ranges = this.RatingRanges.fixedAssetTurnoverRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.highlyEfficient) return "Highly Efficient";
+          else if (value >= ranges.efficient[0]) return "Efficient";
+          else if (value >= ranges.average[0]) return "Average";
+          else if (value >= ranges.inefficient[0]) return "Inefficient";
+          else return "Very Inefficient";
+        }
+        if(item.name === "Working Capital Turnover") {
+          const ranges = this.RatingRanges.workingCapitalTurnoverRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.highlyEfficient) return "Highly Efficient";
+          else if (value >= ranges.efficient[0]) return "Efficient";
+          else if (value >= ranges.average[0]) return "Average";
+          else if (value >= ranges.inefficient[0]) return "Inefficient";
+          else return "Very Inefficient";
+        }
+        if(item.name === "Total Asset Turnover") {
+          const ranges = this.RatingRanges.totalAssetTurnoverRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.highlyEfficient) return "Highly Efficient";
+          else if (value >= ranges.efficient[0]) return "Efficient";
+          else if (value >= ranges.average[0]) return "Average";
+          else if (value >= ranges.inefficient[0]) return "Inefficient";
+          else return "Very Inefficient";
+        }
+        if(item.name === "Capital Intensity") {
+          const ranges = this.RatingRanges.capitalIntensityRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.veryHigh) return "Very High";
+          else if (value >= ranges.high[0]) return "High";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.low[0]) return "Low";
+          else return "Very Low";
+        }
+
+        //Risk Metrics
+        if(item.name === "Sharpe Ratio") {
+          const ranges = this.RatingRanges.sharpeRatioRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.exceptional) return "Exceptional";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.average[0]) return "Average";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Poor";
+        }
+        if(item.name === "Sortino Ratio") {
+          const ranges = this.RatingRanges.sortinoRatioRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.exceptional) return "Exceptional";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.average[0]) return "Average";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Poor";
+        }
+        if(item.name=== "Value at Risk (95%)") {
+          const ranges = this.RatingRanges.varRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value <= ranges.veryLowRisk) return "Very Low Lisk";
+          else if (value <= ranges.lowRisk[0]) return "Low Risk";
+          else if (value <= ranges.moderateRisk[0]) return "Moderate Risk";
+          else if (value <= ranges.highRisk[0]) return "High Risk";
+          else return "Very High Risk";
+        }
+        if(item.name==="Maximum Drawdown") {
+          const ranges = this.RatingRanges.maxDrawdownRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value <= ranges.veryResilient) return "Very Resilient";
+          else if (value <= ranges.resilient[0]) return "Resilient";
+          else if (value <= ranges.moderate[0]) return "Moderate";
+          else if (value <= ranges.fragile[0]) return "fragile";
+          else return "Very Fragile";
+        }
+        
+        //Revenue Expense Indicators
+        if(item.name === "Revenue by Segment") {
+          const ranges = this.RatingRanges.revenueBySegmentRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.veryHigh) return "Very High";
+          else if (value >= ranges.high[0]) return "High";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.low[0]) return "Low";
+          else return "Very Low";
+        }
+        if(item.name === "COGS") {
+          const ranges = this.RatingRanges.cogsRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.veryHigh) return "Very High";
+          else if (value >= ranges.high[0]) return "High";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.low[0]) return "Low";
+          else return "Very Low";
+        }
+        if(item.name === "SG&A") {
+          const ranges = this.RatingRanges.sgaRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value <= ranges.veryEfficient) return "Very Efficient";
+          else if (value <= ranges.efficient[0]) return "Efficient";
+          else if (value <= ranges.average[0]) return "Average";
+          else if (value <= ranges.high[0]) return "High";
+          else return "Very High";
+        }
+        if(item.name === "R&D") {
+          const ranges = this.RatingRanges.rdRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.veryHigh) return "Very High";
+          else if (value >= ranges.high[0]) return "High";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.low[0]) return "Low";
+          else return "Very Low";
+        }
+
+        //Stock Activity Indicators
+        if(item.name === "Avg Daily Volume") {
+          const ranges = this.RatingRanges.avgDailyVolumeRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.highlyLiquid) return "Highly Liquid";
+          else if (value >= ranges.liquid[0]) return "Very Liquid";
+          else if (value >= ranges.moderately[0]) return "Moderately Liquid";
+          else if (value >= ranges.low[0]) return "Low Liquid";
+          else return "Illiquid";
+        }
+        if(item.name === "Short Interest Ratio") {
+          const ranges = this.RatingRanges.shortInterestRatioRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.veryHigh) return "Very High";
+          else if (value >= ranges.high[0]) return "High";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.low[0]) return "Low";
+          else return "Very Low";
+        }
+        if(item.name === "Float") {
+          const ranges = this.RatingRanges.floatRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.veryHigh) return "Very High";
+          else if (value >= ranges.high[0]) return "High";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.low[0]) return "Low";
+          else return "Very Low";
+        }
+        if(item.name === "Insider Ownership") {
+          const ranges = this.RatingRanges.insiderOwnershipRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.veryHigh) return "Very High";
+          else if (value >= ranges.high[0]) return "High";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.low[0]) return "Low";
+          else return "Very Low";
+        }
+
+        //Peer Comparison Metrics
+        if(item.name === "P/E vs Sector") {
+          const ranges = this.RatingRanges.peRatioRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.very_expensive) return "Very Expensive";
+          else if (value >= ranges.overvalued[0]) return "Over Valued";
+          else if (value >= ranges.fair_value[0]) return "Fairly Valued";
+          else if (value >= ranges.undervalued[0]) return "Under Valued";
+          else return "Very Cheap";
+        }
+        if(item.name === "Market Share") {
+          const ranges = this.RatingRanges.marketShareRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.dominant) return "Dominant";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.small[0]) return "Small";
+          else return "Marginal";
+        }
+        if(item.name === "EBITDA Margin") {
+          const ranges = this.RatingRanges.ebitdaMarginRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.excellent) return "Excellent";
+          else if (value >= ranges.good[0]) return "Good";
+          else if (value >= ranges.average[0]) return "Average";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Poor";
+        }
+        if(item.name === "P/B vs Sector") {
+          const ranges = this.RatingRanges.pbRatioRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.highlyOvervalued) return "Highly Over Valued";
+          else if (value >= ranges.overvalued[0]) return "Over Valued";
+          else if (value >= ranges.fairlyvalued[0]) return "Fairly Valued";
+          else return "Under Valued";
+        }
+        
+        //Shareholder Value Indicators
+        if(item.name === "EVA") {
+          const ranges = this.RatingRanges.evaRatingRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.outstanding) return "Outstaning";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Destroying Value";
+        }
+        if(item.name === "MVA") {
+          const ranges = this.RatingRanges.mvaRatingRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.exceptional) return "Exceptional";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Value Erosion";
+        }
+        if(item.name === "TSR (1 Year)") {
+          const ranges = this.RatingRanges.tsrRatingRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.outstanding) return "Outstanding";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Underperforming";
+        }
+        if(item.name === "Buyback Yield") {
+          const ranges = this.RatingRanges.buybackYieldRatingRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.exceptional) return "Exceptional";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Negligible";
+        }
+        
+        //Earnings Quality Indicators
+        if(item.name === "Accrual Ratio") {
+          const ranges = this.RatingRanges.accrualRatioRatingRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value <= ranges.very_strong) return "Very Strong";
+          else if (value <= ranges.strong[0]) return "Strong";
+          else if (value <= ranges.moderate[0]) return "Moderate";
+          else if (value <= ranges.weak[0]) return "Weak";
+          else return "Very Weak";
+        }
+        if(item.name === "Earnings Stability") {
+          const ranges = this.RatingRanges.earningsStabilityRatingRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value <= ranges.excellent) return "Excellent";
+          else if (value <= ranges.good[0]) return "Good";
+          else if (value <= ranges.moderate[0]) return "Moderate";
+          else if (value <= ranges.volatile[0]) return "Volatile";
+          else return "Highly Unstable";
+        }
+        if(item.name === "Revenue Recognition") {
+          const ranges = this.RatingRanges.revenueRecognitionRatingRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value <= ranges.very_strong) return "Very Strong";
+          else if (value <= ranges.strong[0]) return "Strong";
+          else if (value <= ranges.moderate[0]) return "Moderate";
+          else if (value <= ranges.weak[0]) return "Weak";
+          else return "Very Weak";
+        }
+        if(item.name === "Deferred Revenue") {
+          const ranges = this.RatingRanges.deferredRevenueRatingRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value <= ranges.very_healthy) return "Very Healthy";
+          else if (value <= ranges.healthy[0]) return "Healthy";
+          else if (value <= ranges.moderate[0]) return "Moderate";
+          else if (value <= ranges.concerning[0]) return "Concerning";
+          else return "High Risk";
+        }
+        
         // Balance Sheet Health Indicators
         if(item.name === "Equity Ratio") {
             const ranges = this.RatingRanges.equityRatioRatingRanges[sector];
@@ -5095,11 +5416,11 @@ export default {
         if (item.name === "Working Capital") {
             const wcValue = parseFloat(item.value.toString().replace("M NPR", "").trim());
             const sectorRangeData = this.RatingRanges.workingCapitalRatingRanges[sector];
-
+        
             if (!sectorRangeData || isNaN(wcValue)) return "N/A";
-
+        
             const [min, max] = sectorRangeData.range;
-
+        
             if (wcValue >= min && wcValue <= max) {
                 return sectorRangeData.position;
             } else if (wcValue > max) {
@@ -5120,335 +5441,11 @@ export default {
             else if (reValue >= ranges.weak[0]) return "Weak";
             else return "Very Weak";
         }
-
-        //Earnings Quality Indicators
-        if(item.name === "Accrual Ratio") {
-            const ranges = this.RatingRanges.accrualRatioRatingRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value <= ranges.very_strong) return "Very Strong";
-            else if (value <= ranges.strong[0]) return "Strong";
-            else if (value <= ranges.moderate[0]) return "Moderate";
-            else if (value <= ranges.weak[0]) return "Weak";
-            else return "Very Weak";
-        }
-        if(item.name === "Earnings Stability") {
-            const ranges = this.RatingRanges.earningsStabilityRatingRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value <= ranges.excellent) return "Excellent";
-            else if (value <= ranges.good[0]) return "Good";
-            else if (value <= ranges.moderate[0]) return "Moderate";
-            else if (value <= ranges.volatile[0]) return "Volatile";
-            else return "Highly Unstable";
-        }
-        if(item.name === "Revenue Recognition") {
-            const ranges = this.RatingRanges.revenueRecognitionRatingRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value <= ranges.very_strong) return "Very Strong";
-            else if (value <= ranges.strong[0]) return "Strong";
-            else if (value <= ranges.moderate[0]) return "Moderate";
-            else if (value <= ranges.weak[0]) return "Weak";
-            else return "Very Weak";
-        }
-        if(item.name === "Deferred Revenue") {
-            const ranges = this.RatingRanges.deferredRevenueRatingRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value <= ranges.very_healthy) return "Very Healthy";
-            else if (value <= ranges.healthy[0]) return "Healthy";
-            else if (value <= ranges.moderate[0]) return "Moderate";
-            else if (value <= ranges.concerning[0]) return "Concerning";
-            else return "High Risk";
-        }
-
-        //Shareholder Value Indicators
-        if(item.name === "EVA") {
-            const ranges = this.RatingRanges.evaRatingRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.outstanding) return "Outstaning";
-            else if (value >= ranges.strong[0]) return "Strong";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.weak[0]) return "Weak";
-            else return "Destroying Value";
-        }
-        if(item.name === "MVA") {
-            const ranges = this.RatingRanges.mvaRatingRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.exceptional) return "Exceptional";
-            else if (value >= ranges.strong[0]) return "Strong";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.weak[0]) return "Weak";
-            else return "Value Erosion";
-        }
-        if(item.name === "TSR (1 Year)") {
-            const ranges = this.RatingRanges.tsrRatingRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.outstanding) return "Outstanding";
-            else if (value >= ranges.strong[0]) return "Strong";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.weak[0]) return "Weak";
-            else return "Underperforming";
-        }
-        if(item.name === "Buyback Yield") {
-            const ranges = this.RatingRanges.buybackYieldRatingRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.exceptional) return "Exceptional";
-            else if (value >= ranges.strong[0]) return "Strong";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.weak[0]) return "Weak";
-            else return "Negligible";
-        }
-
-        //Peer Comparison Metrics
-        if(item.name === "P/E vs Sector") {
-            const ranges = this.RatingRanges.peRatioRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.very_expensive) return "Very Expensive";
-            else if (value >= ranges.overvalued[0]) return "Over Valued";
-            else if (value >= ranges.fair_value[0]) return "Fairly Valued";
-            else if (value >= ranges.undervalued[0]) return "Under Valued";
-            else return "Very Cheap";
-        }
-        if(item.name === "Market Share") {
-            const ranges = this.RatingRanges.marketShareRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.dominant) return "Dominant";
-            else if (value >= ranges.strong[0]) return "Strong";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.small[0]) return "Small";
-            else return "Marginal";
-        }
-        if(item.name === "EBITDA Margin") {
-            const ranges = this.RatingRanges.ebitdaMarginRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.excellent) return "Excellent";
-            else if (value >= ranges.good[0]) return "Good";
-            else if (value >= ranges.average[0]) return "Average";
-            else if (value >= ranges.weak[0]) return "Weak";
-            else return "Poor";
-        }
-        if(item.name === "P/B vs Sector") {
-            const ranges = this.RatingRanges.pbRatioRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.highlyOvervalued) return "Highly Over Valued";
-            else if (value >= ranges.overvalued[0]) return "Over Valued";
-            else if (value >= ranges.fairlyvalued[0]) return "Fairly Valued";
-            else return "Under Valued";
-        }
-
-        //Stock Activity Indicators
-        if(item.name === "Avg Daily Volume") {
-            const ranges = this.RatingRanges.avgDailyVolumeRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.highlyLiquid) return "Highly Liquid";
-            else if (value >= ranges.liquid[0]) return "Very Liquid";
-            else if (value >= ranges.moderately[0]) return "Moderately Liquid";
-            else if (value >= ranges.low[0]) return "Low Liquid";
-            else return "Illiquid";
-        }
-        if(item.name === "Short Interest Ratio") {
-            const ranges = this.RatingRanges.shortInterestRatioRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.veryHigh) return "Very High";
-            else if (value >= ranges.high[0]) return "High";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.low[0]) return "Low";
-            else return "Very Low";
-        }
-        if(item.name === "Float") {
-            const ranges = this.RatingRanges.floatRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.veryHigh) return "Very High";
-            else if (value >= ranges.high[0]) return "High";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.low[0]) return "Low";
-            else return "Very Low";
-        }
-        if(item.name === "Insider Ownership") {
-            const ranges = this.RatingRanges.insiderOwnershipRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.veryHigh) return "Very High";
-            else if (value >= ranges.high[0]) return "High";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.low[0]) return "Low";
-            else return "Very Low";
-        }
-
-        //Revenue Expense Indicators
-        if(item.name === "Revenue by Segment") {
-            const ranges = this.RatingRanges.revenueBySegmentRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.veryHigh) return "Very High";
-            else if (value >= ranges.high[0]) return "High";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.low[0]) return "Low";
-            else return "Very Low";
-        }
-        if(item.name === "COGS") {
-            const ranges = this.RatingRanges.cogsRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.veryHigh) return "Very High";
-            else if (value >= ranges.high[0]) return "High";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.low[0]) return "Low";
-            else return "Very Low";
-        }
-        if(item.name === "SG&A") {
-            const ranges = this.RatingRanges.sgaRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value <= ranges.veryEfficient) return "Very Efficient";
-            else if (value <= ranges.efficient[0]) return "Efficient";
-            else if (value <= ranges.average[0]) return "Average";
-            else if (value <= ranges.high[0]) return "High";
-            else return "Very High";
-        }
-        if(item.name === "R&D") {
-            const ranges = this.RatingRanges.rdRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.veryHigh) return "Very High";
-            else if (value >= ranges.high[0]) return "High";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.low[0]) return "Low";
-            else return "Very Low";
-        }
-
-        //Risk Metrics
-        if(item.name === "Sharpe Ratio") {
-            const ranges = this.RatingRanges.sharpeRatioRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.exceptional) return "Exceptional";
-            else if (value >= ranges.strong[0]) return "Strong";
-            else if (value >= ranges.average[0]) return "Average";
-            else if (value >= ranges.weak[0]) return "Weak";
-            else return "Poor";
-        }
-        if(item.name === "Sortino Ratio") {
-            const ranges = this.RatingRanges.sortinoRatioRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.exceptional) return "Exceptional";
-            else if (value >= ranges.strong[0]) return "Strong";
-            else if (value >= ranges.average[0]) return "Average";
-            else if (value >= ranges.weak[0]) return "Weak";
-            else return "Poor";
-        }
-        if(item.name=== "Value at Risk (95%)") {
-            const ranges = this.RatingRanges.varRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value <= ranges.veryLowRisk) return "Very Low Lisk";
-            else if (value <= ranges.lowRisk[0]) return "Low Risk";
-            else if (value <= ranges.moderateRisk[0]) return "Moderate Risk";
-            else if (value <= ranges.highRisk[0]) return "High Risk";
-            else return "Very High Risk";
-        }
-        if(item.name==="Maximum Drawdown") {
-            const ranges = this.RatingRanges.maxDrawdownRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value <= ranges.veryResilient) return "Very Resilient";
-            else if (value <= ranges.resilient[0]) return "Resilient";
-            else if (value <= ranges.moderate[0]) return "Moderate";
-            else if (value <= ranges.fragile[0]) return "fragile";
-            else return "Very Fragile";
-        }
-
-        //Asset Utilization Metrics
-        if(item.name === "Fixed Asset Turnover") {
-            const ranges = this.RatingRanges.fixedAssetTurnoverRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.highlyEfficient) return "Highly Efficient";
-            else if (value >= ranges.efficient[0]) return "Efficient";
-            else if (value >= ranges.average[0]) return "Average";
-            else if (value >= ranges.inefficient[0]) return "Inefficient";
-            else return "Very Inefficient";
-        }
-        if(item.name === "Working Capital Turnover") {
-            const ranges = this.RatingRanges.workingCapitalTurnoverRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.highlyEfficient) return "Highly Efficient";
-            else if (value >= ranges.efficient[0]) return "Efficient";
-            else if (value >= ranges.average[0]) return "Average";
-            else if (value >= ranges.inefficient[0]) return "Inefficient";
-            else return "Very Inefficient";
-        }
-        if(item.name === "Total Asset Turnover") {
-            const ranges = this.RatingRanges.totalAssetTurnoverRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.highlyEfficient) return "Highly Efficient";
-            else if (value >= ranges.efficient[0]) return "Efficient";
-            else if (value >= ranges.average[0]) return "Average";
-            else if (value >= ranges.inefficient[0]) return "Inefficient";
-            else return "Very Inefficient";
-        }
-        if(item.name === "Capital Intensity") {
-            const ranges = this.RatingRanges.capitalIntensityRanges[sector];
-            
-            if (!ranges || isNaN(value)) return "N/A";
-            
-            if (value >= ranges.veryHigh) return "Very High";
-            else if (value >= ranges.high[0]) return "High";
-            else if (value >= ranges.moderate[0]) return "Moderate";
-            else if (value >= ranges.low[0]) return "Low";
-            else return "Very Low";
-        }
-
-
-
-
+        
         return item.rating || "N/A";
+      },
     },
-  },
-}
+  }
 </script>
 
 <style scoped>
