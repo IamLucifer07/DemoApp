@@ -1566,7 +1566,205 @@ export default {
             loss_making: 0.0
         }
     },
-    //Operating Cash Flow Ratio
+    //Quick Ratio Ranges
+      quickRatioRanges : {
+        "Commercial Banks": {
+            excellent: 1.1,
+            strong: [0.9, 1.1],
+            adequate: [0.7, 0.9],
+            caution: [0.5, 0.7],
+            weak: [0.3, 0.5],
+            critical: 0.3
+        },
+        "Development Banks": {
+            excellent: 1.3,
+            strong: [1.1, 1.3],
+            adequate: [0.9, 1.1],
+            caution: [0.7, 0.9],
+            weak: [0.5, 0.7],
+            critical: 0.5
+        },
+        "Finance": {
+            excellent: 1.3,
+            strong: [1.1, 1.3],
+            adequate: [0.9, 1.1],
+            caution: [0.7, 0.9],
+            weak: [0.5, 0.7],
+            critical: 0.5
+        },
+        "Hydro Power": {
+            excellent: 1.2,
+            strong: [1.0, 1.2],
+            adequate: [0.8, 1.0],
+            caution: [0.6, 0.8],
+            weak: [0.4, 0.6],
+            critical: 0.4
+        },
+        "Non Life Insurance": {
+            excellent: 1.8,
+            strong: [1.5, 1.8],
+            adequate: [1.2, 1.5],
+            caution: [1.0, 1.2],
+            weak: [0.8, 1.0],
+            critical: 0.8
+        },
+        "Life Insurance": {
+            excellent: 1.5,
+            strong: [1.2, 1.5],
+            adequate: [1.0, 1.2],
+            caution: [0.8, 1.0],
+            weak: [0.6, 0.8],
+            critical: 0.6
+        },
+        "Manufacturing And Processing": {
+            excellent: 1.5,
+            strong: [1.2, 1.5],
+            adequate: [1.0, 1.2],
+            caution: [0.8, 1.0],
+            weak: [0.6, 0.8],
+            critical: 0.6
+        },
+        "Tradings": {
+            excellent: 1.4,
+            strong: [1.1, 1.4],
+            adequate: [0.9, 1.1],
+            caution: [0.7, 0.9],
+            weak: [0.5, 0.7],
+            critical: 0.5
+        },
+        "Hotels And Tourism": {
+            excellent: 1.3,
+            strong: [1.0, 1.3],
+            adequate: [0.8, 1.0],
+            caution: [0.6, 0.8],
+            weak: [0.4, 0.6],
+            critical: 0.4
+        },
+        "Microfinance": {
+            excellent: 1.0,
+            strong: [0.8, 1.0],
+            adequate: [0.6, 0.8],
+            caution: [0.4, 0.6],
+            weak: [0.2, 0.4],
+            critical: 0.2
+        },
+        "Investment": {
+            excellent: 2.5,
+            strong: [2.0, 2.5],
+            adequate: [1.5, 2.0],
+            caution: [1.0, 1.5],
+            weak: [0.5, 1.0],
+            critical: 0.5
+        },
+        "Others": {
+            excellent: 1.5,
+            strong: [1.2, 1.5],
+            adequate: [1.0, 1.2],
+            caution: [0.8, 1.0],
+            weak: [0.6, 0.8],
+            critical: 0.6
+        }
+    },
+    //Cash Ratio Ranges
+      cashRatioRanges : {
+        "Commercial Banks": {
+            best: 0.5,
+            better: [0.3, 0.5],
+            good: [0.2, 0.3],
+            neutral: [0.1, 0.2],
+            weak: [0.05, 0.1],
+            worst: 0.05
+        },
+        "Development Banks": {
+            best: 0.7,
+            better: [0.5, 0.7],
+            good: [0.3, 0.5],
+            neutral: [0.2, 0.3],
+            weak: [0.1, 0.2],
+            worst: 0.1
+        },
+        "Finance": {
+            best: 0.7,
+            better: [0.5, 0.7],
+            good: [0.3, 0.5],
+            neutral: [0.2, 0.3],
+            weak: [0.1, 0.2],
+            worst: 0.1
+        },
+        "Hydro Power": {
+            best: 0.8,
+            better: [0.6, 0.8],
+            good: [0.4, 0.6],
+            neutral: [0.2, 0.4],
+            weak: [0.1, 0.2],
+            worst: 0.1
+        },
+        "Non Life Insurance": {
+            best: 1.2,
+            better: [0.9, 1.2],
+            good: [0.6, 0.9],
+            neutral: [0.4, 0.6],
+            weak: [0.2, 0.4],
+            worst: 0.2
+        },
+        "Life Insurance": {
+            best: 0.9,
+            better: [0.7, 0.9],
+            good: [0.5, 0.7],
+            neutral: [0.3, 0.5],
+            weak: [0.1, 0.3],
+            worst: 0.1
+        },
+        "Manufacturing And Processing": {
+            best: 0.6,
+            better: [0.4, 0.6],
+            good: [0.3, 0.4],
+            neutral: [0.2, 0.3],
+            weak: [0.1, 0.2],
+            worst: 0.1
+        },
+        "Tradings": {
+            best: 0.5,
+            better: [0.3, 0.5],
+            good: [0.2, 0.3],
+            neutral: [0.1, 0.2],
+            weak: [0.05, 0.1],
+            worst: 0.05
+        },
+        "Hotels And Tourism": {
+            best: 0.7,
+            better: [0.5, 0.7],
+            good: [0.3, 0.5],
+            neutral: [0.2, 0.3],
+            weak: [0.1, 0.2],
+            worst: 0.1
+        },
+        "Microfinance": {
+            best: 0.4,
+            better: [0.3, 0.4],
+            good: [0.2, 0.3],
+            neutral: [0.1, 0.2],
+            weak: [0.05, 0.1],
+            worst: 0.05
+        },
+        "Investment": {
+            best: 1.5,
+            better: [1.0, 1.5],
+            good: [0.7, 1.0],
+            neutral: [0.5, 0.7],
+            weak: [0.3, 0.5],
+            worst: 0.3
+        },
+        "Others": {
+            best: 0.6,
+            better: [0.4, 0.6],
+            good: [0.3, 0.4],
+            neutral: [0.2, 0.3],
+            weak: [0.1, 0.2],
+            worst: 0.1
+        }
+    },
+    //Operating Cash Flow Ratio Ranges
       operatingCashFlowRanges : {
         "Commercial Banks": {
             best: 1.8,
@@ -4846,6 +5044,7 @@ export default {
                 case 'stable':
                 case 'moderate to weak':
                 case 'moderate':
+                case 'adequate':
                 case 'Moderate growth':
                 case 'Moderately liquid':
                 case 'slow growth':
@@ -5026,6 +5225,32 @@ export default {
             else if (value >= ranges.stable[0]) return "Slow Growth";
             else if (value >= ranges.declining[0]) return "Declining";
             else return "Loss Making";
+        }
+        if (item.name === "Quick Ratio") {
+
+            const ranges = this.RatingRanges.quickRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.excellent) return "Excellent";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.adequate[0]) return "Adequate";
+            else if (value >= ranges.caution[0]) return "Caution";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Critical";
+        }
+        if (item.name === "Cash Ratio") {
+
+            const ranges = this.RatingRanges.cashRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.best) return "Best";
+            else if (value >= ranges.better[0]) return "Better";
+            else if (value >= ranges.good[0]) return "Good";
+            else if (value >= ranges.neutral[0]) return "Neutral";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Worst";
         }
         if (item.name === "Operating Cash Flow Ratio") {
 
