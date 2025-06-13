@@ -48,7 +48,13 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
+                        <!-- <span
+                          :class="getRatingPillClass(processedItem.rating)"
+                          class="cursor-pointer"
+                          :title="processedItem.tooltip">{{ processedItem.rating }}
+                        </span> -->
                   </td>
                 </tr>
               </tbody>
@@ -76,7 +82,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                       <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -104,8 +111,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
-
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -133,7 +140,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -160,7 +168,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -187,7 +196,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -215,7 +225,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                      <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                      <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -242,7 +253,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -269,7 +281,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -296,7 +309,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -323,7 +337,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -350,7 +365,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -378,7 +394,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -405,7 +422,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -432,7 +450,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -459,7 +478,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -486,7 +506,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -513,7 +534,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -540,7 +562,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -567,7 +590,8 @@
                   <td>{{ item.name }}</td>
                   <td class="text-right">{{ item.value }}</td>
                   <td class="text-right">
-                        <span :class="getRatingPillClass(getRating(item))">{{ getRating(item) }}</span>
+                        <span :class="getRatingPillClass(getRating(item))" class="cursor-pointer" 
+                        :title="getRatingHoverText(item,getRating(item))">{{ getRating(item) }}</span>
                   </td>
                 </tr>
               </tbody>
@@ -592,7 +616,7 @@ export default {
   props: {
     companyId: {
       type: [String, Number],
-      default: 135,
+      default: 131,
     },
   },
   data() {
@@ -621,6 +645,7 @@ export default {
       earningsQualityIndicators: [],
       balanceSheetHealthIndicators: [],
       trendAnalysisMetrics: [],
+      items:[],
       categorySummaries: {
         profitabilityIndicators: 'Generated By AI',
         valuationRatios: 'Generated By AI',
@@ -901,6 +926,222 @@ export default {
             below_average: [30, 35],
             poor: [25, 30],
             critical: 25
+        }
+    },
+      operatingMarginRanges : {
+        "Commercial Banks": {
+            excellent: 45,
+            strong: [35, 45],
+            average: [25, 35],
+            weak: [15, 25],
+            critical: 15
+        },
+        "Development Banks": {
+            excellent: 40,
+            strong: [30, 40],
+            average: [20, 30],
+            weak: [10, 20],
+            critical: 10
+        },
+        "Finance": {
+            excellent: 50,
+            strong: [40, 50],
+            average: [30, 40],
+            weak: [20, 30],
+            critical: 20
+        },
+        "Life Insurance": {
+            excellent: 35,
+            strong: [25, 35],
+            average: [15, 25],
+            weak: [8, 15],
+            critical: 8
+        },
+        "Non Life Insurance": {
+            excellent: 25,
+            strong: [18, 25],
+            average: [10, 18],
+            weak: [5, 10],
+            critical: 5
+        },
+        "Hydro Power": {
+            excellent: 60,
+            strong: [50, 60],
+            average: [40, 50],
+            weak: [30, 40],
+            critical: 30
+        },
+        "Microfinance": {
+            excellent: 30,
+            strong: [22, 30],
+            average: [15, 22],
+            weak: [8, 15],
+            critical: 8
+        },
+        "Manufacturing And Processing": {
+            excellent: 28,
+            strong: [20, 28],
+            average: [12, 20],
+            weak: [5, 12],
+            critical: 5
+        },
+        "Tradings": {
+            excellent: 20,
+            strong: [15, 20],
+            average: [8, 15],
+            weak: [3, 8],
+            critical: 3
+        },
+        "Hotels And Tourism": {
+            excellent: 25,
+            strong: [18, 25],
+            average: [10, 18],
+            weak: [5, 10],
+            critical: 5
+        }
+    },
+      roaRanges : {
+        "Commercial Banks": {
+            excellent: 2.0,
+            strong: [1.5, 2.0],
+            average: [1.0, 1.5],
+            weak: [0.5, 1.0],
+            poor: 0.5
+        },
+        "Development Banks": {
+            excellent: 1.8,
+            strong: [1.3, 1.8],
+            average: [0.8, 1.3],
+            weak: [0.3, 0.8],
+            poor: 0.3
+        },
+        "Finance": {
+            excellent: 2.5,
+            strong: [2.0, 2.5],
+            average: [1.5, 2.0],
+            weak: [1.0, 1.5],
+            poor: 1.0
+        },
+        "Life Insurance": {
+            excellent: 3.0,
+            strong: [2.0, 3.0],
+            average: [1.2, 2.0],
+            weak: [0.5, 1.2],
+            poor: 0.5
+        },
+        "Non Life Insurance": {
+            excellent: 2.2,
+            strong: [1.5, 2.2],
+            average: [0.8, 1.5],
+            weak: [0.3, 0.8],
+            poor: 0.3
+        },
+        "Hydro Power": {
+            excellent: 4.0,
+            strong: [3.0, 4.0],
+            average: [2.0, 3.0],
+            weak: [1.0, 2.0],
+            poor: 1.0
+        },
+        "Microfinance": {
+            excellent: 3.5,
+            strong: [2.5, 3.5],
+            average: [1.5, 2.5],
+            weak: [0.8, 1.5],
+            poor: 0.8
+        },
+        "Manufacturing And Processing": {
+            excellent: 5.0,
+            strong: [3.5, 5.0],
+            average: [2.0, 3.5],
+            weak: [1.0, 2.0],
+            poor: 1.0
+        },
+        "Tradings": {
+            excellent: 4.5,
+            strong: [3.0, 4.5],
+            average: [1.5, 3.0],
+            weak: [0.5, 1.5],
+            poor: 0.5
+        },
+        "Hotels And Tourism": {
+            excellent: 3.0,
+            strong: [2.0, 3.0],
+            average: [1.0, 2.0],
+            weak: [0.3, 1.0],
+            poor: 0.3
+        }
+    },
+      roeRanges : {
+        "Commercial Banks": {
+            exceptional: 20,
+            strong: [15, 20],
+            moderate: [10, 15],
+            weak: [5, 10],
+            poor: 5
+        },
+        "Development Banks": {
+            exceptional: 18,
+            strong: [13, 18],
+            moderate: [8, 13],
+            weak: [4, 8],
+            poor: 4
+        },
+        "Finance": {
+            exceptional: 25,
+            strong: [20, 25],
+            moderate: [15, 20],
+            weak: [10, 15],
+            poor: 10
+        },
+        "Life Insurance": {
+            exceptional: 22,
+            strong: [17, 22],
+            moderate: [12, 17],
+            weak: [7, 12],
+            poor: 7
+        },
+        "Non Life Insurance": {
+            exceptional: 18,
+            strong: [14, 18],
+            moderate: [9, 14],
+            weak: [5, 9],
+            poor: 5
+        },
+        "Hydro Power": {
+            exceptional: 30,
+            strong: [25, 30],
+            moderate: [20, 25],
+            weak: [15, 20],
+            poor: 15
+        },
+        "Microfinance": {
+            exceptional: 28,
+            strong: [22, 28],
+            moderate: [16, 22],
+            weak: [10, 16],
+            poor: 10
+        },
+        "Manufacturing And Processing": {
+            exceptional: 35,
+            strong: [28, 35],
+            moderate: [20, 28],
+            weak: [12, 20],
+            poor: 12
+        },
+        "Tradings": {
+            exceptional: 40,
+            strong: [32, 40],
+            moderate: [24, 32],
+            weak: [15, 24],
+            poor: 15
+        },
+        "Hotels And Tourism": {
+            exceptional: 25,
+            strong: [20, 25],
+            moderate: [15, 20],
+            weak: [8, 15],
+            poor: 8
         }
     },
 
@@ -4465,7 +4706,7 @@ export default {
     },
   }
 }
-   },
+},
   async created() {
     await this.fetchMetrics();
   },
@@ -5135,6 +5376,40 @@ export default {
             else if (value >= ranges.poor[0]) return "Poor";
             else return "Critical";
         }
+        if(item.name === "Operating Margin") {
+            const ranges = this.RatingRanges.operatingMarginRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.excellent) return "Excellent";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.average[0]) return "Average";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Critical";
+        }
+        if(item.name === "ROA") {
+            const ranges = this.RatingRanges.roaRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.excellent) return "Excellent";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.average[0]) return "Average";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Poor";
+        }
+        if(item.name === "ROE") {
+            const ranges = this.RatingRanges.roeRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.exceptional) return "Exceptional";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Poor";
+        }
+
         //Valuation Ratios 
         if(item.name === "P/E") {
             const ranges = this.RatingRanges.peRatingRanges[sector];
@@ -5172,7 +5447,7 @@ export default {
             else if (value >= ranges.fairlyvalued[0]) return "Fairly Valued";
             else return "Under Valued";
         }
-
+ 
         //Growth Indicators
         if(item.name === "Revenue Growth") {
             const ranges = this.RatingRanges.revenueGrowthRatingRanges[sector];
@@ -5674,6 +5949,120 @@ export default {
         
         return item.rating || "N/A";
       },
+
+      getRatingHoverText(item, rating) {
+        const defaultHoverTexts = '';
+
+        if (item.name === "EPS") {
+          const hoverTexts = {
+            'Best': 'असाधारण नाफा। उद्योगका अग्रणीहरू, बलियो प्रतिस्पर्धात्मक फाइदासहित।',
+            'Better': 'औसतभन्दा माथिको नाफा। राम्रो व्यवस्थापन भएका कम्पनीहरू, वृद्धि सम्भावना भएका।',
+            'Good': 'ठीकठाक नाफा। स्थिर तर विशेष रूपमा उत्कृष्ट होइनन्।',
+            'Average': 'न्यून नाफा। सुधारको लागि निगरानी आवश्यक।',
+            'Weak': 'चिन्ताजनक नाफा। सञ्चालनमा चुनौतीहरू देखिन सक्छ।',
+            'Worst': 'खतराको स्तर। प्रायः घाटामा वा नाफा नजिक शून्य हुन्छन्।'
+          };
+          return hoverTexts[rating];
+        }
+        if (item.name === "Net Profit Margin") {
+          const hoverTexts = {
+            "Best" : 'असाधारण नाफा। उत्कृष्ट लागत नियन्त्रण र मूल्य निर्धारण क्षमतासहितका उद्योग अगुवा कम्पनीहरू।',
+            "Better" : 'उच्च नाफा। प्रतिस्पर्धात्मक लाभसहित राम्रोसँग व्यवस्थापन गरिएका कम्पनीहरू।',
+            "Good" : 'प्रतिस्पर्धात्मक नाफा। उद्योगको मापदण्ड अनुसार छ, तर विशेष उत्कृष्ट भने होइन।',
+            "Neutral" : 'सीमित नाफा। प्रतिस्पर्धा गर्न सञ्चालन सुधार आवश्यक छ।',
+            "Weak" : 'चिन्ताजनक नाफा। मूल्य निर्धारणको दबाब वा अक्षमता देखाउन सक्छ।',
+            "Worst" : 'खतरापूर्ण नाफा। प्रायः घाटामा जान सक्ने वा मुस्किलले सन्तुलनमा रहने कम्पनीहरू।'
+          };
+          return hoverTexts[rating];
+        }
+        if (item.name === "Gross Profit Margin") {
+          const hoverTexts = {
+            "Best" : 'असाधारण नाफा। उत्कृष्ट लागत नियन्त्रण र मूल्य निर्धारण क्षमतासहितका उद्योग अगुवा कम्पनीहरू।',
+            "Better" : 'उच्च नाफा। प्रतिस्पर्धात्मक लाभसहित राम्रोसँग व्यवस्थापन गरिएका कम्पनीहरू।',
+            "Good" : 'प्रतिस्पर्धात्मक नाफा। उद्योगको मापदण्ड अनुसार छ, तर विशेष उत्कृष्ट भने होइन।',
+            "Average" : 'सीमित नाफा। प्रतिस्पर्धा गर्न सञ्चालन सुधार आवश्यक छ।',
+            "Weak" : 'चिन्ताजनक नाफा। मूल्य निर्धारणको दबाब वा अक्षमता देखाउन सक्छ।',
+            "Worst" : 'खतरापूर्ण नाफा। प्रायः घाटामा जान सक्ने वा मुस्किलले सन्तुलनमा रहने कम्पनीहरू।'
+          };
+          return hoverTexts[rating];
+        }
+        //Operating Margin -----> N/A
+        //ROA -----> N/A
+        //ROE -----> N/A
+
+        if (item.name === "P/E") {
+          const hoverTexts = {
+            "Under Valued" : 'ऐतिहासिक र मौलिक मूल्याङ्कन दायराभन्दा कम मूल्यमा कारोबार भइरहेको।',
+            "Fairly Valued" : "आम्दानी र वृद्धिसँग तुलनात्मक रूपमा उचित मूल्यमा कारोबार भइरहेको।",
+            "Over Valued" : "वास्तविक मूल्यभन्दा बढी मूल्यमा कारोबार भइरहेको।"
+          };
+          return hoverTexts[rating];
+        }
+        if(item.name==="P/B"){
+          const hoverTexts={
+            "Under Valued" : "नेट सम्पत्ति मूल्य (प्रति सेयर सम्पत्ति मूल्य) भन्दा कम मूल्यमा कारोबार भइरहेको, जसले लुकेका सम्पत्ति वा अत्यधिक बिक्रीको संकेत दिन सक्छ।",
+            "Fairly Valued" : "पुस्तक मूल्यभन्दा केही प्रिमियममा कारोबार भइरहेको, मूल्यहरूले वास्तविक (आन्तरिक) मूल्य झल्काउँछन्।",
+            "Over Valued" : "नेट सम्पत्तिको तुलनामा अत्यधिक प्रिमियममा कारोबार भइरहेको।"
+          };
+          return hoverTexts[rating];
+        }
+        if(item.name==="P/S"){
+          const hoverTexts={
+            "Under Valued" : "राजस्वको तुलनामा कम गुणकमा कारोबार भइरहेको, जसले सम्भावित कम मूल्याङ्कनको संकेत दिन्छ।",
+            "Fairly Valued" : "ऐतिहासिक औसत र भविष्यको वृद्धिसँग तुलना गर्दा उचित मूल्य/राजस्व (P/S) अनुपातमा कारोबार भइरहेको।",
+            "Over Valued" : "राजस्वको तुलनामा प्रिमियममा कारोबार भइरहेको, जुन आधारभूत पक्षले न्यायोचित नहुन सक्छ।"
+          };
+          return hoverTexts[rating];
+        }
+        if(item.name==="EV/EBITDA"){
+          const hoverTexts={
+            "Under Valued" : "सञ्चालन आम्दानी को तुलनामा कम गुणकमा कारोबार भइरहेको, जसले नगद प्रवाहको आधारमा कम मूल्याङ्कन भएको संकेत दिन सक्छ।",
+            "Fairly Valued" : "प्रतिस्पर्धीहरू र वृद्धिको सम्भावनाको तुलनामा उचित EV/EBITDA अनुपातमा कारोबार भइरहेको।",
+            "Over Valued" : "सञ्चालन आम्दानीको तुलनामा प्रिमियममा कारोबार भइरहेको, जुन आधारभूत पक्षहरूले न्यायोचित नहुन सक्छ।"
+          };
+          return hoverTexts[rating];
+        }
+
+        if(item.name==="Revenue Growth"){
+          const hoverTexts={
+            "High Growth" : "उद्योगको औसतभन्दा तीव्र विस्तार, जसले बजार हिस्सा वृद्धि वा नयाँ व्यापार लाइनहरूको संकेत दिन्छ।",
+            "Moderate Growth" : "दीर्घकालीन लगानीकर्ताहरूका लागि उपयुक्त, स्थिर र दिगो वृद्धि।",
+            "Low Stable Growth" : "न्यूनतम विस्तार वा बजारको परिपूर्तिको संकेत, नाफा कायम राख्न लागत नियन्त्रण आवश्यक पर्न सक्छ।",
+            "Declining Revenue" : "व्यवसायमा संकुचन, जुन गम्भीर संकेत हो र तुरुन्तै जाँच आवश्यक हुन्छ।"
+          };
+          return hoverTexts[rating];
+        }
+        if(item.name==="EPS Growth"){
+          const hoverTexts={
+            "High Growth" : "असाधारण आम्दानी वृद्धि (सामान्यतया नयाँ व्यापार लाइनहरू, बजारमा प्रभुत्व, वा एकपटकको फाइदाबाट)। यो प्रायः उद्योगको उछाल वा कम्पनी-विशेष प्रगति हुँदा देखिन्छ।",
+            "Steady Growth" : "स्थायी र निरन्तर आम्दानी वृद्धि। यसले स्वस्थ सञ्चालन र बजारको माग दर्शाउँछ। दीर्घकालीन लगानीकर्ताहरूका लागि उपयुक्त।",
+            "Stable" : "सीमित आम्दानी वृद्धि। यसले परिपक्वता वा सीमित वृद्धिको सम्भावना देखाउँछ। प्रायः परिपूर्ण बजारमा देखिन्छ।",
+            "Declining" : "आम्दानीमा गिरावट। प्रतिस्पर्धात्मक चुनौती, कुशासन, वा उद्योगगत समस्याहरूको संकेत हो।",
+            "Loss Making" : "लगातार नकारात्मक प्रति सेयर आम्दानी (EPS)। प्रायः अस्थायी समस्याभन्दा पर रहेका संरचनात्मक समस्याहरू देखाउँछ।"
+          };
+          return hoverTexts[rating];
+        }
+        //Dividend Growth Rate -----> N/A
+        if(item.name==="Operating Income Growth"){
+          const hoverTexts={
+            "Strong Growth" : "असाधारण मुख्य नाफाको विस्तार, प्रायः सञ्चालन दक्षता वा बजारमा प्रभुत्वका कारण।",
+            "Healthy Growth" : "व्यवसाय सञ्चालनमा दिगो सुधार। दीर्घकालीन लगानीकर्ताहरूका लागि उपयुक्त।",
+            "Moderate Growth" : "सामान्य सञ्चालन सुधार। बजार परिपूर्तिको संकेत हुन सक्छ।",
+            "Stagnant" : "शून्य वा न्यूनतम वृद्धि। पुन: आविष्कारको आवश्यकता संकेत गर्दछ।",
+            "Declining" : "मुख्य नाफा घट्दै गएको। तुरुन्त ध्यान दिनुपर्ने अवस्था।"
+          };
+          return hoverTexts[rating];
+        }
+
+        
+
+
+
+
+
+       
+        return defaultHoverTexts[rating] || '';
+      },
     },
   }
 </script>
@@ -5773,7 +6162,7 @@ export default {
   transition: opacity 0.3s, visibility 0.3s;
   z-index: 10;
   width: max-content;
-  max-width: 250px;
+  max-width: auto;
 }
 
 .info-icon:hover[data-tooltip]::before {
