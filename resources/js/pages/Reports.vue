@@ -2310,6 +2310,152 @@ export default {
             worst: 0.75
         }
     },
+    //Interest Coverage Ranges
+      interestCoverageRanges : {
+        "Commercial Banks": {
+            excellent: 4.0,
+            strong: [3.0, 4.0],
+            moderate: [2.0, 3.0],
+            weak: [1.5, 2.0],
+            critical: 1.5
+        },
+        "Development Banks": {
+            excellent: 3.5,
+            strong: [2.5, 3.5],
+            moderate: [1.8, 2.5],
+            weak: [1.2, 1.8],
+            critical: 1.2
+        },
+        "Finance": {
+            excellent: 5.0,
+            strong: [4.0, 5.0],
+            moderate: [3.0, 4.0],
+            weak: [2.0, 3.0],
+            critical: 2.0
+        },
+        "Life Insurance": {
+            excellent: 6.0,
+            strong: [4.5, 6.0],
+            moderate: [3.0, 4.5],
+            weak: [1.8, 3.0],
+            critical: 1.8
+        },
+        "Non Life Insurance": {
+            excellent: 5.0,
+            strong: [3.5, 5.0],
+            moderate: [2.2, 3.5],
+            weak: [1.5, 2.2],
+            critical: 1.5
+        },
+        "Hydro Power": {
+            excellent: 3.0,
+            strong: [2.2, 3.0],
+            moderate: [1.5, 2.2],
+            weak: [1.0, 1.5],
+            critical: 1.0
+        },
+        "Microfinance": {
+            excellent: 4.5,
+            strong: [3.5, 4.5],
+            moderate: [2.5, 3.5],
+            weak: [1.8, 2.5],
+            critical: 1.8
+        },
+        "Manufacturing And Processing": {
+            excellent: 4.0,
+            strong: [3.0, 4.0],
+            moderate: [2.0, 3.0],
+            weak: [1.3, 2.0],
+            critical: 1.3
+        },
+        "Tradings": {
+            excellent: 3.5,
+            strong: [2.8, 3.5],
+            moderate: [2.0, 2.8],
+            weak: [1.5, 2.0],
+            critical: 1.5
+        },
+        "Hotels And Tourism": {
+            excellent: 2.5,
+            strong: [2.0, 2.5],
+            moderate: [1.3, 2.0],
+            weak: [1.0, 1.3],
+            critical: 1.0
+        }
+    },
+    //Financial Leverage Ranges
+      financialLeverageRanges : {
+        "Commercial Banks": {
+            conservative: 8,
+            moderate: [8, 10],
+            aggressive: [10, 12],
+            high_risk: [12, 15],
+            dangerous: 15
+        },
+        "Development Banks": {
+            conservative: 7,
+            moderate: [7, 9],
+            aggressive: [9, 11],
+            high_risk: [11, 14],
+            dangerous: 14
+        },
+        "Finance": {
+            conservative: 6,
+            moderate: [6, 8],
+            aggressive: [8, 10],
+            high_risk: [10, 13],
+            dangerous: 13
+        },
+        "Life Insurance": {
+            conservative: 5,
+            moderate: [5, 7],
+            aggressive: [7, 9],
+            high_risk: [9, 12],
+            dangerous: 12
+        },
+        "Non Life Insurance": {
+            conservative: 4,
+            moderate: [4, 6],
+            aggressive: [6, 8],
+            high_risk: [8, 10],
+            dangerous: 10
+        },
+        "Hydro Power": {
+            conservative: 3,
+            moderate: [3, 5],
+            aggressive: [5, 7],
+            high_risk: [7, 9],
+            dangerous: 9
+        },
+        "Microfinance": {
+            conservative: 5,
+            moderate: [5, 7],
+            aggressive: [7, 9],
+            high_risk: [9, 12],
+            dangerous: 12
+        },
+        "Manufacturing And Processing": {
+            conservative: 2.5,
+            moderate: [2.5, 3.5],
+            aggressive: [3.5, 5],
+            high_risk: [5, 7],
+            dangerous: 7
+        },
+        "Tradings": {
+            conservative: 3,
+            moderate: [3, 5],
+            aggressive: [5, 7],
+            high_risk: [7, 10],
+            dangerous: 10
+        },
+        "Hotels And Tourism": {
+            conservative: 4,
+            moderate: [4, 6],
+            aggressive: [6, 8],
+            high_risk: [8, 11],
+            dangerous: 11
+        }
+    },
 
     //Asset Utilization Indicators
     //Ficed Asset Turnover Ratio Ranges
@@ -5291,6 +5437,7 @@ export default {
                 case 'moderate to weak':
                 case 'moderate':
                 case 'adequate':
+                case 'aggressive':
                 case 'Moderate growth':
                 case 'Moderately liquid':
                 case 'slow growth':
@@ -5573,6 +5720,32 @@ export default {
             else if (value >= ranges.weak[0]) return "Weak";
             else return "Worst";
         }
+        if (item.name === "Interest Coverage") {
+
+            const ranges = this.RatingRanges.interestCoverageRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.excellent) return "Excellent";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Critical";
+        }
+        if (item.name === "Financial Leverage") {
+
+            const ranges = this.RatingRanges.financialLeverageRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value <= ranges.conservative) return "Conservative";
+            else if (value <= ranges.moderate[0]) return "Moderate";
+            else if (value <= ranges.aggressive[0]) return "Aggressive";
+            else if (value <= ranges.high_risk[0]) return "High Risk";
+            else if (value <= ranges.dangerous[0]) return "Dangerous";
+            else return "Worst";
+        }
+
 
         //Asset Utilization Metrics
         if(item.name === "Fixed Asset Turnover") {
