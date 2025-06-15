@@ -2457,6 +2457,300 @@ export default {
         }
     },
 
+    //Dividend Indicators
+    //Dividend Yield Ranges
+      dividendYieldRanges : {
+        "Commercial Banks": {
+            high_yield: 6,
+            attractive: [4.5, 6],
+            moderate: [3, 4.5],
+            low: [1.5, 3],
+            negligible: 1.5
+        },
+        "Development Banks": {
+            high_yield: 5.5,
+            attractive: [4, 5.5],
+            moderate: [2.8, 4],
+            low: [1.2, 2.8],
+            negligible: 1.2
+        },
+        "Finance": {
+            high_yield: 7,
+            attractive: [5, 7],
+            moderate: [3.5, 5],
+            low: [2, 3.5],
+            negligible: 2
+        },
+        "Life Insurance": {
+            high_yield: 4,
+            attractive: [3, 4],
+            moderate: [2, 3],
+            low: [1, 2],
+            negligible: 1
+        },
+        "Non Life Insurance": {
+            high_yield: 5,
+            attractive: [3.5, 5],
+            moderate: [2.2, 3.5],
+            low: [1, 2.2],
+            negligible: 1
+        },
+        "Hydro Power": {
+            high_yield: 8,
+            attractive: [6, 8],
+            moderate: [4, 6],
+            low: [2, 4],
+            negligible: 2
+        },
+        "Microfinance": {
+            high_yield: 5,
+            attractive: [3.8, 5],
+            moderate: [2.5, 3.8],
+            low: [1.2, 2.5],
+            negligible: 1.2
+        },
+        "Manufacturing And Processing": {
+            high_yield: 6.5,
+            attractive: [5, 6.5],
+            moderate: [3.5, 5],
+            low: [2, 3.5],
+            negligible: 2
+        },
+        "Tradings": {
+            high_yield: 9,
+            attractive: [7, 9],
+            moderate: [5, 7],
+            low: [3, 5],
+            negligible: 3
+        },
+        "Hotels And Tourism": {
+            high_yield: 4.5,
+            attractive: [3.2, 4.5],
+            moderate: [2, 3.2],
+            low: [1, 2],
+            negligible: 1
+        }
+    },
+    //Dividend Payout Ratio Ranges
+      dividendPayoutRanges : {
+        "Commercial Banks": {
+            sustainable: 40,
+            moderate: [40, 55],
+            high: [55, 70],
+            excessive: [70, 85],
+            unsustainable: 85
+        },
+        "Development Banks": {
+            sustainable: 35,
+            moderate: [35, 50],
+            high: [50, 65],
+            excessive: [65, 80],
+            unsustainable: 80
+        },
+        "Finance": {
+            sustainable: 45,
+            moderate: [45, 60],
+            high: [60, 75],
+            excessive: [75, 90],
+            unsustainable: 90
+        },
+        "Life Insurance": {
+            sustainable: 50,
+            moderate: [50, 65],
+            high: [65, 80],
+            excessive: [80, 95],
+            unsustainable: 95
+        },
+        "Non Life Insurance": {
+            sustainable: 40,
+            moderate: [40, 55],
+            high: [55, 70],
+            excessive: [70, 85],
+            unsustainable: 85
+        },
+        "Hydro Power": {
+            sustainable: 60,
+            moderate: [60, 75],
+            high: [75, 90],
+            excessive: [90, 110],
+            unsustainable: 110
+        },
+        "Microfinance": {
+            sustainable: 30,
+            moderate: [30, 45],
+            high: [45, 60],
+            excessive: [60, 75],
+            unsustainable: 75
+        },
+        "Manufacturing And Processing": {
+            sustainable: 50,
+            moderate: [50, 65],
+            high: [65, 80],
+            excessive: [80, 95],
+            unsustainable: 95
+        },
+        "Tradings": {
+            sustainable: 70,
+            moderate: [70, 85],
+            high: [85, 100],
+            excessive: [100, 120],
+            unsustainable: 120
+        },
+        "Hotels And Tourism": {
+            sustainable: 55,
+            moderate: [55, 70],
+            high: [70, 85],
+            excessive: [85, 100],
+            unsustainable: 100
+        }
+    },
+    //Retention Ratio Ranges
+      retentionRatioRanges : {
+        "Commercial Banks": {
+            growth_focused: 60,
+            balanced: [45, 60],
+            dividend_leaning: [30, 45],
+            low_retention: [15, 30],
+            negligible: 15
+        },
+        "Development Banks": {
+            growth_focused: 65,
+            balanced: [50, 65],
+            dividend_leaning: [35, 50],
+            low_retention: [20, 35],
+            negligible: 20
+        },
+        "Finance": {
+            growth_focused: 55,
+            balanced: [40, 55],
+            dividend_leaning: [25, 40],
+            low_retention: [10, 25],
+            negligible: 10
+        },
+        "Life Insurance": {
+            growth_focused: 50,
+            balanced: [35, 50],
+            dividend_leaning: [20, 35],
+            low_retention: [5, 20],
+            negligible: 5
+        },
+        "Non Life Insurance": {
+            growth_focused: 60,
+            balanced: [45, 60],
+            dividend_leaning: [30, 45],
+            low_retention: [15, 30],
+            negligible: 15
+        },
+        "Hydro Power": {
+            growth_focused: 40,
+            balanced: [25, 40],
+            dividend_leaning: [10, 25],
+            low_retention: [0, 10],
+            negligible: 0
+        },
+        "Microfinance": {
+            growth_focused: 70,
+            balanced: [55, 70],
+            dividend_leaning: [40, 55],
+            low_retention: [25, 40],
+            negligible: 25
+        },
+        "Manufacturing And Processing": {
+            growth_focused: 50,
+            balanced: [35, 50],
+            dividend_leaning: [20, 35],
+            low_retention: [5, 20],
+            negligible: 5
+        },
+        "Tradings": {
+            growth_focused: 30,
+            balanced: [15, 30],
+            dividend_leaning: [0, 15],
+            low_retention: null, 
+            negligible: null
+        },
+        "Hotels And Tourism": {
+            growth_focused: 45,
+            balanced: [30, 45],
+            dividend_leaning: [15, 30],
+            low_retention: [0, 15],
+            negligible: 0
+        }
+    },
+    //Dividend Coverage Ratio Ranges
+      dividendCoverageRanges : {
+        "Commercial Banks": {
+            ultra_safe: 3.5,
+            strong: [2.5, 3.5],
+            moderate: [1.8, 2.5],
+            weak: [1.2, 1.8],
+            dangerous: 1.2
+        },
+        "Development Banks": {
+            ultra_safe: 4.0,
+            strong: [3.0, 4.0],
+            moderate: [2.2, 3.0],
+            weak: [1.5, 2.2],
+            dangerous: 1.5
+        },
+        "Finance": {
+            ultra_safe: 3.0,
+            strong: [2.2, 3.0],
+            moderate: [1.5, 2.2],
+            weak: [1.0, 1.5],
+            dangerous: 1.0
+        },
+        "Life Insurance": {
+            ultra_safe: 5.0,
+            strong: [3.5, 5.0],
+            moderate: [2.5, 3.5],
+            weak: [1.8, 2.5],
+            dangerous: 1.8
+        },
+        "Non LifeInsurance": {
+            ultra_safe: 4.0,
+            strong: [3.0, 4.0],
+            moderate: [2.0, 3.0],
+            weak: [1.3, 2.0],
+            dangerous: 1.3
+        },
+        "Hydro Power": {
+            ultra_safe: 2.5,
+            strong: [2.0, 2.5],
+            moderate: [1.5, 2.0],
+            weak: [1.1, 1.5],
+            dangerous: 1.1
+        },
+        "Microfinance": {
+            ultra_safe: 4.5,
+            strong: [3.5, 4.5],
+            moderate: [2.5, 3.5],
+            weak: [1.8, 2.5],
+            dangerous: 1.8
+        },
+        "Manufacturing And Processing": {
+            ultra_safe: 3.5,
+            strong: [2.8, 3.5],
+            moderate: [2.0, 2.8],
+            weak: [1.3, 2.0],
+            dangerous: 1.3
+        },
+        "Tradings": {
+            ultra_safe: 2.0,
+            strong: [1.6, 2.0],
+            moderate: [1.2, 1.6],
+            weak: [0.8, 1.2],
+            dangerous: 0.8
+        },
+        "Hotels And Tourism": {
+            ultra_safe: 3.0,
+            strong: [2.2, 3.0],
+            moderate: [1.5, 2.2],
+            weak: [1.0, 1.5],
+            dangerous: 1.0
+        }
+    },
+
     //Asset Utilization Indicators
     //Ficed Asset Turnover Ratio Ranges
       fixedAssetTurnoverRanges : {
@@ -5405,11 +5699,14 @@ export default {
                 case 'exceptional':
                 case 'over valued':
                 case 'high growth':
+                case 'growth focused':
+                case 'ultra safe':
                 case 'very high':
                 case 'very expensive':
                 case 'very efficient':
                 case 'highly efficient':
                 case 'Strong growth':
+                case 'sustainable':
                 case 'very strong':
                 case 'highly liquid':
                     return 'pill excellent';
@@ -5439,6 +5736,7 @@ export default {
                 case 'adequate':
                 case 'aggressive':
                 case 'Moderate growth':
+                case 'dividend leaning':
                 case 'Moderately liquid':
                 case 'slow growth':
                     return 'pill fair';
@@ -5452,6 +5750,7 @@ export default {
                 case 'weak to moderate':
                 case 'below average':
                 case 'low liquid':
+                case 'low retention':
                     return 'pill poor';
 
                 case 'worst':
@@ -5467,6 +5766,7 @@ export default {
                 case 'very low':
                 case 'very inefficient':
                 case 'negligible':
+                case 'unsustainable':
                 case 'Marginal':
                 case 'Illiquid':
                     return 'pill worst';
@@ -5744,6 +6044,56 @@ export default {
             else if (value <= ranges.high_risk[0]) return "High Risk";
             else if (value <= ranges.dangerous[0]) return "Dangerous";
             else return "Worst";
+        }
+
+        //Dividend Indicators
+        if (item.name === "Dividend Yield") {
+
+            const ranges = this.RatingRanges.dividendYieldRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.high_yield) return "High Yield";
+            else if (value >= ranges.attractive[0]) return "Attractive";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.low[0]) return "Low";
+            else return "Negligible";
+        }
+        if (item.name === "Dividend Payout") {
+
+            const ranges = this.RatingRanges.dividendPayoutRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value <= ranges.sustainable) return "Sustainable";
+            else if (value <= ranges.moderate[0]) return "Moderate";
+            else if (value <= ranges.high[0]) return "High";
+            else if (value <= ranges.excessive[0]) return "Excessive";
+            else return "Unsustainable";
+        }
+        if (item.name === "Retention Ratio") {
+
+            const ranges = this.RatingRanges.retentionRatioRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.growth_focused) return "Growth Focused";
+            else if (value >= ranges.balanced[0]) return "Balanced";
+            else if (value >= ranges.dividend_leaning[0]) return "Dividend Leaning";
+            else if (value >= ranges.low_retention[0]) return "Low Retention";
+            else return "Negligible";
+        }
+        if (item.name === "Dividend Coverage") {
+
+            const ranges = this.RatingRanges.dividendCoverageRanges[sector];
+            
+            if (!ranges || isNaN(value)) return "N/A";
+            
+            if (value >= ranges.ultra_safe) return "Ultra Safe";
+            else if (value >= ranges.strong[0]) return "Strong";
+            else if (value >= ranges.moderate[0]) return "Moderate";
+            else if (value >= ranges.weak[0]) return "Weak";
+            else return "Dangerous";
         }
 
 
