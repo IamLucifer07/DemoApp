@@ -4,6 +4,7 @@ import path from 'path';
 import tailwindcss from "@tailwindcss/vite";
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
+import Components from 'unplugin-vue-components/vite';
 
 export default defineConfig({
     plugins: [
@@ -11,6 +12,11 @@ export default defineConfig({
             input: ['resources/js/app.ts'],
             ssr: 'resources/js/ssr.ts',
             refresh: true,
+        }),
+        Components({
+            dirs: ['resources/js/Components'],
+            extensions: ['vue'],
+            dts: true, // Generate TypeScript declarations
         }),
         tailwindcss(),
         vue({

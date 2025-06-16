@@ -1,13 +1,24 @@
 import '../css/app.css';
 
+import { createApp } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import type { DefineComponent } from 'vue';
-import { createApp, h } from 'vue';
+import { DefineComponent, h } from 'vue'; 
 import { ZiggyVue } from 'ziggy-js';
 import { initializeTheme } from './composables/useAppearance';
+import EPS from '@/components/EPS.vue';
+import EBITDA from '@/components/EBITDA.vue';
+import ResultTable from '@/components/ResultTable.vue';
+import CashFlowPerShare from"@/components/CashFlowPerShare.vue";
 
-// Extend ImportMeta interface for Vite...
+
+
+
+
+
+
+
+
 declare module 'vite/client' {
     interface ImportMetaEnv {
         readonly VITE_APP_NAME: string;
@@ -24,17 +35,26 @@ const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./pages/${name}.vue`, import.meta.glob<DefineComponent>('./pages/**/*.vue')),
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob<DefineComponent>('./Pages/**/*.vue')),
     setup({ el, App, props, plugin }) {
-        createApp({ render: () => h(App, props) })
+        const app = createApp({ render: () => h(App, props) })
             .use(plugin)
-            .use(ZiggyVue)
-            .mount(el);
+            .use(ZiggyVue);
+
+        // global components
+        app.component('EPS', EPS); 
+        app.component('EBITDA', EBITDA);
+        app.component('ResultTable', ResultTable);
+        app.component('CashFlowPerShare', CashFlowPerShare);
+
+        app.mount(el);
+
+        return app; 
     },
     progress: {
         color: '#4B5563',
     },
 });
 
-// This will set light / dark mode on page load...
+
 initializeTheme();

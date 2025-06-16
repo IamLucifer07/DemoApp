@@ -17,26 +17,6 @@
       </ul>
     </div>
 
-    <!-- Legend -->
-    <!-- <div v-if="showResults && results.length > 0" class="legend-container mb-3">
-      <h6 class="legend-title">Recommendation Legend</h6>
-      <div class="legend-items">
-        <div 
-          v-for="(rec, key) in recommendations" 
-          :key="key" 
-          class="legend-item"
-        >
-          <span 
-            class="legend-badge"
-            :class="rec.class"
-          >
-            {{ key }}
-          </span>
-          <span class="legend-description">{{ rec.interpretation }}</span>
-        </div>
-      </div>
-    </div> -->
-
     <!-- Results Table -->
     <div v-if="showResults && results.length > 0" class="table-responsive">
       <table class="custom-table">
