@@ -40,7 +40,7 @@ const tabs = [
       <div class="mb-4">
         <label class="block mb-2 font-medium">Select Sector:</label>
         <select v-model="selectedSector" class="border rounded px-3 py-2">
-          <option value="">All Sectors</option>
+          <option value="all">All Sectors</option>
           <option value="Commercial Banks">Commercial Banks</option>
           <option value="Development Banks">Development Banks</option>
           <option value="Hotels And Tourism">Hotels And Tourism</option>
@@ -59,7 +59,7 @@ const tabs = [
       </div>
 
 
-      <div class="mb-2 flex gap-2 border-b pb-2">
+      <div class="mb-4 flex gap-2 border-b pb-2">
         <button
           v-for="tab in tabs"
           :key="tab.name"

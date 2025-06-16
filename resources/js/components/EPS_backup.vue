@@ -96,237 +96,6 @@ export default {
         { key: 'gross_profit', label: 'Gross Profit' },
         { key: 'recommendation', label: 'Recommendation' }
       ],
-      epsRatingRanges: {
-      "Commercial Banks": {
-        best: 40, better: [25, 40], good: [15, 25], neutral: [10, 15], weak: [5, 10], worst: 5
-      },
-      "Hydro Power": {
-        best: 30, better: [20, 30], good: [12, 20], neutral: [8, 12], weak: [4, 8], worst: 4
-      },
-      "Non Life Insurance": {
-        best: 25, better: [15, 25], good: [10, 15], neutral: [6, 10], weak: [3, 6], worst: 3
-      },
-      "Life Insurance": {
-        best: 20, better: [12, 20], good: [8, 12], neutral: [5, 8], weak: [2, 5], worst: 2
-      },
-      "Manufacturing And Processing": {
-        best: 15, better: [10, 15], good: [7, 10], neutral: [4, 7], weak: [2, 4], worst: 2
-      },
-      "Tradings": { 
-        best: 12, better: [8, 12], good: [5, 8], neutral: [3, 5], weak: [1, 3], worst: 1
-      },
-      "Hotels And Tourism": {
-        best: 10, better: [6, 10], good: [4, 6], neutral: [2, 4], weak: [1, 2], worst: 1
-      },
-      "Development Banks": {
-        best: 18, better: [12, 18], good: [8, 12], neutral: [5, 8], weak: [3, 5], worst: 3
-      },
-      "Microfinance": {
-        best: 15, better: [10, 15], good: [6, 10], neutral: [4, 6], weak: [2, 4], worst: 2
-      },
-      "Finance": {
-        best: 15, better: [10, 15], good: [6, 10], neutral: [4, 6], weak: [2, 4], worst: 2
-      },
-      "Others": {
-        best: 10, better: [7, 10], good: [5, 7], neutral: [3, 5], weak: [1, 3], worst: 1
-      }
-    },
-    roeRanges : {
-        "Commercial Banks": {
-            exceptional: 20,
-            strong: [15, 20],
-            moderate: [10, 15],
-            weak: [5, 10],
-            poor: 5
-        },
-        "Development Banks": {
-            exceptional: 18,
-            strong: [13, 18],
-            moderate: [8, 13],
-            weak: [4, 8],
-            poor: 4
-        },
-        "Finance": {
-            exceptional: 25,
-            strong: [20, 25],
-            moderate: [15, 20],
-            weak: [10, 15],
-            poor: 10
-        },
-        "Life Insurance": {
-            exceptional: 22,
-            strong: [17, 22],
-            moderate: [12, 17],
-            weak: [7, 12],
-            poor: 7
-        },
-        "Non Life Insurance": {
-            exceptional: 18,
-            strong: [14, 18],
-            moderate: [9, 14],
-            weak: [5, 9],
-            poor: 5
-        },
-        "Hydro Power": {
-            exceptional: 30,
-            strong: [25, 30],
-            moderate: [20, 25],
-            weak: [15, 20],
-            poor: 15
-        },
-        "Microfinance": {
-            exceptional: 28,
-            strong: [22, 28],
-            moderate: [16, 22],
-            weak: [10, 16],
-            poor: 10
-        },
-        "Manufacturing And Processing": {
-            exceptional: 35,
-            strong: [28, 35],
-            moderate: [20, 28],
-            weak: [12, 20],
-            poor: 12
-        },
-        "Tradings": {
-            exceptional: 40,
-            strong: [32, 40],
-            moderate: [24, 32],
-            weak: [15, 24],
-            poor: 15
-        },
-        "Hotels And Tourism": {
-            exceptional: 25,
-            strong: [20, 25],
-            moderate: [15, 20],
-            weak: [8, 15],
-            poor: 8
-        }
-    },
-    peRatingRanges: {
-        "Commercial Banks": {
-            overvalued: 20,
-            fairlyvalued: [12, 20],
-            undervalued: 12
-        },
-        "Development Banks": {
-            overvalued: 15,
-            fairlyvalued: [8, 12],
-            undervalued: 8
-        },
-        "Finance": {
-            overvalued: 18,
-            fairlyvalued: [10, 15],
-            undervalued: 10
-        },
-        "Hydro Power": {
-            overvalued: 30,
-            fairlyvalued: [18, 25],
-            undervalued: 18
-        },
-        "Non Life Insurance": {
-            overvalued: 22,
-            fairlyvalued: [12, 18],
-            undervalued: 12
-        },
-        "Life Insurance": {
-            overvalued: 25,
-            fairlyvalued: [15, 20],
-            undervalued: 15
-        },
-        "Microfinance": {
-            overvalued: 18,
-            fairlyvalued: [10, 15],
-            undervalued: 10
-        },
-        "Manufacturing And Processing": {
-            overvalued: 25,
-            fairlyvalued: [12, 20],
-            undervalued: 12
-        },
-        "Tradings": {
-           overvalued: 15,
-            fairlyvalued: [8, 12],
-            undervalued: 8
-        },
-        "Hotels And Tourism": {
-            overvalued: 25,
-            fairlyvalued: [15, 20],
-            undervalued: 15
-        },
-        "Investment": {
-            overvalued: 15,
-            fairlyvalued: [10, 15],
-            undervalued: 10
-        },
-        "Others": {
-            overvalued: 15,
-            fairlyvalued: [8, 12],
-            undervalued: 8
-        }
-    },
-    pbRatingRanges: {
-        "Commercial Banks": {
-            overvalued: 2.0,
-            fairlyvalued: [1.2, 2.0],
-            undervalued: 1.2
-        },
-        "Development Banks": {
-            overvalued: 1.5,
-            fairlyvalued: [0.8, 1.5],
-            undervalued: 0.8
-        },
-        "Finance": {
-            overvalued: 1.6,
-            fairlyvalued: [0.9, 1.6],
-            undervalued: 0.9
-        },
-        "Hydro Power": {
-            overvalued: 2.8,
-            fairlyvalued: [1.5, 2.8],
-            undervalued: 1.5
-        },
-        "Non Life Insurance": {
-            overvalued: 2.0,
-            fairlyvalued: [1.1, 2.0],
-            undervalued: 1.1
-        },
-        "Life Insurance": {
-            overvalued: 2.2,
-            fairlyvalued: [1.3, 2.2],
-            undervalued: 1.3
-        },
-        "Microfinance": {
-            overvalued: 1.7,
-            fairlyvalued: [1.0, 1.7],
-            undervalued: 1.0
-        },
-        "Manufacturing And Processing": {
-            overvalued: 3.0,
-            fairlyvalued: [2.0, 3.0],
-            undervalued: 2.0
-        },
-        "Tradings": {
-           overvalued: 1.5,
-            fairlyvalued: [0.7, 1.5],
-            undervalued: 0.7
-        },
-        "Hotels And Tourism": {
-            overvalued: 2.0,
-            fairlyvalued: [1.0, 2.0],
-            undervalued: 1.0
-        },
-        "Investment": {
-            overvalued: 1.8,
-            fairlyvalued: [0.8, 1.8],
-            undervalued: 0.8
-        },
-        "Others": {
-            overvalued: 1.5,
-            fairlyvalued: [0.7, 1.5],
-            undervalued: 0.7
-        }
-    },
       recommendations: {
         'Best': {
           interpretation: 'Exceptional profitability. Industry leaders with strong competitive advantages.',
@@ -384,7 +153,7 @@ export default {
         }
       } catch (error) {
         console.error('Error fetching financial metrics:', error);
-        this.errors.push('Failed to retrieve EPS data. Please try again later.');
+        this.errors.push('Failed to retrieve financial metrics. Please try again later.');
       } finally {
         this.isLoading = false;
       }
@@ -399,90 +168,47 @@ export default {
       return numericFields.includes(key);
     },
     
-     getRecommendation(row) {
-        const sector = (this.selectedSector || '').trim();
-
-        const epsValue = parseFloat(row.eps);
-        const roeValue = parseFloat(row.roe);
-        const pbValue = parseFloat(row.pb_ratio);
-        const peValue = parseFloat(row.pe_ratio);
-
-        let score = 0;
-
-        // === EPS classification ===
-        const epsRanges = this.epsRatingRanges[sector];
-        let epsRating = '';
-        if (epsRanges && !isNaN(epsValue)) {
-          if (epsValue >= epsRanges.best) epsRating = 'Best';
-          else if (epsValue >= epsRanges.better[0]) epsRating = 'Better';
-          else if (epsValue >= epsRanges.good[0]) epsRating = 'Good';
-          else if (epsValue >= epsRanges.neutral[0]) epsRating = 'Neutral';
-          else if (epsValue >= epsRanges.weak[0]) epsRating = 'Weak';
-          else epsRating = 'Worst';
-        }
-
-        // Score EPS
-        if (epsRating === 'Best') score += 3;
-        else if (epsRating === 'Better') score += 2;
-        else if (epsRating === 'Good') score += 1;
-        else if (epsRating === 'Neutral') score += 0;
-        else if (epsRating === 'Weak') score -= 1;
-        else if (epsRating === 'Worst') score -= 2;
-
-        // === ROE classification ===
-        const roeRanges = this.roeRanges[sector];
-        let roeRating = '';
-        if (roeRanges && !isNaN(roeValue)) {
-          if (roeValue >= roeRanges.exceptional) roeRating = 'Exceptional';
-          else if (roeValue >= roeRanges.strong[0]) roeRating = 'Strong';
-          else if (roeValue >= roeRanges.moderate[0]) roeRating = 'Moderate';
-          else if (roeValue >= roeRanges.weak[0]) roeRating = 'Weak';
-          else roeRating = 'Poor';
-        }
-
-        // Score ROE
-        if (roeRating === 'Exceptional') score += 3;
-        else if (roeRating === 'Strong') score += 2;
-        else if (roeRating === 'Moderate') score += 1;
-        else if (roeRating === 'Weak') score += 0;
-        else if (roeRating === 'Poor') score -= 2;
-
-        // === PB classification ===
-        const pbRanges = this.pbRatingRanges[sector];
-        let pbRating = '';
-        if (pbRanges && !isNaN(pbValue)) {
-          if (pbValue >= pbRanges.overvalued) pbRating = 'Over Valued';
-          else if (pbValue >= pbRanges.fairlyvalued[0]) pbRating = 'Fairly Valued';
-          else pbRating = 'Under Valued';
-        }
-
-        // Score PB
-        if (pbRating === 'Under Valued') score += 1;
-        else if (pbRating === 'Fairly Valued') score += 2;
-        else if (pbRating === 'Over Valued') score += 3;
-
-        // === PE classification ===
-        const peRanges = this.peRatingRanges[sector];
-        let peRating = '';
-        if (peRanges && !isNaN(peValue)) {
-          if (peValue >= peRanges.overvalued) peRating = 'Over Valued';
-          else if (peValue >= peRanges.fairlyvalued[0]) peRating = 'Fairly Valued';
-          else peRating = 'Under Valued';
-        }
-
-        // Score PE
-        if (peRating === 'Under Valued') score += 1;
-        else if (peRating === 'Fairly Valued') score += 2;
-        else if (peRating === 'Over Valued') score += 3;
-
-        // === Final Recommendation ===
-        if (score >= 9) return 'Best';
-        else if (score >= 7) return 'Better';
-        else if (score >= 5) return 'Good';
-        else if (score >= 3) return 'Neutral';
-        else if (score >= 1) return 'Weak';
-        else return 'Worst';
-      },
+    getRecommendation(row) {
+      // Logic to determine recommendation based on financial metrics
+      const eps = parseFloat(row.eps) || 0;
+      const roe = parseFloat(row.roe) || 0;
+      const pbRatio = parseFloat(row.pb_ratio) || 0;
+      const peRatio = parseFloat(row.pe_ratio) || 0;
+      
+      // Calculate a composite score
+      let score = 0;
+      
+      // EPS scoring
+      if (eps > 50) score += 3;
+      else if (eps > 25) score += 2;
+      else if (eps > 10) score += 1;
+      else if (eps < 0) score -= 2;
+      
+      // ROE scoring
+      if (roe > 20) score += 3;
+      else if (roe > 15) score += 2;
+      else if (roe > 10) score += 1;
+      else if (roe < 5) score -= 1;
+      else if (roe < 0) score -= 2;
+      
+      // P/B Ratio scoring (lower is generally better for value)
+      if (pbRatio > 0 && pbRatio < 1) score += 2;
+      else if (pbRatio >= 1 && pbRatio < 2) score += 1;
+      else if (pbRatio >= 4) score -= 1;
+      
+      // P/E Ratio scoring (moderate ratios are preferred)
+      if (peRatio > 0 && peRatio < 15) score += 1;
+      else if (peRatio >= 15 && peRatio < 25) score += 0;
+      else if (peRatio >= 25) score -= 1;
+      
+      // Determine recommendation based on total score
+      if (score >= 7) return 'Best';
+      else if (score >= 5) return 'Better';
+      else if (score >= 3) return 'Good';
+      else if (score >= 1) return 'Neutral';
+      else if (score >= -1) return 'Weak';
+      else return 'Worst';
+    },
     
     getRecommendationClass(recommendation) {
       return this.recommendations[recommendation]?.class || 'recommendation-neutral';
