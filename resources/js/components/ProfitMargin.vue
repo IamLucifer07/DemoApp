@@ -151,7 +151,7 @@ export default {
         }
       } catch (error) {
         console.error('Error fetching financial metrics:', error);
-        this.errors.push('Failed to retrieve financial metrics. Please try again later.');
+        this.errors.push('Failed to load Profit Margin data. Please try again later.');
       } finally {
         this.isLoading = false;
       }

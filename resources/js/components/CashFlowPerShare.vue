@@ -57,7 +57,7 @@
 
     <!-- No Results State -->
     <div v-else-if="showResults && results.length === 0" class="text-center py-4">
-      <p class="text-muted">No cash flow data available for the selected sector.</p>
+      <p class="text-muted">No Cash Flow/Share data available for the selected sector.</p>
     </div>
   </div>
 </template>
@@ -156,7 +156,7 @@ export default {
         }
       } catch (error) {
         console.error("Error fetching cash flow data:", error);
-        this.errors.push("Failed to load cash flow data. Please try again later.");
+        this.errors.push("Failed to load Cash Flow/Share data. Please try again later.");
       } finally {
         this.isLoading = false;
       }

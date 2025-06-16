@@ -40,7 +40,7 @@ const tabs = [
       <div class="mb-4">
         <label class="block mb-2 font-medium">Select Sector:</label>
         <select v-model="selectedSector" class="border rounded px-3 py-2">
-          <option value="all">All Sectors</option>
+          <option value="">All Sectors</option>
           <option value="Commercial Banks">Commercial Banks</option>
           <option value="Development Banks">Development Banks</option>
           <option value="Hotels And Tourism">Hotels And Tourism</option>
