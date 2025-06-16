@@ -29,5 +29,9 @@ Route::get('reports', function () {
     return Inertia::render('Reports');
 })->middleware(['auth', 'verified']);
 
+Route::get('fundamentals', function () {
+    return Inertia::render('fundamentals');
+})->middleware(['auth', 'verified']);
+
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

@@ -63,6 +63,11 @@ const mainNavItems: NavItem[] = [
         href: '/reports',
         icon: LayoutGrid,
     },
+    {
+        title: 'Fundamentals',
+        href: '/fundamentals',
+        icon: LayoutGrid,
+    },
 ];
 </script>
 
