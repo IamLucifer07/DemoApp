@@ -94,6 +94,38 @@ export default {
         { key: 'operating_income_growth', label: 'Operating Income Growth (%)' },
         { key: 'recommendation', label: 'Recommendation' }
       ],
+      operatingMarginRanges : {
+        "37": {
+            excellent: 45,strong: [35, 45],average: [25, 35],weak: [15, 25],critical: 15
+          },
+        "44": {
+            excellent: 40,strong: [30, 40],average: [20, 30],weak: [10, 20],critical: 10
+          },
+        "Finance": {
+            excellent: 50,strong: [40, 50],average: [30, 40],weak: [20, 30],critical: 20
+          },
+        "Life Insurance": {
+            excellent: 35,strong: [25, 35],average: [15, 25],weak: [8, 15],critical: 8
+          },
+        "Non Life Insurance": {
+            excellent: 25,strong: [18, 25],average: [10, 18],weak: [5, 10],critical: 5
+          },
+        "41": {
+            excellent: 60,strong: [50, 60],average: [40, 50],weak: [30, 40],critical: 30
+          },
+        "Microfinance": {
+            excellent: 30,strong: [22, 30],average: [15, 22],weak: [8, 15],critical: 8
+          },
+        "Manufacturing And Processing": {
+            excellent: 28,strong: [20, 28],average: [12, 20],weak: [5, 12],critical: 5
+          },
+        "Tradings": {
+            excellent: 20,strong: [15, 20],average: [8, 15],weak: [3, 8],critical: 3
+          },
+        "Hotels And Tourism": {
+            excellent: 25,strong: [18, 25],average: [10, 18],weak: [5, 10],critical: 5
+          } 
+    },
       recommendations: {
         'Best': {
           interpretation: 'Exceptional operating performance. Industry leaders with strong efficiency.',
@@ -140,18 +172,26 @@ export default {
       this.results = [];
       this.errors = [];
       this.showResults = true;
-      
+
       try {
-        const response = await axios.get('https://laganisutra.com/api/database-values?sector='+this.selectedSector || 'all');
-        
+        const sector = (this.selectedSector ?? '').toString().trim() || 'all';
+        const url = `https://pro.laganisutra.com/api/operating-margin?sectorId=${encodeURIComponent(sector || 'all')}`;
+
+        const response = await axios.get(url);
+
         if (Array.isArray(response.data)) {
           this.results = response.data;
         } else if (response.data && response.data.errors) {
           this.errors = response.data.errors;
+        } else {
+          this.errors.push('Unexpected response format.');
         }
       } catch (error) {
-        console.error('Error fetching financial metrics:', error);
-        this.errors.push('Failed to load Operating Margin data. Please try again later.');
+        if (error.response) {
+          this.errors.push(`API error: ${error.response.data.message || 'Unknown error.'}`);
+        } else {
+          this.errors.push('Network or CORS error. Check the console for more info.');
+        }
       } finally {
         this.isLoading = false;
       }
@@ -168,35 +208,38 @@ export default {
     },
     
     getRecommendation(row) {
-      // Logic to determine recommendation based on operating metrics
-      const operatingMargin = parseFloat(row.operating_margin) || 0;
-      const operatingGrowth = parseFloat(row.operating_income_growth) || 0;
+        const sector = String(this.selectedSector || "").trim();
+
+        const operatingMarginValue = parseFloat(row.operating_margin);
+
+        let score = 0;
+
+        // === Operating Margin classification ===
+        const omRanges = this.operatingMarginRanges[sector];
+        let operatingMarginRating = '';
+        if (omRanges && !isNaN(operatingMarginValue)) {
+          if (operatingMarginValue >= omRanges.excellent) operatingMarginRating = 'Best';
+          else if (operatingMarginValue >= omRanges.strong[0]) operatingMarginRating = 'Better';
+          else if (operatingMarginValue >= omRanges.average[0]) operatingMarginRating = 'Neutral';
+          else if (operatingMarginValue >= omRanges.weak[0]) operatingMarginRating = 'Weak';
+          else if (operatingMarginValue >= omRanges.critical[0]) operatingMarginRating = 'Worst';
+        }
+
+        // Score Operating Margin
+        if (operatingMarginRating === 'Best') score = 5;
+        else if (operatingMarginRating === 'Better') score = 4;
+        else if (operatingMarginRating === 'Neutral') score = 2;
+        else if (operatingMarginRating === 'Weak') score = 1;
+        else if (operatingMarginRating === 'Worst') score = 0;
       
-      // Calculate a composite score
-      let score = 0;
-      
-      // Operating Margin scoring
-      if (operatingMargin > 20) score += 3;
-      else if (operatingMargin > 15) score += 2;
-      else if (operatingMargin > 10) score += 1;
-      else if (operatingMargin < 5) score -= 1;
-      else if (operatingMargin < 0) score -= 2;
-      
-      // Operating Income Growth scoring
-      if (operatingGrowth > 25) score += 3;
-      else if (operatingGrowth > 15) score += 2;
-      else if (operatingGrowth > 5) score += 1;
-      else if (operatingGrowth < 0) score -= 1;
-      else if (operatingGrowth < -10) score -= 2;
-      
-      // Determine recommendation based on total score
-      if (score >= 5) return 'Best';
-      else if (score >= 3) return 'Better';
-      else if (score >= 1) return 'Good';
-      else if (score >= -1) return 'Neutral';
-      else if (score >= -3) return 'Weak';
-      else return 'Worst';
-    },
+        // Final Recommendation
+        if (score === 5) return 'Best';
+        else if (score === 4) return 'Better';
+        else if (score === 2) return 'Neutral';
+        else if (score === 1) return 'Weak';
+        else if (score === 0) return 'Worst';
+        else return 'N/A';
+      },
     
     getRecommendationClass(recommendation) {
       return this.recommendations[recommendation]?.class || 'recommendation-neutral';

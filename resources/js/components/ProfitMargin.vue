@@ -89,11 +89,93 @@ export default {
         { key: 'quarter', label: 'Quarter' },
         { key: 'revenue', label: 'Revenue' },
         { key: 'net_income', label: 'Net Income' },
-        { key: 'gross_profit', label: 'Gross Profit' },
+        { key: 'grossProfit', label: 'Gross Profit' },
         { key: 'net_profit_margin', label: 'Net Profit Margin (%)' },
         { key: 'gross_profit_margin', label: 'Gross Profit Margin (%)' },
         { key: 'recommendation', label: 'Recommendation' }
       ],
+      npmRatingRanges: {
+        "37": {
+          best: 25,
+          better: [20, 25],
+          good: [15, 20],
+          neutral: [10, 15],
+          weak: [5, 10],
+          worst: 5
+        },
+        "HydroPower": {
+          best: 40,
+          better: [30, 40],
+          good: [20, 30],
+          neutral: [15, 20],
+          weak: [10, 15],
+          worst: 10
+        },
+        "Non Life Insurance": {
+          best: 35,
+          better: [25, 35],
+          good: [20, 25],
+          neutral: [15, 20],
+          weak: [10, 15],
+          worst: 10
+        },
+        "Life Insurance": {
+          best: 25,
+          better: [20, 25],
+          good: [15, 20],
+          neutral: [10, 15],
+          weak: [5, 10],
+          worst: 5
+        },
+        "Manufacturing And Processing": {
+          best: 20,
+          better: [15, 20],
+          good: [10, 15],
+          neutral: [8, 10],
+          weak: [5, 8],
+          worst: 5
+        },
+        "Tradings": {
+          best: 15,
+          better: [12, 15],
+          good: [10, 12],
+          neutral: [7, 10],
+          weak: [5, 7],
+          worst: 5
+        },
+        "Hotels And Tourism": {
+          best: 20,
+          better: [15, 20],
+          good: [10, 15],
+          neutral: [5, 10],
+          weak: [3, 5],
+          worst: 3
+        },
+        "Development Banks": {
+          best: 22,
+          better: [18, 22],
+          good: [15, 18],
+          neutral: [12, 15],
+          weak: [8, 12],
+          worst: 8
+        },
+        "Microfinance": {
+          best: 25,
+          better: [20, 25],
+          good: [15, 20],
+          neutral: [12, 15],
+          weak: [8, 12],
+          worst: 8
+        },
+        "Others": {
+          best: 18,
+          better: [15, 18],
+          good: [12, 15],
+          neutral: [8, 12],
+          weak: [5, 8],
+          worst: 5
+        },
+    },
       recommendations: {
         'Best': {
           interpretation: 'Exceptional profitability. Industry leaders with strong competitive advantages.',
@@ -140,18 +222,26 @@ export default {
       this.results = [];
       this.errors = [];
       this.showResults = true;
-      
+
       try {
-        const response = await axios.get('https://laganisutra.com/api/database-values?sector='+this.selectedSector || 'all');
-          
+        const sector = (this.selectedSector ?? '').toString().trim() || 'all';
+        const url = `https://pro.laganisutra.com/api/profit-margin?sector=${encodeURIComponent(sector || 'all')}`
+
+        const response = await axios.get(url);
+
         if (Array.isArray(response.data)) {
           this.results = response.data;
         } else if (response.data && response.data.errors) {
           this.errors = response.data.errors;
+        } else {
+          this.errors.push('Unexpected response format.');
         }
       } catch (error) {
-        console.error('Error fetching financial metrics:', error);
-        this.errors.push('Failed to load Profit Margin data. Please try again later.');
+        if (error.response) {
+          this.errors.push(`API error: ${error.response.data.message || 'Unknown error.'}`);
+        } else {
+          this.errors.push('Network or CORS error. Check the console for more info.');
+        }
       } finally {
         this.isLoading = false;
       }
@@ -167,34 +257,39 @@ export default {
     },
     
     getRecommendation(row) {
-      // Logic to determine recommendation based on profit margins
-      const netMargin = parseFloat(row.net_profit_margin) || 0;
-      const grossMargin = parseFloat(row.gross_profit_margin) || 0;
-      
-      // Calculate a composite score
-      let score = 0;
-      
-      // Net Profit Margin scoring
-      if (netMargin > 20) score += 3;
-      else if (netMargin > 15) score += 2;
-      else if (netMargin > 10) score += 1;
-      else if (netMargin < 5) score -= 1;
-      else if (netMargin < 0) score -= 2;
-      
-      // Gross Profit Margin scoring
-      if (grossMargin > 50) score += 3;
-      else if (grossMargin > 40) score += 2;
-      else if (grossMargin > 30) score += 1;
-      else if (grossMargin < 20) score -= 1;
-      else if (grossMargin < 10) score -= 2;
-      
-      // Determine recommendation based on total score
-      if (score >= 5) return 'Best';
-      else if (score >= 3) return 'Better';
-      else if (score >= 1) return 'Good';
-      else if (score >= -1) return 'Neutral';
-      else if (score >= -3) return 'Weak';
-      else return 'Worst';
+        const sector = String(this.selectedSector || "").trim();
+
+        const npmValue = parseFloat(row.net_profit_margin);
+  
+        let score = 0;
+
+        // === Profit Margin classification ===
+        const npmRanges = this.npmRatingRanges[sector];
+        let npmRating = '';
+        if (npmRanges && !isNaN(npmValue)) {
+          if (npmValue >= npmRanges.best) npmRating = 'Best';
+          else if (npmValue >= npmRanges.better[0]) npmRating = 'Better';
+          else if (npmValue >= npmRanges.good[0]) npmRating = 'Good';
+          else if (npmValue >= npmRanges.neutral[0]) npmRating = 'Neutral';
+          else if (npmValue >= npmRanges.weak[0]) npmRating = 'Weak';
+          else npmRating = 'Worst';
+        }
+
+        // Score Profit margin
+        if (npmRating === 'Best') score = 5;
+        else if (npmRating === 'Better') score = 4;
+        else if (npmRating === 'Good') score = 3;
+        else if (npmRating === 'Neutral') score = 2;
+        else if (npmRating === 'Weak') score = 1;
+        else if (npmRating === 'Worst') score = 0;
+
+        // Final recommendation 
+        if (score === 5) return 'Best';
+        else if (score === 4) return 'Better';
+        else if (score === 3) return 'Good';
+        else if (score === 2) return 'Neutral';
+        else if (score === 1) return 'Weak';
+        else return 'Worst';
     },
     
     getRecommendationClass(recommendation) {

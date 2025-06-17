@@ -89,6 +89,68 @@ export default {
         { key: 'ev_ebitda', label: 'EV/EBITDA' },
         { key: 'recommendation', label: 'Recommendation' }
       ],
+      ebitdaRatingRanges: {
+        "Commercial Banks": {
+            overvalued: 10.0,
+            fairlyvalued: [6.0, 10.0],
+            undervalued: 6.0
+        },
+        "Development Banks": {
+            overvalued: 8.5,
+            fairlyvalued: [5.0, 8.5],
+            undervalued: 5.0
+        },
+        "Finance": {
+            overvalued: 7.5,
+            fairlyvalued: [4.5, 7.5],
+            undervalued: 4.5
+        },
+        "Hydro Power": {
+            overvalued: 15.0,
+            fairlyvalued: [8.0, 15.0],
+            undervalued: 8.0
+        },
+        "Non Life Insurance": {
+            overvalued: 11.0,
+            fairlyvalued: [6.0, 11.0],
+            undervalued: 6.0
+        },
+        "Life Insurance": {
+            overvalued: 12.0,
+            fairlyvalued: [7.0, 12.0],
+            undervalued: 7.0
+        },
+        "Microfinance": {
+            overvalued: 9.5,
+            fairlyvalued: [5.5, 9.5],
+            undervalued: 5.5
+        },
+        "Manufacturing And Processing": {
+            overvalued: 12.0,
+            fairlyvalued: [6.5, 12.0],
+            undervalued: 6.5
+        },
+        "Tradings": {
+            overvalued: 7.0,
+            fairlyvalued: [3.5, 7.0],
+            undervalued: 3.5
+        },
+        "Hotels And Tourism": {
+            overvalued: 15.0,
+            fairlyvalued: [8.0, 15.0],
+            undervalued: 8.0
+        },
+        "Investment": {
+            overvalued: 9.0,
+            fairlyvalued: [5.0, 9.0],
+            undervalued: 5.0
+        },
+        "Others": {
+            overvalued: 7.0,
+            fairlyvalued: [3.5, 7.0],
+            undervalued: 3.5
+        }
+    },
       recommendations: {
         'Best': {
           interpretation: 'Exceptional profitability. Industry leaders with strong competitive advantages.',
@@ -133,16 +195,24 @@ export default {
       this.showResults = true;
 
       try {
-        const sectorParam = this.selectedSector || 'all';
-        const response = await axios.get(`https://laganisutra.com/api/database-values?sector=${sectorParam}`);
+        const sector = (this.selectedSector ?? '').toString().trim() || 'all';
+        const url = `https://pro.laganisutra.com/api/EvEbitda?sector=${encodeURIComponent(sector || 'all')}`;
+
+        const response = await axios.get(url);
+
         if (Array.isArray(response.data)) {
           this.results = response.data;
         } else if (response.data && response.data.errors) {
           this.errors = response.data.errors;
+        } else {
+          this.errors.push('Unexpected response format.');
         }
       } catch (error) {
-        console.error('Error fetching EBITDA data:', error);
-        this.errors.push('Failed to retrieve EBITDA data. Please try again later.');
+        if (error.response) {
+          this.errors.push(`API error: ${error.response.data.message || 'Unknown error.'}`);
+        } else {
+          this.errors.push('Network or CORS error. Check the console for more info.');
+        }
       } finally {
         this.isLoading = false;
       }
@@ -157,42 +227,31 @@ export default {
     },
 
     getRecommendation(row) {
-      const mCap = parseFloat(row.market_capitalization) || 0;
-      const totalDebt = parseFloat(row.total_debt) || 0;
-      const cce = parseFloat(row.cash_and_cash_equivalent) || 0;
-      const ev_ebitda = parseFloat(row.ev_ebitda) || 0;
+      const sector = String(this.selectedSector || "").trim();
 
-      let score = 0;
+        const ebitdaValue = parseFloat(row.ev_ebitda);
+  
+        let score = 0;
 
-      // Market Cap Scoring
-      if (mCap > 50) score += 3;
-      else if (mCap > 25) score += 2;
-      else if (mCap > 10) score += 1;
-      else if (mCap < 0) score -= 2;
+        // === EBITDA classification ===
+        const ebitdaRanges = this.ebitdaRatingRanges[sector];
+        let ebitdaRating = '';
+        if (ebitdaRanges && !isNaN(ebitdaValue)) {
+          if (ebitdaValue >= ebitdaRanges.overvalued) ebitdaRating = 'Best';
+          else if (ebitdaValue >= ebitdaRanges.fairlyvalued[0]) ebitdaRating = 'Neutral';
+          else if (ebitdaValue >= ebitdaRanges.undervalued[0]) ebitdaRating = 'Weak';
+        }
 
-      // Total Debt Scoring
-      if (totalDebt > 20) score += 3;
-      else if (totalDebt > 15) score += 2;
-      else if (totalDebt > 10) score += 1;
-      else if (totalDebt < 5) score -= 1;
-      else if (totalDebt < 0) score -= 2;
-
-      // CCE Scoring
-      if (cce > 0 && cce < 1) score += 2;
-      else if (cce >= 1 && cce < 2) score += 1;
-      else if (cce >= 4) score -= 1;
-
-      // EV/EBITDA Scoring
-      if (ev_ebitda > 0 && ev_ebitda < 15) score += 1;
-      else if (ev_ebitda >= 25) score -= 1;
-
-      if (score >= 7) return 'Best';
-      if (score >= 5) return 'Better';
-      if (score >= 3) return 'Good';
-      if (score >= 1) return 'Neutral';
-      if (score >= -1) return 'Weak';
-      return 'Worst';
-    },
+        // Score EBITDA
+        if (ebitdaRating === 'Best') score = 5;
+        else if (ebitdaRating === 'Neutral') score += 2;
+        else if (ebitdaRating === 'Weak') score += 1;
+      
+        // Final recommendation 
+        if (score = 5) return 'Best';
+        else if (score >= 2) return 'Neutral';
+        else if (score >= 1) return 'Weak';
+      },
 
     getRecommendationClass(recommendation) {
       return this.recommendations[recommendation]?.class || 'recommendation-neutral';

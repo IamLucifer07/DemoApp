@@ -92,6 +92,38 @@ export default {
         { key: 'free_cash_flow', label: 'Free Cash Flow' },
         { key: 'recommendation', label: 'Recommendation' }
       ],
+      cashFlowPerShareRanges : {
+        "37": {
+            exceptional: 45,strong: [30, 45],moderate: [18, 30],weak: [8, 18],critical: 8
+          },
+        "44": {
+            exceptional: 35,strong: [25, 35],moderate: [15, 25],weak: [6, 15],critical: 6
+          },
+        "Finance": {
+            exceptional: 50,strong: [40, 50],moderate: [25, 40],weak: [12, 25],critical: 12
+          },
+        "Life Insurance": {
+            exceptional: 55,strong: [45, 55],moderate: [30, 45],weak: [15, 30],critical: 15
+          },
+        "Non Life Insurance": {
+            exceptional: 40,strong: [30, 40],moderate: [20, 30],weak: [10, 20],critical: 10
+          },
+        "41": {
+            exceptional: 60,strong: [45, 60],moderate: [30, 45], weak: [15, 30], critical: 15
+          },
+        "Microfinance": {
+            exceptional: 30,strong: [22, 30],moderate: [14, 22],weak: [6, 14],critical: 6
+          },
+        "Manufacturing And Processing": {
+            exceptional: 38,strong: [28, 38],moderate: [18, 28],weak: [8, 18],critical: 8
+          },
+        "Tradings": {
+            exceptional: 42,strong: [32, 42],moderate: [20, 32],weak: [10, 20],critical: 10
+          },
+        "Hotels And Tourism": {
+            exceptional: 28,strong: [20, 28],moderate: [12, 20],weak: [5, 12],critical: 5
+          }
+    },
       recommendations: {
         'Best': {
           interpretation: 'Excellent cash flow health. Strong financial position.',
@@ -125,7 +157,7 @@ export default {
     selectedSector: {
       handler() {
         if (this.selectedSector) {
-          this.getCashFlowMetrics();
+          this.getFinancialMetrics();
         }
       },
       immediate: true
@@ -133,30 +165,31 @@ export default {
   },
 
   methods: {
-    async getCashFlowMetrics() {
+    async getFinancialMetrics() {
       this.isLoading = true;
       this.results = [];
       this.errors = [];
       this.showResults = true;
 
       try {
-        // const response = await axios.get("https://laganisutra.com/api/cash-flow-pershare", {
-        //   params: {
-        //     sector: this.selectedSector
-        //   }
-        // });
-        const response = await axios.get('https://laganisutra.com/api/database-values?sector='+this.selectedSector || 'all');
+        const sector = (this.selectedSector ?? '').toString().trim() || 'all';
+        const url = `https://pro.laganisutra.com/api/cash-flow-pershare?sector=${encodeURIComponent(sector || 'all')}`;
 
+        const response = await axios.get(url);
 
         if (Array.isArray(response.data)) {
           this.results = response.data;
-        } else if (response.data && response.data.data) {
-          this.results = response.data.data;
-          this.errors = response.data.errors || [];
+        } else if (response.data && response.data.errors) {
+          this.errors = response.data.errors;
+        } else {
+          this.errors.push('Unexpected response format.');
         }
       } catch (error) {
-        console.error("Error fetching cash flow data:", error);
-        this.errors.push("Failed to load Cash Flow/Share data. Please try again later.");
+        if (error.response) {
+          this.errors.push(`API error: ${error.response.data.message || 'Unknown error.'}`);
+        } else {
+          this.errors.push('Network or CORS error. Check the console for more info.');
+        }
       } finally {
         this.isLoading = false;
       }
@@ -178,28 +211,39 @@ export default {
     },
 
     getRecommendation(row) {
-      const cfps = parseFloat(row.cash_flow_per_share) || 0;
-      const fcf = parseFloat(row.free_cash_flow) || 0;
+        const sector = String(this.selectedSector || "").trim();
 
-      let score = 0;
+        const cfpsValue = parseFloat(row.cash_flow_per_share);
 
-      if (cfps > 25) score += 3;
-      else if (cfps > 10) score += 2;
-      else if (cfps > 0) score += 1;
-      else score -= 1;
+        let score = 0;
 
-      if (fcf > 1000000000) score += 3;
-      else if (fcf > 500000000) score += 2;
-      else if (fcf > 0) score += 1;
-      else score -= 1;
+        // === Cash Flow Per Share classification ===
+        const cfpsRanges = this.cashFlowPerShareRanges[sector];
+        let cfpsRating = '';
+        if (cfpsRanges && !isNaN(cfpsValue)) {
+          if (cfpsValue >= cfpsRanges.exceptional) cfpsRating = 'Best';
+          else if (cfpsValue >= cfpsRanges.strong[0]) cfpsRating = 'Better';
+          else if (cfpsValue >= cfpsRanges.moderate[0]) cfpsRating = 'Neutral';
+          else if (cfpsValue >= cfpsRanges.weak[0]) cfpsRating = 'Weak';
+          else if (cfpsValue >= cfpsRanges.critical[0]) cfpsRating = 'Worst';
+        } 
 
-      if (score >= 6) return 'Best';
-      else if (score >= 4) return 'Better';
-      else if (score >= 2) return 'Good';
-      else if (score >= 1) return 'Neutral';
-      else if (score >= -1) return 'Weak';
-      else return 'Worst';
-    },
+        // Score Cash Flow Per Share
+        if (cfpsRating === 'Best') score = 5;
+        else if (cfpsRating === 'Better') score = 4;
+        else if (cfpsRating === 'Neutral') score = 3;
+        else if (cfpsRating === 'Weak') score = 2;
+        else if (cfpsRating === 'Worst') score = 1;
+        
+        // Final Recommendation
+        if (score === 5) return 'Best';
+        else if (score === 4) return 'Better';
+        else if (score === 3) return 'Good';
+        else if (score === 2) return 'Neutral';
+        else if (score === 1) return 'Weak';
+        else return 'N/A';
+
+      },
 
     getRecommendationClass(recommendation) {
       return this.recommendations[recommendation]?.class || 'recommendation-neutral';
