@@ -96,7 +96,7 @@ export default {
         { key: 'gross_profit', label: 'Gross Profit' },
         { key: 'recommendation', label: 'Recommendation' }
       ],
-      epsRatingRanges: {
+    epsRatingRanges: {
       "Commercial Banks": {
         best: 40, better: [25, 40], good: [15, 25], neutral: [10, 15], weak: [5, 10], worst: 5
       },
@@ -132,200 +132,112 @@ export default {
       }
     },
     roeRanges : {
-        "Commercial Banks": {
-            exceptional: 20,
-            strong: [15, 20],
-            moderate: [10, 15],
-            weak: [5, 10],
-            poor: 5
-        },
-        "Development Banks": {
-            exceptional: 18,
-            strong: [13, 18],
-            moderate: [8, 13],
-            weak: [4, 8],
-            poor: 4
-        },
-        "Finance": {
-            exceptional: 25,
-            strong: [20, 25],
-            moderate: [15, 20],
-            weak: [10, 15],
-            poor: 10
-        },
-        "Life Insurance": {
-            exceptional: 22,
-            strong: [17, 22],
-            moderate: [12, 17],
-            weak: [7, 12],
-            poor: 7
-        },
-        "Non Life Insurance": {
-            exceptional: 18,
-            strong: [14, 18],
-            moderate: [9, 14],
-            weak: [5, 9],
-            poor: 5
-        },
-        "Hydro Power": {
-            exceptional: 30,
-            strong: [25, 30],
-            moderate: [20, 25],
-            weak: [15, 20],
-            poor: 15
-        },
-        "Microfinance": {
-            exceptional: 28,
-            strong: [22, 28],
-            moderate: [16, 22],
-            weak: [10, 16],
-            poor: 10
-        },
-        "Manufacturing And Processing": {
-            exceptional: 35,
-            strong: [28, 35],
-            moderate: [20, 28],
-            weak: [12, 20],
-            poor: 12
-        },
-        "Tradings": {
-            exceptional: 40,
-            strong: [32, 40],
-            moderate: [24, 32],
-            weak: [15, 24],
-            poor: 15
-        },
-        "Hotels And Tourism": {
-            exceptional: 25,
-            strong: [20, 25],
-            moderate: [15, 20],
-            weak: [8, 15],
-            poor: 8
-        }
+      "Commercial Banks": {
+        exceptional: 20, strong: [15, 20], moderate: [10, 15], weak: [5, 10],poor: 5
+      },
+      "Development Banks": {
+        exceptional: 18, strong: [13, 18], moderate: [8, 13], weak: [4, 8], poor: 4
+      },
+      "Finance": {
+          exceptional: 25, strong: [20, 25], moderate: [15, 20], weak: [10, 15], poor: 10
+      },
+      "Life Insurance": {
+          exceptional: 22,strong: [17, 22],moderate: [12, 17], weak: [7, 12], poor: 7
+      },
+      "Non Life Insurance": {
+          exceptional: 18, strong: [14, 18], moderate: [9, 14], weak: [5, 9], poor: 5
+      },
+      "Hydro Power": {
+          exceptional: 30, strong: [25, 30], moderate: [20, 25], weak: [15, 20], poor: 15
+      },
+      "Microfinance": {
+          exceptional: 28, strong: [22, 28], moderate: [16, 22], weak: [10, 16], poor: 10
+      },
+      "Manufacturing And Processing": { 
+          exceptional: 35, strong: [28, 35], moderate: [20, 28], weak: [12, 20], poor: 12
+      },
+      "Tradings": {
+          exceptional: 40, strong: [32, 40], moderate: [24, 32], weak: [15, 24], poor: 15
+      },
+      "Hotels And Tourism": {
+          exceptional: 25,strong: [20, 25],moderate: [15, 20],weak: [8, 15],poor: 8
+      }
     },
     peRatingRanges: {
-        "Commercial Banks": {
-            overvalued: 20,
-            fairlyvalued: [12, 20],
-            undervalued: 12
-        },
-        "Development Banks": {
-            overvalued: 15,
-            fairlyvalued: [8, 12],
-            undervalued: 8
-        },
-        "Finance": {
-            overvalued: 18,
-            fairlyvalued: [10, 15],
-            undervalued: 10
-        },
-        "Hydro Power": {
-            overvalued: 30,
-            fairlyvalued: [18, 25],
-            undervalued: 18
-        },
-        "Non Life Insurance": {
-            overvalued: 22,
-            fairlyvalued: [12, 18],
-            undervalued: 12
-        },
-        "Life Insurance": {
-            overvalued: 25,
-            fairlyvalued: [15, 20],
-            undervalued: 15
-        },
-        "Microfinance": {
-            overvalued: 18,
-            fairlyvalued: [10, 15],
-            undervalued: 10
-        },
-        "Manufacturing And Processing": {
-            overvalued: 25,
-            fairlyvalued: [12, 20],
-            undervalued: 12
-        },
-        "Tradings": {
-           overvalued: 15,
-            fairlyvalued: [8, 12],
-            undervalued: 8
-        },
-        "Hotels And Tourism": {
-            overvalued: 25,
-            fairlyvalued: [15, 20],
-            undervalued: 15
-        },
-        "Investment": {
-            overvalued: 15,
-            fairlyvalued: [10, 15],
-            undervalued: 10
-        },
-        "Others": {
-            overvalued: 15,
-            fairlyvalued: [8, 12],
-            undervalued: 8
-        }
+      "Commercial Banks": {
+          overvalued: 20, fairlyvalued: [12, 20], undervalued: 12
+      },
+      "Development Banks": {
+          overvalued: 15, fairlyvalued: [8, 12], undervalued: 8
+      },
+      "Finance": {
+          overvalued: 18, fairlyvalued: [10, 15],undervalued: 10
+      },
+      "Hydro Power": {
+          overvalued: 30,fairlyvalued: [18, 25],undervalued: 18
+      },
+      "Non Life Insurance": {
+          overvalued: 22,fairlyvalued: [12, 18],undervalued: 12
+      },
+      "Life Insurance": {
+          overvalued: 25,fairlyvalued: [15, 20],undervalued: 15
+      },
+      "Microfinance": {
+          overvalued: 18,fairlyvalued: [10, 15],undervalued: 10
+      },
+      "Manufacturing And Processing": {
+          overvalued: 25, fairlyvalued: [12, 20], undervalued: 12
+      },
+      "Tradings": {
+          overvalued: 15, fairlyvalued: [8, 12], undervalued: 8
+      },
+      "Hotels And Tourism": {
+          overvalued: 25,fairlyvalued: [15, 20],undervalued: 15
+      },
+      "Investment": {
+          overvalued: 15, fairlyvalued: [10, 15],undervalued: 10
+      },
+      "Others": {
+          overvalued: 15,fairlyvalued: [8, 12],undervalued: 8
+      }
     },
     pbRatingRanges: {
-        "Commercial Banks": {
-            overvalued: 2.0,
-            fairlyvalued: [1.2, 2.0],
-            undervalued: 1.2
-        },
-        "Development Banks": {
-            overvalued: 1.5,
-            fairlyvalued: [0.8, 1.5],
-            undervalued: 0.8
-        },
-        "Finance": {
-            overvalued: 1.6,
-            fairlyvalued: [0.9, 1.6],
-            undervalued: 0.9
-        },
-        "Hydro Power": {
-            overvalued: 2.8,
-            fairlyvalued: [1.5, 2.8],
-            undervalued: 1.5
-        },
-        "Non Life Insurance": {
-            overvalued: 2.0,
-            fairlyvalued: [1.1, 2.0],
-            undervalued: 1.1
-        },
-        "Life Insurance": {
-            overvalued: 2.2,
-            fairlyvalued: [1.3, 2.2],
-            undervalued: 1.3
-        },
-        "Microfinance": {
-            overvalued: 1.7,
-            fairlyvalued: [1.0, 1.7],
-            undervalued: 1.0
-        },
-        "Manufacturing And Processing": {
-            overvalued: 3.0,
-            fairlyvalued: [2.0, 3.0],
-            undervalued: 2.0
-        },
-        "Tradings": {
-           overvalued: 1.5,
-            fairlyvalued: [0.7, 1.5],
-            undervalued: 0.7
-        },
-        "Hotels And Tourism": {
-            overvalued: 2.0,
-            fairlyvalued: [1.0, 2.0],
-            undervalued: 1.0
-        },
-        "Investment": {
-            overvalued: 1.8,
-            fairlyvalued: [0.8, 1.8],
-            undervalued: 0.8
-        },
-        "Others": {
-            overvalued: 1.5,
-            fairlyvalued: [0.7, 1.5],
-            undervalued: 0.7
-        }
+      "Commercial Banks": {
+          overvalued: 2.0, fairlyvalued: [1.2, 2.0],undervalued: 1.2
+      },
+      "Development Banks": {
+          overvalued: 1.5, fairlyvalued: [0.8, 1.5],undervalued: 0.8
+      },
+      "Finance": {
+          overvalued: 1.6,fairlyvalued: [0.9, 1.6],undervalued: 0.9
+      },
+      "Hydro Power": {
+          overvalued: 2.8,fairlyvalued: [1.5, 2.8],undervalued: 1.5
+      },
+      "Non Life Insurance": {
+          overvalued: 2.0, fairlyvalued: [1.1, 2.0],undervalued: 1.1
+      },
+      "Life Insurance": {
+          overvalued: 2.2,fairlyvalued: [1.3, 2.2],undervalued: 1.3
+      },
+      "Microfinance": {
+          overvalued: 1.7,fairlyvalued: [1.0, 1.7],undervalued: 1.0
+      },
+      "Manufacturing And Processing": {
+          overvalued: 3.0,fairlyvalued: [2.0, 3.0],undervalued: 2.0
+      },
+      "Tradings": {
+          overvalued: 1.5,fairlyvalued: [0.7, 1.5],undervalued: 0.7
+      },
+      "Hotels And Tourism": {
+          overvalued: 2.0, fairlyvalued: [1.0, 2.0], undervalued: 1.0
+      },
+      "Investment": {
+          overvalued: 1.8,fairlyvalued: [0.8, 1.8],undervalued: 0.8
+      },
+      "Others": {
+          overvalued: 1.5,fairlyvalued: [0.7, 1.5],undervalued: 0.7
+      }
     },
       recommendations: {
         'Best': {

@@ -67,6 +67,7 @@ declare module 'vue' {
     DropdownMenuTrigger: typeof import('./resources/js/Components/ui/dropdown-menu/DropdownMenuTrigger.vue')['default']
     EBITDA: typeof import('./resources/js/Components/EBITDA.vue')['default']
     EPS: typeof import('./resources/js/Components/EPS.vue')['default']
+    EPS_backup: typeof import('./resources/js/Components/EPS_backup.vue')['default']
     Heading: typeof import('./resources/js/Components/Heading.vue')['default']
     HeadingSmall: typeof import('./resources/js/Components/HeadingSmall.vue')['default']
     Icon: typeof import('./resources/js/Components/Icon.vue')['default']
