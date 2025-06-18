@@ -72,7 +72,7 @@ export default {
   
   props: {
     selectedSector: {
-      type: String,
+      type: [String, Number],
       default: null
     }
   },
@@ -212,8 +212,7 @@ export default {
 
         const operatingMarginValue = parseFloat(row.operating_margin);
 
-        let score = 0;
-
+        
         // === Operating Margin classification ===
         const omRanges = this.operatingMarginRanges[sector];
         let operatingMarginRating = '';
@@ -224,21 +223,8 @@ export default {
           else if (operatingMarginValue >= omRanges.weak[0]) operatingMarginRating = 'Weak';
           else if (operatingMarginValue >= omRanges.critical[0]) operatingMarginRating = 'Worst';
         }
-
-        // Score Operating Margin
-        if (operatingMarginRating === 'Best') score = 5;
-        else if (operatingMarginRating === 'Better') score = 4;
-        else if (operatingMarginRating === 'Neutral') score = 2;
-        else if (operatingMarginRating === 'Weak') score = 1;
-        else if (operatingMarginRating === 'Worst') score = 0;
-      
-        // Final Recommendation
-        if (score === 5) return 'Best';
-        else if (score === 4) return 'Better';
-        else if (score === 2) return 'Neutral';
-        else if (score === 1) return 'Weak';
-        else if (score === 0) return 'Worst';
-        else return 'N/A';
+        return operatingMarginRating || 'N/A';
+        
       },
     
     getRecommendationClass(recommendation) {

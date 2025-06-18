@@ -69,7 +69,7 @@ export default {
   name: 'EBITDA',
   props: {
     selectedSector: {
-      type: String,
+      type: [String, Number],
       default: null
     }
   },
@@ -227,30 +227,23 @@ export default {
     },
 
     getRecommendation(row) {
-      const sector = String(this.selectedSector || "").trim();
+        const sector = String(this.selectedSector || "").trim();
 
         const ebitdaValue = parseFloat(row.ev_ebitda);
   
-        let score = 0;
 
         // === EBITDA classification ===
         const ebitdaRanges = this.ebitdaRatingRanges[sector];
         let ebitdaRating = '';
+
         if (ebitdaRanges && !isNaN(ebitdaValue)) {
           if (ebitdaValue >= ebitdaRanges.overvalued) ebitdaRating = 'Best';
           else if (ebitdaValue >= ebitdaRanges.fairlyvalued[0]) ebitdaRating = 'Neutral';
           else if (ebitdaValue >= ebitdaRanges.undervalued[0]) ebitdaRating = 'Weak';
         }
 
-        // Score EBITDA
-        if (ebitdaRating === 'Best') score = 5;
-        else if (ebitdaRating === 'Neutral') score += 2;
-        else if (ebitdaRating === 'Weak') score += 1;
-      
-        // Final recommendation 
-        if (score = 5) return 'Best';
-        else if (score >= 2) return 'Neutral';
-        else if (score >= 1) return 'Weak';
+        return ebitdaRating || 'N/A';
+
       },
 
     getRecommendationClass(recommendation) {

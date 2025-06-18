@@ -70,7 +70,7 @@ export default {
 
   props: {
     selectedSector: {
-      type: String,
+      type: [String, Number],
       default: null
     }
   },
@@ -215,34 +215,26 @@ export default {
 
         const cfpsValue = parseFloat(row.cash_flow_per_share);
 
-        let score = 0;
-
+        
         // === Cash Flow Per Share classification ===
         const cfpsRanges = this.cashFlowPerShareRanges[sector];
         let cfpsRating = '';
         if (cfpsRanges && !isNaN(cfpsValue)) {
-          if (cfpsValue >= cfpsRanges.exceptional) cfpsRating = 'Best';
-          else if (cfpsValue >= cfpsRanges.strong[0]) cfpsRating = 'Better';
-          else if (cfpsValue >= cfpsRanges.moderate[0]) cfpsRating = 'Neutral';
-          else if (cfpsValue >= cfpsRanges.weak[0]) cfpsRating = 'Weak';
-          else if (cfpsValue >= cfpsRanges.critical[0]) cfpsRating = 'Worst';
+          if (cfpsValue >= cfpsRanges.exceptional) {
+            cfpsRating = 'Best';
+          } else if (cfpsValue >= cfpsRanges.strong[0]) {
+            cfpsRating = 'Better';
+          } else if (cfpsValue >= cfpsRanges.moderate[0]) {
+            cfpsRating = 'Neutral';
+          } else if (cfpsValue >= cfpsRanges.weak[0]) {
+            cfpsRating = 'Weak';
+          } else {
+            cfpsRating = 'Worst';
+          }
         } 
-
-        // Score Cash Flow Per Share
-        if (cfpsRating === 'Best') score = 5;
-        else if (cfpsRating === 'Better') score = 4;
-        else if (cfpsRating === 'Neutral') score = 3;
-        else if (cfpsRating === 'Weak') score = 2;
-        else if (cfpsRating === 'Worst') score = 1;
         
-        // Final Recommendation
-        if (score === 5) return 'Best';
-        else if (score === 4) return 'Better';
-        else if (score === 3) return 'Good';
-        else if (score === 2) return 'Neutral';
-        else if (score === 1) return 'Weak';
-        else return 'N/A';
-
+        return cfpsRating || 'N/A';
+        
       },
 
     getRecommendationClass(recommendation) {

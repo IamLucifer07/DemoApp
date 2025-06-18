@@ -72,7 +72,7 @@ export default {
   
   props: {
     selectedSector: {
-      type: String,
+      type: [String, Number],
       default: null
     }
   },
@@ -103,7 +103,7 @@ export default {
           weak: [5, 10],
           worst: 5
         },
-        "HydroPower": {
+        "Hydro Power": {
           best: 40,
           better: [30, 40],
           good: [20, 30],
@@ -111,7 +111,7 @@ export default {
           weak: [10, 15],
           worst: 10
         },
-        "Non Life Insurance": {
+        "43": {
           best: 35,
           better: [25, 35],
           good: [20, 25],
@@ -119,7 +119,7 @@ export default {
           weak: [10, 15],
           worst: 10
         },
-        "Life Insurance": {
+        "50": {
           best: 25,
           better: [20, 25],
           good: [15, 20],
@@ -127,7 +127,7 @@ export default {
           weak: [5, 10],
           worst: 5
         },
-        "Manufacturing And Processing": {
+        "38": {
           best: 20,
           better: [15, 20],
           good: [10, 15],
@@ -135,7 +135,7 @@ export default {
           weak: [5, 8],
           worst: 5
         },
-        "Tradings": {
+        "42": {
           best: 15,
           better: [12, 15],
           good: [10, 12],
@@ -143,7 +143,7 @@ export default {
           weak: [5, 7],
           worst: 5
         },
-        "Hotels And Tourism": {
+        "39": {
           best: 20,
           better: [15, 20],
           good: [10, 15],
@@ -151,7 +151,7 @@ export default {
           weak: [3, 5],
           worst: 3
         },
-        "Development Banks": {
+        "44": {
           best: 22,
           better: [18, 22],
           good: [15, 18],
@@ -159,7 +159,7 @@ export default {
           weak: [8, 12],
           worst: 8
         },
-        "Microfinance": {
+        "49": {
           best: 25,
           better: [20, 25],
           good: [15, 20],
@@ -167,7 +167,7 @@ export default {
           weak: [8, 12],
           worst: 8
         },
-        "Others": {
+        "40": {
           best: 18,
           better: [15, 18],
           good: [12, 15],
@@ -257,39 +257,22 @@ export default {
     },
     
     getRecommendation(row) {
-        const sector = String(this.selectedSector || "").trim();
+      const sector = String(this.selectedSector || "").trim();
+      const npmValue = parseFloat(row.net_profit_margin);
 
-        const npmValue = parseFloat(row.net_profit_margin);
-  
-        let score = 0;
+      const npmRanges = this.npmRatingRanges[sector];
+      let npmRating = '';
 
-        // === Profit Margin classification ===
-        const npmRanges = this.npmRatingRanges[sector];
-        let npmRating = '';
-        if (npmRanges && !isNaN(npmValue)) {
-          if (npmValue >= npmRanges.best) npmRating = 'Best';
-          else if (npmValue >= npmRanges.better[0]) npmRating = 'Better';
-          else if (npmValue >= npmRanges.good[0]) npmRating = 'Good';
-          else if (npmValue >= npmRanges.neutral[0]) npmRating = 'Neutral';
-          else if (npmValue >= npmRanges.weak[0]) npmRating = 'Weak';
-          else npmRating = 'Worst';
-        }
+      if (npmRanges && !isNaN(npmValue)) {
+        if (npmValue >= npmRanges.best) npmRating = 'Best';
+        else if (npmValue >= npmRanges.better[0]) npmRating = 'Better';
+        else if (npmValue >= npmRanges.good[0]) npmRating = 'Good';
+        else if (npmValue >= npmRanges.neutral[0]) npmRating = 'Neutral';
+        else if (npmValue >= npmRanges.weak[0]) npmRating = 'Weak';
+        else npmRating = 'Worst';
+      }
 
-        // Score Profit margin
-        if (npmRating === 'Best') score = 5;
-        else if (npmRating === 'Better') score = 4;
-        else if (npmRating === 'Good') score = 3;
-        else if (npmRating === 'Neutral') score = 2;
-        else if (npmRating === 'Weak') score = 1;
-        else if (npmRating === 'Worst') score = 0;
-
-        // Final recommendation 
-        if (score === 5) return 'Best';
-        else if (score === 4) return 'Better';
-        else if (score === 3) return 'Good';
-        else if (score === 2) return 'Neutral';
-        else if (score === 1) return 'Weak';
-        else return 'Worst';
+      return npmRating || 'N/A';
     },
     
     getRecommendationClass(recommendation) {

@@ -96,7 +96,21 @@ export default {
         { key: 'gross_profit', label: 'Gross Profit' },
         { key: 'recommendation', label: 'Recommendation' }
       ],
-    epsRatingRanges: {
+      sectorMap: {
+        "37": "Commercial Banks",
+        "44": "Development Banks",
+        "45": "Finance",
+        "49": "Microfinance",
+        "43": "Non Life Insurance",
+        "50": "Life Insurance",
+        "41": "Hydro Power",
+        "39": "Hotels And Tourism",
+        "38": "Manufacturing and Processing",
+        "42": "Tradings",
+        "67": "Investment",
+        "40": "Others"
+      },
+      epsRatingRanges: {
       "Commercial Banks": {
         best: 40, better: [25, 40], good: [15, 25], neutral: [10, 15], weak: [5, 10], worst: 5
       },
@@ -133,7 +147,7 @@ export default {
       "Others": {
         best: 10, better: [7, 10], good: [5, 7], neutral: [3, 5], weak: [1, 3], worst: 1
       }
-    },
+      },
       recommendations: {
         'Best': {
           interpretation: 'Exceptional profitability. Industry leaders with strong competitive advantages.',
@@ -182,8 +196,9 @@ export default {
       this.showResults = true;
 
       try {
-        const sector = (this.selectedSector ?? '').toString().trim() || 'all';
-        const url = `https://laganisutra.com/api/database-values?sector=${encodeURIComponent(sector)}`;
+        // const sector = (this.selectedSector ?? '').toString().trim() || 'all';
+        const sectorDescription = this.sectorMap[this.selectedSector] || 'all';
+        const url = `https://laganisutra.com/api/database-values?sector=${encodeURIComponent(sectorDescription)}`;
 
         const response = await axios.get(url);
 
@@ -219,10 +234,7 @@ export default {
 
         const epsValue = parseFloat(row.eps);
 
-        let score = 0;
-
         // === EPS classification ===
-        // const epsRanges = this.epsRatingRanges[sector];
         const epsRanges = this.epsRatingRanges[sector] || this.epsRatingRanges['Others'];
         let epsRating = '';
         if (epsRanges && !isNaN(epsValue)) {
@@ -234,21 +246,8 @@ export default {
           else epsRating = 'Worst';
         }
 
-        // Score EPS
-        if (epsRating === 'Best') score += 5;
-        else if (epsRating === 'Better') score += 4;
-        else if (epsRating === 'Good') score += 3;
-        else if (epsRating === 'Neutral') score += 2;
-        else if (epsRating === 'Weak') score -= 1;
-        else if (epsRating === 'Worst') score -= 0;
+        return epsRating || 'N/A';
 
-        // === Final Recommendation ===
-        if (score >= 5) return 'Best';
-        else if (score >= 4) return 'Better';
-        else if (score >= 3) return 'Good';
-        else if (score >= 2) return 'Neutral';
-        else if (score >= 1) return 'Weak';
-        else return 'Worst';
       },
     
     getRecommendationClass(recommendation) {
