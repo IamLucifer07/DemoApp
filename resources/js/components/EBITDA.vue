@@ -89,6 +89,20 @@ export default {
         { key: 'ev_ebitda', label: 'EV/EBITDA' },
         { key: 'recommendation', label: 'Recommendation' }
       ],
+      sectorMap: {
+        "37": "Commercial Banks",
+        "44": "Development Banks",
+        "45": "Finance",
+        "49": "Microfinance",
+        "43": "Non Life Insurance",
+        "50": "Life Insurance",
+        "41": "Hydro Power",
+        "39": "Hotels And Tourism",
+        "38": "Manufacturing and Processing",
+        "42": "Tradings",
+        "67": "Investment",
+        "40": "Others"
+      },
       ebitdaRatingRanges: {
         "Commercial Banks": {
             overvalued: 10.0,
@@ -227,19 +241,20 @@ export default {
     },
 
     getRecommendation(row) {
-        const sector = String(this.selectedSector || "").trim();
-
+        const sectorDesc = this.sectorMap[this.selectedSector] || "";
         const ebitdaValue = parseFloat(row.ev_ebitda);
   
-
-        // === EBITDA classification ===
-        const ebitdaRanges = this.ebitdaRatingRanges[sector];
+        const ebitdaRanges = this.ebitdaRatingRanges[sectorDesc];
         let ebitdaRating = '';
 
         if (ebitdaRanges && !isNaN(ebitdaValue)) {
-          if (ebitdaValue >= ebitdaRanges.overvalued) ebitdaRating = 'Best';
-          else if (ebitdaValue >= ebitdaRanges.fairlyvalued[0]) ebitdaRating = 'Neutral';
-          else if (ebitdaValue >= ebitdaRanges.undervalued[0]) ebitdaRating = 'Weak';
+              if (ebitdaValue >= ebitdaRanges.overvalued) {
+                ebitdaRating = 'Best';
+              } else if (ebitdaValue >= ebitdaRanges.fairlyvalued[0]) {
+                ebitdaRating = 'Neutral';
+              } else {
+                ebitdaRating = 'Worst';
+              }
         }
 
         return ebitdaRating || 'N/A';
