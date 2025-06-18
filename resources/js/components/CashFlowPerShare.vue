@@ -99,28 +99,28 @@ export default {
         "44": {
             exceptional: 35,strong: [25, 35],moderate: [15, 25],weak: [6, 15],critical: 6
           },
-        "Finance": {
+        "45": {
             exceptional: 50,strong: [40, 50],moderate: [25, 40],weak: [12, 25],critical: 12
           },
-        "Life Insurance": {
+        "50": {
             exceptional: 55,strong: [45, 55],moderate: [30, 45],weak: [15, 30],critical: 15
           },
-        "Non Life Insurance": {
+        "43": {
             exceptional: 40,strong: [30, 40],moderate: [20, 30],weak: [10, 20],critical: 10
           },
         "41": {
             exceptional: 60,strong: [45, 60],moderate: [30, 45], weak: [15, 30], critical: 15
           },
-        "Microfinance": {
+        "49": {
             exceptional: 30,strong: [22, 30],moderate: [14, 22],weak: [6, 14],critical: 6
           },
-        "Manufacturing And Processing": {
+        "38": {
             exceptional: 38,strong: [28, 38],moderate: [18, 28],weak: [8, 18],critical: 8
           },
-        "Tradings": {
+        "42": {
             exceptional: 42,strong: [32, 42],moderate: [20, 32],weak: [10, 20],critical: 10
           },
-        "Hotels And Tourism": {
+        "39": {
             exceptional: 28,strong: [20, 28],moderate: [12, 20],weak: [5, 12],critical: 5
           }
     },

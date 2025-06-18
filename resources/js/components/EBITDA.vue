@@ -104,62 +104,62 @@ export default {
         "40": "Others"
       },
       ebitdaRatingRanges: {
-        "Commercial Banks": {
+        "37": {
             overvalued: 10.0,
             fairlyvalued: [6.0, 10.0],
             undervalued: 6.0
         },
-        "Development Banks": {
+        "44": {
             overvalued: 8.5,
             fairlyvalued: [5.0, 8.5],
             undervalued: 5.0
         },
-        "Finance": {
+        "45": {
             overvalued: 7.5,
             fairlyvalued: [4.5, 7.5],
             undervalued: 4.5
         },
-        "Hydro Power": {
+        "41": {
             overvalued: 15.0,
             fairlyvalued: [8.0, 15.0],
             undervalued: 8.0
         },
-        "Non Life Insurance": {
+        "43": {
             overvalued: 11.0,
             fairlyvalued: [6.0, 11.0],
             undervalued: 6.0
         },
-        "Life Insurance": {
+        "50": {
             overvalued: 12.0,
             fairlyvalued: [7.0, 12.0],
             undervalued: 7.0
         },
-        "Microfinance": {
+        "49": {
             overvalued: 9.5,
             fairlyvalued: [5.5, 9.5],
             undervalued: 5.5
         },
-        "Manufacturing And Processing": {
+        "38": {
             overvalued: 12.0,
             fairlyvalued: [6.5, 12.0],
             undervalued: 6.5
         },
-        "Tradings": {
+        "42": {
             overvalued: 7.0,
             fairlyvalued: [3.5, 7.0],
             undervalued: 3.5
         },
-        "Hotels And Tourism": {
+        "39": {
             overvalued: 15.0,
             fairlyvalued: [8.0, 15.0],
             undervalued: 8.0
         },
-        "Investment": {
+        "67": {
             overvalued: 9.0,
             fairlyvalued: [5.0, 9.0],
             undervalued: 5.0
         },
-        "Others": {
+        "40": {
             overvalued: 7.0,
             fairlyvalued: [3.5, 7.0],
             undervalued: 3.5
@@ -241,10 +241,10 @@ export default {
     },
 
     getRecommendation(row) {
-        const sectorDesc = this.sectorMap[this.selectedSector] || "";
+      const sector = String(this.selectedSector || "").trim();
         const ebitdaValue = parseFloat(row.ev_ebitda);
   
-        const ebitdaRanges = this.ebitdaRatingRanges[sectorDesc];
+        const ebitdaRanges = this.ebitdaRatingRanges[sector];
         let ebitdaRating = '';
 
         if (ebitdaRanges && !isNaN(ebitdaValue)) {

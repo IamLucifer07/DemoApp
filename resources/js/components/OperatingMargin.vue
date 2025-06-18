@@ -101,28 +101,28 @@ export default {
         "44": {
             excellent: 40,strong: [30, 40],average: [20, 30],weak: [10, 20],critical: 10
           },
-        "Finance": {
+        "45": {
             excellent: 50,strong: [40, 50],average: [30, 40],weak: [20, 30],critical: 20
           },
-        "Life Insurance": {
+        "50": {
             excellent: 35,strong: [25, 35],average: [15, 25],weak: [8, 15],critical: 8
           },
-        "Non Life Insurance": {
+        "43": {
             excellent: 25,strong: [18, 25],average: [10, 18],weak: [5, 10],critical: 5
           },
         "41": {
             excellent: 60,strong: [50, 60],average: [40, 50],weak: [30, 40],critical: 30
           },
-        "Microfinance": {
+        "49": {
             excellent: 30,strong: [22, 30],average: [15, 22],weak: [8, 15],critical: 8
           },
-        "Manufacturing And Processing": {
+        "38": {
             excellent: 28,strong: [20, 28],average: [12, 20],weak: [5, 12],critical: 5
           },
-        "Tradings": {
+        "42": {
             excellent: 20,strong: [15, 20],average: [8, 15],weak: [3, 8],critical: 3
           },
-        "Hotels And Tourism": {
+        "39": {
             excellent: 25,strong: [18, 25],average: [10, 18],weak: [5, 10],critical: 5
           } 
     },
@@ -208,24 +208,28 @@ export default {
     },
     
     getRecommendation(row) {
-        const sector = String(this.selectedSector || "").trim();
+      const sector = String(this.selectedSector || "").trim();
+      const operatingMarginValue = parseFloat(row.operating_margin);
 
-        const operatingMarginValue = parseFloat(row.operating_margin);
+      const omRanges = this.operatingMarginRanges[sector];
+      let operatingMarginRating = '';
 
-        
-        // === Operating Margin classification ===
-        const omRanges = this.operatingMarginRanges[sector];
-        let operatingMarginRating = '';
-        if (omRanges && !isNaN(operatingMarginValue)) {
-          if (operatingMarginValue >= omRanges.excellent) operatingMarginRating = 'Best';
-          else if (operatingMarginValue >= omRanges.strong[0]) operatingMarginRating = 'Better';
-          else if (operatingMarginValue >= omRanges.average[0]) operatingMarginRating = 'Neutral';
-          else if (operatingMarginValue >= omRanges.weak[0]) operatingMarginRating = 'Weak';
-          else if (operatingMarginValue >= omRanges.critical[0]) operatingMarginRating = 'Worst';
+      if (omRanges && !isNaN(operatingMarginValue)) {
+        if (operatingMarginValue >= omRanges.excellent) {
+          operatingMarginRating = 'Best';
+        } else if (operatingMarginValue >= omRanges.strong[0]) {
+          operatingMarginRating = 'Better';
+        } else if (operatingMarginValue >= omRanges.average[0]) {
+          operatingMarginRating = 'Neutral';
+        } else if (operatingMarginValue >= omRanges.weak[0]) {
+          operatingMarginRating = 'Weak';
+        } else {
+          operatingMarginRating = 'Worst';
         }
-        return operatingMarginRating || 'N/A';
-        
-      },
+      }
+
+      return operatingMarginRating || 'N/A';
+    },
     
     getRecommendationClass(recommendation) {
       return this.recommendations[recommendation]?.class || 'recommendation-neutral';

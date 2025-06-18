@@ -103,7 +103,7 @@ export default {
           weak: [5, 10],
           worst: 5
         },
-        "Hydro Power": {
+        "41": {
           best: 40,
           better: [30, 40],
           good: [20, 30],
