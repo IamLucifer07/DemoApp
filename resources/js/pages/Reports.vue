@@ -2012,7 +2012,7 @@ export default {
         }
     },
     //Operating Cash Flow Ratio Ranges
-      operatingCashFlowRanges : {
+      operatingCashFlowRatioRanges : {
         "Commercial Banks": {
             best: 1.8,
             better: [1.4, 1.8],
@@ -2751,6 +2751,259 @@ export default {
         }
     },
 
+    //Cash Fow Indicators
+    //operating cash flow ranges
+      operatingCashFlowRanges : {
+        "Commercial Banks": {
+            exceptional: 5000,
+            strong: [3000, 5000],
+            moderate: [1500, 3000],
+            weak: [500, 1500],
+            critical: 500
+        },
+        "Development Banks": {
+            exceptional: 2500,
+            strong: [1500, 2500],
+            moderate: [800, 1500],
+            weak: [300, 800],
+            critical: 300
+        },
+        "Finance": {
+            exceptional: 1200,
+            strong: [800, 1200],
+            moderate: [400, 800],
+            weak: [150, 400],
+            critical: 150
+        },
+        "Life Insurance": {
+            exceptional: 3500,
+            strong: [2000, 3500],
+            moderate: [1000, 2000],
+            weak: [400, 1000],
+            critical: 400
+        },
+        "Non Life Insurance": {
+            exceptional: 2000,
+            strong: [1200, 2000],
+            moderate: [600, 1200],
+            weak: [200, 600],
+            critical: 200
+        },
+        "Hydro Power": {
+            exceptional: 8000,
+            strong: [5000, 8000],
+            moderate: [3000, 5000],
+            weak: [1000, 3000],
+            critical: 1000
+        },
+        "Microfinance": {
+            exceptional: 800,
+            strong: [500, 800],
+            moderate: [250, 500],
+            weak: [100, 250],
+            critical: 100
+        },
+        "Manufacturing And Processing": {
+            exceptional: 1500,
+            strong: [900, 1500],
+            moderate: [500, 900],
+            weak: [200, 500],
+            critical: 200
+        },
+        "Tradings": {
+            exceptional: 2000,
+            strong: [1200, 2000],
+            moderate: [600, 1200],
+            weak: [250, 600],
+            critical: 250
+        },
+        "Hotels And Tourism": {
+            exceptional: 1200,
+            strong: [700, 1200],
+            moderate: [350, 700],
+            weak: [150, 350],
+            critical: 150
+        }
+    },
+    //Free Cash Flow Ranges
+      freeCashFlowRanges : {
+        "Commercial Banks": {
+            exceptional: 3500,
+            strong: [2000, 3500],
+            moderate: [1000, 2000],
+            weak: [300, 1000],
+            critical: 300
+        },
+        "Development Banks": {
+            exceptional: 1800,
+            strong: [1000, 1800],
+            moderate: [500, 1000],
+            weak: [150, 500],
+            critical: 150
+        },
+        "Finance": {
+            exceptional: 900,
+            strong: [600, 900],
+            moderate: [300, 600],
+            weak: [100, 300],
+            critical: 100
+        },
+        "Life Insurance": {
+            exceptional: 2500,
+            strong: [1500, 2500],
+            moderate: [800, 1500],
+            weak: [300, 800],
+            critical: 300
+        },
+        "Non Life Insurance": {
+            exceptional: 1400,
+            strong: [900, 1400],
+            moderate: [500, 900],
+            weak: [200, 500],
+            critical: 200
+        },
+        "Hydro Power": {
+            exceptional: 6000,
+            strong: [4000, 6000],
+            moderate: [2500, 4000],
+            weak: [1000, 2500],
+            critical: 1000
+        },
+        "Microfinance": {
+            exceptional: 600,
+            strong: [400, 600],
+            moderate: [200, 400],
+            weak: [80, 200],
+            critical: 80
+        },
+        "Manufacturing And Processing": {
+            exceptional: 1200,
+            strong: [800, 1200],
+            moderate: [400, 800],
+            weak: [150, 400],
+            critical: 150
+        },
+        "Tradings": {
+            exceptional: 1500,
+            strong: [1000, 1500],
+            moderate: [500, 1000],
+            weak: [200, 500],
+            critical: 200
+        },
+        "Hotels And Tourism": {
+            exceptional: 900,
+            strong: [600, 900],
+            moderate: [300, 600],
+            weak: [100, 300],
+            critical: 100
+        }
+    },
+    // Cash Flow to Debt
+      cashFlowToDebtRanges : {
+        "Commercial Banks": {
+          excellent: 0.35,
+          strong: [0.25, 0.35],
+          moderate: [0.15, 0.25],
+          weak: [0.08, 0.15],
+          critical: 0.08
+        },
+        "Development Banks": {
+          excellent: 0.30,
+          strong: [0.20, 0.30],
+          moderate: [0.12, 0.20],
+          weak: [0.05, 0.12],
+          critical: 0.05
+        },
+        "Finance": {
+          excellent: 0.40,
+          strong: [0.30, 0.40],
+          moderate: [0.18, 0.30],
+          weak: [0.10, 0.18],
+          critical: 0.10
+        },
+        "Life Insurance": {
+          excellent: 0.45,
+          strong: [0.35, 0.45],
+          moderate: [0.22, 0.35],
+          weak: [0.12, 0.22],
+          critical: 0.12
+        },
+        "Non Life Insurance": {
+          excellent: 0.35,
+          strong: [0.25, 0.35],
+          moderate: [0.15, 0.25],
+          weak: [0.08, 0.15],
+          critical: 0.08
+        },
+        "Hydro Power": {
+          excellent: 0.25,
+          strong: [0.18, 0.25],
+          moderate: [0.12, 0.18],
+          weak: [0.06, 0.12],
+          critical: 0.06
+        },
+        "Microfinance": {
+          excellent: 0.50,
+          strong: [0.40, 0.50],
+          moderate: [0.25, 0.40],
+          weak: [0.15, 0.25],
+          critical: 0.15
+        },
+        "Manufacturing And Processing": {
+          excellent: 0.30,
+          strong: [0.22, 0.30],
+          moderate: [0.14, 0.22],
+          weak: [0.07, 0.14],
+          critical: 0.07
+        },
+        "Tradings": {
+          excellent: 0.45,
+          strong: [0.35, 0.45],
+          moderate: [0.20, 0.35],
+          weak: [0.12, 0.20],
+          critical: 0.12
+        },
+        "Hotels And Tourism": {
+          excellent: 0.28,
+          strong: [0.20, 0.28],
+          moderate: [0.12, 0.20],
+          weak: [0.06, 0.12],
+          critical: 0.06
+        }
+    },
+    //Cash Flow per Share Ranges
+    cashFlowPerShareRanges : {
+        "Commercial Banks": {
+            exceptional: 45,strong: [30, 45],moderate: [18, 30],weak: [8, 18],critical: 8
+          },
+        "Development Banks": {
+            exceptional: 35,strong: [25, 35],moderate: [15, 25],weak: [6, 15],critical: 6
+          },
+        "Finance": {
+            exceptional: 50,strong: [40, 50],moderate: [25, 40],weak: [12, 25],critical: 12
+          },
+        "Life Insurance": {
+            exceptional: 55,strong: [45, 55],moderate: [30, 45],weak: [15, 30],critical: 15
+          },
+        "Non Life Insurance": {
+            exceptional: 40,strong: [30, 40],moderate: [20, 30],weak: [10, 20],critical: 10
+          },
+        "Hydro Power": {
+            exceptional: 60,strong: [45, 60],moderate: [30, 45], weak: [15, 30], critical: 15
+          },
+        "Microfinance": {
+            exceptional: 30,strong: [22, 30],moderate: [14, 22],weak: [6, 14],critical: 6
+          },
+        "Manufacturing And Processing": {
+            exceptional: 38,strong: [28, 38],moderate: [18, 28],weak: [8, 18],critical: 8
+          },
+        "Tradings": {
+            exceptional: 42,strong: [32, 42],moderate: [20, 32],weak: [10, 20],critical: 10
+          },
+        "Hotels And Tourism": {
+            exceptional: 28,strong: [20, 28],moderate: [12, 20],weak: [5, 12],critical: 5
+          }
+    },
     //Asset Utilization Indicators
     //Ficed Asset Turnover Ratio Ranges
       fixedAssetTurnoverRanges : {
@@ -5371,15 +5624,16 @@ export default {
 
       this.cashFlowIndicators = [
         { 
-            name: "Operating Cash Flow", 
-          value: apiData.profitability_metrics?.operating_cash_flow ? 
-                `Rs. ${apiData.profitability_metrics.operating_cash_flow}` : "N/A", 
+          name: "Operating Cash Flow", 
+          value: apiData.profitability_metrics?.operating_cash_flow 
+                ? ((apiData.profitability_metrics.operating_cash_flow) / 1_000_000).toFixed(2) + "M NPR"
+            : "N/A", 
           sector: sectorInfo.sector_description 
         },
         { 
           name: "Free Cash Flow", 
-          value: apiData.profitability_metrics?.free_cash_flow ? 
-                `Rs. ${apiData.profitability_metrics.free_cash_flow}` : "N/A", 
+          value: apiData.profitability_metrics?.free_cash_flow 
+                ? ((apiData.profitability_metrics.free_cash_flow) / 1_000_000).toFixed(2) + "M NPR" : "N/A",
           sector: sectorInfo.sector_description 
         },
         { 
@@ -5389,8 +5643,7 @@ export default {
         },
         { 
           name: "Cash Flow per Share", 
-          value: apiData.profitability_metrics?.cash_flow_per_share ? 
-                `Rs. ${apiData.profitability_metrics.cash_flow_per_share}` : "N/A", 
+          value: apiData.profitability_metrics?.cash_flow_per_share  || "N/A", 
           sector: sectorInfo.sector_description 
         }
       ];
@@ -5981,7 +6234,7 @@ export default {
         }
         if (item.name === "Operating Cash Flow Ratio") {
 
-            const ranges = this.RatingRanges.operatingCashFlowRanges[sector];
+            const ranges = this.RatingRanges.operatingCashFlowRatioRanges[sector];
             
             if (!ranges || isNaN(value)) return "N/A";
             
@@ -6096,6 +6349,52 @@ export default {
             else return "Dangerous";
         }
 
+
+        //Cash flow Indicators
+        if(item.name === "Operating Cash Flow") {
+          const ranges = this.RatingRanges.operatingCashFlowRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.exceptional) return "Exceptional";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Critical";
+        }
+        if(item.name === "Free Cash Flow") {
+          const ranges = this.RatingRanges.freeCashFlowRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.exceptional) return "Exceptional";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Critical";
+        }
+        if(item.name === "Cash Flow to Debt") {
+          const ranges = this.RatingRanges.cashFlowToDebtRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.excellent) return "Excellent";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Critical";
+        }
+        if(item.name === "Cash Flow per Share") {
+          const ranges = this.RatingRanges.cashFlowPerShareRanges[sector];
+          
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.exceptional) return "Exceptional";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.moderate[0]) return "Moderate";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Critical";
+        }
 
         //Asset Utilization Metrics
         if(item.name === "Fixed Asset Turnover") {

@@ -105,7 +105,7 @@ export default {
         "50": "Life Insurance",
         "41": "Hydro Power",
         "39": "Hotels And Tourism",
-        "38": "Manufacturing and Processing",
+        "38": "Manufacturing And Processing",
         "42": "Tradings",
         "67": "Investment",
         "40": "Others"
