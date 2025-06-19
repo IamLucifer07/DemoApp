@@ -462,7 +462,7 @@ export default {
 
 /* Recommendation row background colors */
 .recommendation-best {
-  background-color: #e8f5e8 !important;
+  background-color: #C6F7C3 !important;
 }
 
 .recommendation-best .recommendation-badge {
@@ -471,16 +471,16 @@ export default {
 }
 
 .recommendation-better {
-  background-color: #e8f5e8 !important;
+  background-color: #DFFFE0 !important;
 }
 
 .recommendation-better .recommendation-badge {
-  background-color: #388e3c !important;
+  background-color: #618a63 !important;
   color: white !important;
 }
 
 .recommendation-good {
-  background-color: #f1f8e9 !important;
+  background-color: #F3FFF3 !important;
 }
 
 .recommendation-good .recommendation-badge {
