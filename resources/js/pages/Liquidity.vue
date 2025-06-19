@@ -13,10 +13,10 @@ const breadcrumbs: BreadcrumbItem[] = [
   { title: 'liquidity', href: '/liquidity' },
 ];
 
-const selectedSector = ref('all');
+const selectedSector = ref('37');
 const sectors = ref<{ sector_id: number; sector_description: string; symbols: string[] }[]>([]);
 
-const activeTab = ref('WorkingCapital');
+const activeTab = ref('Working Capital');
 
 const tabs = [
   { name: 'Working Capital', component: WorkingCapital },
