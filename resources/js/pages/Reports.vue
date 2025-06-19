@@ -2751,6 +2751,81 @@ export default {
         }
     },
 
+    //Efficiency Ratios
+    //Aset Turnover Rating Ranges
+    assetTurnoverRanges : {
+      "Commercial Banks": {
+        excellent: 0.12,
+        strong: [0.09, 0.12],
+        average: [0.06, 0.09],
+        weak: [0.03, 0.06],
+        poor: 0.03
+      },
+      "Development Banks": {
+        excellent: 0.10,
+        strong: [0.07, 0.10],
+        average: [0.05, 0.07],
+        weak: [0.02, 0.05],
+        poor: 0.02
+      },
+      "Finance": {
+        excellent: 0.15,
+        strong: [0.12, 0.15],
+        average: [0.08, 0.12],
+        weak: [0.04, 0.08],
+        poor: 0.04
+      },
+      "Life Insurance": {
+        excellent: 0.25,
+        strong: [0.20, 0.25],
+        average: [0.15, 0.20],
+        weak: [0.08, 0.15],
+        poor: 0.08
+      },
+      "Non Life Insurance": {
+        excellent: 0.35,
+        strong: [0.28, 0.35],
+        average: [0.20, 0.28],
+        weak: [0.12, 0.20],
+        poor: 0.12
+      },
+      "Hydro Power": {
+        excellent: 0.08,
+        strong: [0.06, 0.08],
+        average: [0.04, 0.06],
+        weak: [0.02, 0.04],
+        poor: 0.02
+      },
+      "Microfinance": {
+        excellent: 0.30,
+        strong: [0.25, 0.30],
+        average: [0.18, 0.25],
+        weak: [0.10, 0.18],
+        poor: 0.10
+      },
+      "Manufacturing And Processing": {
+        excellent: 1.20,
+        strong: [0.90, 1.20],
+        average: [0.60, 0.90],
+        weak: [0.30, 0.60],
+        poor: 0.30
+      },
+      "Tradings": {
+        excellent: 1.50,
+        strong: [1.20, 1.50],
+        average: [0.80, 1.20],
+        weak: [0.40, 0.80],
+        poor: 0.40
+      },
+      "Hotels And Tourism": {
+        excellent: 0.40,
+        strong: [0.30, 0.40],
+        average: [0.20, 0.30],
+        weak: [0.10, 0.20],
+        poor: 0.10
+      }
+    },
+
     //Cash Fow Indicators
     //operating cash flow ranges
       operatingCashFlowRanges : {
@@ -6347,6 +6422,19 @@ export default {
             else if (value >= ranges.moderate[0]) return "Moderate";
             else if (value >= ranges.weak[0]) return "Weak";
             else return "Dangerous";
+        }
+
+        //Efficiency Ratios
+        if (item.name === "Asset Turnover") {
+          const ranges = this.RatingRanges.assetTurnoverRanges[sector];
+              
+          if (!ranges || isNaN(value)) return "N/A";
+          
+          if (value >= ranges.excellent) return "Excellent";
+          else if (value >= ranges.strong[0]) return "Strong";
+          else if (value >= ranges.average[0]) return "Average";
+          else if (value >= ranges.weak[0]) return "Weak";
+          else return "Poor";
         }
 
 
