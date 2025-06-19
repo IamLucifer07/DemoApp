@@ -65,12 +65,12 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Profitability',
-        href: '/fundamentals',
+        href: '/profitability',
         icon: LayoutGrid,
     },
     {
         title: 'Liquidity',
-        href: '/advanced',
+        href: '/liquidity',
         icon: LayoutGrid,
     },
 ];

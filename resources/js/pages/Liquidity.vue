@@ -10,7 +10,7 @@ import CashRatio from '@/components/fundamentalAdvance/CashRatio.vue';
 import { type BreadcrumbItem } from '@/types';
 
 const breadcrumbs: BreadcrumbItem[] = [
-  { title: 'fundamentals', href: '/advanced' },
+  { title: 'liquidity', href: '/liquidity' },
 ];
 
 const selectedSector = ref('all');

@@ -42,7 +42,7 @@ declare module 'vue' {
     CardFooter: typeof import('./resources/js/Components/ui/card/CardFooter.vue')['default']
     CardHeader: typeof import('./resources/js/Components/ui/card/CardHeader.vue')['default']
     CardTitle: typeof import('./resources/js/Components/ui/card/CardTitle.vue')['default']
-    CashFlow: typeof import('./resources/js/Components/fundamental/CashFlow.vue')['default']
+    CashFlow: typeof import('./resources/js/Components/fundamentalAdvance/CashFlow.vue')['default']
     CashFlowPerShare: typeof import('./resources/js/Components/CashFlowPerShare.vue')['default']
     CashFlowRatio: typeof import('./resources/js/Components/fundamentalAdvance/CashFlowRatio.vue')['default']
     CashRatio: typeof import('./resources/js/Components/fundamentalAdvance/CashRatio.vue')['default']

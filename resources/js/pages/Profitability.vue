@@ -11,7 +11,7 @@ import OperatingMargin from '@/components/OperatingMargin.vue';
 import { type BreadcrumbItem } from '@/types';
 
 const breadcrumbs: BreadcrumbItem[] = [
-  { title: 'fundamentals', href: '/fundamentals' },
+  { title: 'profitability', href: '/profitability' },
 ];
 
 const selectedSector = ref('all');

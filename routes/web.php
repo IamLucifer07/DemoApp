@@ -29,12 +29,12 @@ Route::get('reports', function () {
     return Inertia::render('Reports');
 })->middleware(['auth', 'verified']);
 
-Route::get('fundamentals', function () {
-    return Inertia::render('fundamentals');
+Route::get('profitability', function () {
+    return Inertia::render('Profitability');
 })->middleware(['auth', 'verified']);
 
-Route::get('advanced', function () {
-    return Inertia::render('FundamentalAdvance');
+Route::get('liquidity', function () {
+    return Inertia::render('Liquidity');
 })->middleware(['auth', 'verified']);
 
 require __DIR__ . '/settings.php';
