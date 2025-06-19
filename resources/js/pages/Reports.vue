@@ -5820,7 +5820,7 @@ export default {
         { 
             name: "Market Share", 
             value: apiData.valuation_metrics?.total_shares ?
-            `${apiData.valuation_metrics.total_shares}%` : "N/A", 
+            `${apiData.valuation_metrics.market_share}%` : "N/A", 
             sector: sectorInfo.sector_description 
         },
         { 

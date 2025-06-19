@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 import vSelect from 'vue-select';
 import 'vue-select/dist/vue-select.css';
 import Tooltip from "../../plugins/Tooltip.vue";

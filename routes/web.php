@@ -33,5 +33,9 @@ Route::get('fundamentals', function () {
     return Inertia::render('fundamentals');
 })->middleware(['auth', 'verified']);
 
+Route::get('advanced', function () {
+    return Inertia::render('FundamentalAdvance');
+})->middleware(['auth', 'verified']);
+
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

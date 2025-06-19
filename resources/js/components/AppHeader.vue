@@ -43,13 +43,13 @@ const mainNavItems: NavItem[] = [
         href: '/dashboard',
         icon: LayoutGrid,
     },
+    // {
+    //     title: 'Data1',
+    //     href: '/peg',
+    //     icon: LayoutGrid,
+    // },
     {
-        title: 'Data1',
-        href: '/peg',
-        icon: LayoutGrid,
-    },
-    {
-        title: 'Data2',
+        title: 'Cap',
         href: '/cap',
         icon: LayoutGrid,
     },
@@ -64,8 +64,13 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: 'Fundamentals',
+        title: 'Profitability',
         href: '/fundamentals',
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Liquidity',
+        href: '/advanced',
         icon: LayoutGrid,
     },
 ];
