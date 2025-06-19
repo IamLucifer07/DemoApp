@@ -14,7 +14,7 @@ const breadcrumbs: BreadcrumbItem[] = [
   { title: 'profitability', href: '/profitability' },
 ];
 
-const selectedSector = ref('all');
+const selectedSector = ref('37');
 const sectors = ref<{ sector_id: number; sector_description: string; symbols: string[] }[]>([]);
 
 const activeTab = ref('EPS');
