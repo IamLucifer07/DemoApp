@@ -4,9 +4,9 @@ import AppLayout from '@/layouts/AppLayout.vue';
 
 import CashFlowPerShare from '@/components/CashFlowPerShare.vue';
 import DividendYield from '@/components/fundamentalAdvance/DividendYield.vue';
-import DividendPayout from '@/components/fundamentalAdvance/DividendPayout.vue';
-import RetentionRatio from '@/components/fundamentalAdvance/RetentionRatio.vue';
-import DividendCoverage from '@/components/fundamentalAdvance/DividendCoverage.vue';
+import DividendPayout from '../components/fundamentalAdvance/DividendPayout.vue';
+import RetentionRatio from '../components/fundamentalAdvance/RetentionRatio.vue';
+import DividendCoverage from '@/components/fundamentalAdvance/DIvidendCoverage.vue';
 
 import { type BreadcrumbItem } from '@/types';
 
