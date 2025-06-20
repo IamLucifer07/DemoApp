@@ -65,97 +65,153 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
-  name: 'OperatingMargin',
-  
-  props: {
+    name: "Dividend Ratio",
+    props: {
     selectedSector: {
       type: [String, Number],
       default: null
     }
   },
-  
-  data() {
-    return {
-      results: [],
-      errors: [],
-      isLoading: false,
-      showResults: false,
-      tableColumns: [
-        { key: 'symbol', label: 'Symbol' },
-        { key: 'fiscal_year', label: 'Fiscal Year' },
-        { key: 'quarter', label: 'Quarter' },
-        { key: 'operating_income', label: 'Operating Income' },
-        { key: 'previous_year_operating_income', label: 'Previous Year Operating Income' },
-        { key: 'revenue', label: 'Revenue' },
-        { key: 'operating_margin', label: 'Operating Margin (%)' },
-        { key: 'operating_income_growth', label: 'Operating Income Growth (%)' },
-        { key: 'recommendation', label: 'Recommendation' }
-      ],
-      operatingMarginRanges : {
-        "37": {
-            excellent: 45,strong: [35, 45],average: [25, 35],weak: [15, 25],critical: 15
-          },
-        "44": {
-            excellent: 40,strong: [30, 40],average: [20, 30],weak: [10, 20],critical: 10
-          },
-        "45": {
-            excellent: 50,strong: [40, 50],average: [30, 40],weak: [20, 30],critical: 20
-          },
-        "50": {
-            excellent: 35,strong: [25, 35],average: [15, 25],weak: [8, 15],critical: 8
-          },
-        "43": {
-            excellent: 25,strong: [18, 25],average: [10, 18],weak: [5, 10],critical: 5
-          },
-        "41": {
-            excellent: 60,strong: [50, 60],average: [40, 50],weak: [30, 40],critical: 30
-          },
-        "49": {
-            excellent: 30,strong: [22, 30],average: [15, 22],weak: [8, 15],critical: 8
-          },
-        "38": {
-            excellent: 28,strong: [20, 28],average: [12, 20],weak: [5, 12],critical: 5
-          },
-        "42": {
-            excellent: 20,strong: [15, 20],average: [8, 15],weak: [3, 8],critical: 3
-          },
-        "39": {
-            excellent: 25,strong: [18, 25],average: [10, 18],weak: [5, 10],critical: 5
-          } 
-    },
-      recommendations: {
-        'Best': {
-          interpretation: 'Exceptional operating performance. Industry leaders with strong efficiency.',
-          class: 'recommendation-best'
+    data() {
+        return {
+            results: [],
+            errors: [],
+            isLoading: false,
+            showResults: false,
+           tableColumns: [
+            { key: 'symbol', label: 'Symbol' },
+            { key: 'fiscal_year', label: 'Fiscal Year' },
+            { key: 'quarter', label: 'Quarter' },
+            { key: 'paid_up_capital', label: 'Paid Up Capital' },
+            { key: 'dividend', label: 'Cash Dividend' },
+            { key: 'net_income', label: 'Net Income' },
+            { key: 'dividend_paid', label: 'Dividend Paid' },
+            { key: 'dividend_payout_ratio', label: 'Payout Ratio' },
+            { key: 'retention_ratio', label: 'Retention Ratio' },
+            { key: 'eps', label: 'EPS' },
+            { key: 'total_listed_share', label: 'No of Shares' },
+            { key: 'dividend_per_share', label: 'Dividend Per Share' },
+            { key: 'dividend_coverage_ratio', label: 'Dividend Coverage Ratio' },
+            { key: 'recommendation', label: 'Recommendation' },
+        ],
+        sectorMap: {
+            "37": "Commercial Banks",
+            "44": "Development Banks",
+            "45": "Finance",
+            "49": "Microfinance",
+            "43": "Non Life Insurance",
+            "50": "Life Insurance",
+            "41": "Hydro Power",
+            "39": "Hotels And Tourism",
+            "38": "Manufacturing And Processing",
+            "42": "Tradings",
+            "67": "Investment",
+            "40": "Others"
         },
-        'Better': {
-          interpretation: 'Above-average operating performance. Well-managed companies with good cost control.',
-          class: 'recommendation-better'
+        dividendPayoutRanges : {
+            "Commercial Banks": {
+                sustainable: 40,
+                moderate: [40, 55],
+                high: [55, 70],
+                excessive: [70, 85],
+                unsustainable: 85
+            },
+            "Development Banks": {
+                sustainable: 35,
+                moderate: [35, 50],
+                high: [50, 65],
+                excessive: [65, 80],
+                unsustainable: 80
+            },
+            "Finance": {
+                sustainable: 45,
+                moderate: [45, 60],
+                high: [60, 75],
+                excessive: [75, 90],
+                unsustainable: 90
+            },
+            "Life Insurance": {
+                sustainable: 50,
+                moderate: [50, 65],
+                high: [65, 80],
+                excessive: [80, 95],
+                unsustainable: 95
+            },
+            "Non Life Insurance": {
+                sustainable: 40,
+                moderate: [40, 55],
+                high: [55, 70],
+                excessive: [70, 85],
+                unsustainable: 85
+            },
+            "Hydro Power": {
+                sustainable: 60,
+                moderate: [60, 75],
+                high: [75, 90],
+                excessive: [90, 110],
+                unsustainable: 110
+            },
+            "Microfinance": {
+                sustainable: 30,
+                moderate: [30, 45],
+                high: [45, 60],
+                excessive: [60, 75],
+                unsustainable: 75
+            },
+            "Manufacturing And Processing": {
+                sustainable: 50,
+                moderate: [50, 65],
+                high: [65, 80],
+                excessive: [80, 95],
+                unsustainable: 95
+            },
+            "Tradings": {
+                sustainable: 70,
+                moderate: [70, 85],
+                high: [85, 100],
+                excessive: [100, 120],
+                unsustainable: 120
+            },
+            "Hotels And Tourism": {
+                sustainable: 55,
+                moderate: [55, 70],
+                high: [70, 85],
+                excessive: [85, 100],
+                unsustainable: 100
+            }
         },
-        'Good': {
-          interpretation: 'Decent operating performance. Stable but not outstanding performers.',
-          class: 'recommendation-good'
-        },
-        'Neutral': {
-          interpretation: 'Marginal operating performance. Needs monitoring for improvement.',
-          class: 'recommendation-neutral'
-        },
-        'Weak': {
-          interpretation: 'Concerning operating performance. May indicate efficiency challenges.',
-          class: 'recommendation-weak'
-        },
-        'Worst': {
-          interpretation: 'Dangerous zone. Often loss-making or near-zero operating margins.',
-          class: 'recommendation-worst'
+        recommendations: {
+            'Best': {
+            interpretation: 'Strong retained earnings support long-term growth, ideal for patient investors.',
+            class: 'recommendation-best'
+            },
+            'Better': {
+            interpretation: 'Balanced payout strategy remains stable under normal conditions, suitable for income-focused portfolios.',
+            class: 'recommendation-better'
+            },
+            'Good': {
+            interpretation: 'Balanced payout strategy remains stable under normal conditions, suitable for income-focused portfolios.',
+            class: 'recommendation-good'
+            },
+            'Neutral': {
+            interpretation: 'Limited reinvestment signals risk in downturns—monitor dividend sustainability.',
+            class: 'recommendation-neutral'
+            },
+            'Weak': {
+            interpretation: 'Dividends funded by debt or reserves signal looming crisis—avoid or exit immediately.',
+            class: 'recommendation-weak'
+            },
+            'Worst': {
+            interpretation: 'Dividends funded by debt or reserves signal looming crisis—avoid or exit immediately.',
+            class: 'recommendation-worst'
+            }
         }
-      }
-    };
-  },
-  
-  watch: {
+        };
+    },
+    watch: {
     selectedSector: {
       handler() {
         if (this.selectedSector) {
@@ -165,93 +221,83 @@ export default {
       immediate: true
     }
   },
-  
-  methods: {
-    async getFinancialMetrics() {
-      this.isLoading = true;
-      this.results = [];
-      this.errors = [];
-      this.showResults = true;
+    methods: {
+        async getFinancialMetrics() {
+            this.isLoading = true;
+            this.results = [];
+            this.errors = [];
+            this.showResults = true;
 
-      try {
-        const sector = (this.selectedSector ?? '').toString().trim() || 'all';
-        const url = `https://pro.laganisutra.com/api/operating-margin?sector=${encodeURIComponent(sector || 'all')}`;
+            try {
+                const sector = (this.selectedSector ?? '').toString().trim() || 'all';
+                const url = `https://laganisutra.com/api/dividend-payout-ratio?sector=${encodeURIComponent(sector || 'all')}`;
+                const response = await axios.get(url);
 
-        const response = await axios.get(url);
+                if (Array.isArray(response.data)) {
+                    this.results = response.data;
+                } else if (response.data && response.data.errors) {
+                    this.errors = response.data.errors;
+                } else {
+                    this.errors.push('Unexpected response format.');
+                }
+            } catch (error) {
+                if (error.response) {
+                    this.errors.push(`API error: ${error.response.data.message || 'Unknown error.'}`);
+                } else {
+                    this.errors.push('Network or CORS error. Check the console for more info.');
+                }
+            } finally {
+                this.isLoading = false;
+            }
+        },
 
-        if (Array.isArray(response.data)) {
-          this.results = response.data;
-        } else if (response.data && response.data.errors) {
-          this.errors = response.data.errors;
-        } else {
-          this.errors.push('Unexpected response format.');
+        formatNumber(value) {
+            return Number(value).toFixed(2);
+        },
+        isNumericField(key) {
+            const numericFields = ['dividend_payout_ratio', 'retention_ratio', 'eps', 'dividend_per_share', 'dividend_coverage_ratio'];
+            return numericFields.includes(key);
+        },
+
+        getRecommendation(row) {
+            const sectorId = String(this.selectedSector || "").trim();
+            const sector = this.sectorMap?.[sectorId] || this.selectedSector;
+            const value = parseFloat(row.dividend_payout_ratio);
+
+            const ranges = this.dividendPayoutRanges[sector];
+            let dividendPayoutRating = '';
+            if (ranges && !isNaN(value)) {
+            if (value <= ranges.sustainable) dividendPayoutRating = "Weak";
+            else if (value <= ranges.moderate[0]) dividendPayoutRating = "Neutral";
+            else if (value <= ranges.high[0]) dividendPayoutRating = "Good";
+            else if (value <= ranges.excessive[0]) dividendPayoutRating = "Better";
+            else if (value <= ranges.unsustainable) dividendPayoutRating = "Best";    
+            }
+
+            return dividendPayoutRating || 'N/A';
+
+        },
+
+        getRecommendationClass(recommendation) {
+        return this.recommendations[recommendation]?.class || 'recommendation-neutral';
+        },
+        
+        getRecommendationTooltip(recommendation) {
+        return this.recommendations[recommendation]?.interpretation || '';
+        },
+
+        getRowClass(result) {
+        const recommendation = this.getRecommendation(result);
+        return this.getRecommendationClass(recommendation);
+        },
+        
+        getRowTooltip(result) {
+        const recommendation = this.getRecommendation(result);
+        return this.getRecommendationTooltip(recommendation);
         }
-      } catch (error) {
-        if (error.response) {
-          this.errors.push(`API error: ${error.response.data.message || 'Unknown error.'}`);
-        } else {
-          this.errors.push('Network or CORS error. Check the console for more info.');
-        }
-      } finally {
-        this.isLoading = false;
-      }
-    },
-    
-    formatNumber(value) {
-      return Number(value).toFixed(2);
-    },
-    
-    isNumericField(key) {
-      const numericFields = ['operating_income', 'previous_year_operating_income', 'revenue', 
-                           'operating_margin', 'operating_income_growth'];
-      return numericFields.includes(key);
-    },
-    
-    getRecommendation(row) {
-      const sector = String(this.selectedSector || "").trim();
-      const operatingMarginValue = parseFloat(row.operating_margin);
-
-      const omRanges = this.operatingMarginRanges[sector];
-      let operatingMarginRating = '';
-
-      if (omRanges && !isNaN(operatingMarginValue)) {
-        if (operatingMarginValue >= omRanges.excellent) {
-          operatingMarginRating = 'Best';
-        } else if (operatingMarginValue >= omRanges.strong[0]) {
-          operatingMarginRating = 'Better';
-        } else if (operatingMarginValue >= omRanges.average[0]) {
-          operatingMarginRating = 'Neutral';
-        } else if (operatingMarginValue >= omRanges.weak[0]) {
-          operatingMarginRating = 'Weak';
-        } else {
-          operatingMarginRating = 'Worst';
-        }
-      }
-
-      return operatingMarginRating || 'N/A';
-    },
-    
-    getRecommendationClass(recommendation) {
-      return this.recommendations[recommendation]?.class || 'recommendation-neutral';
-    },
-    
-    getRecommendationTooltip(recommendation) {
-      return this.recommendations[recommendation]?.interpretation || '';
-    },
-    
-    getRowClass(result) {
-      const recommendation = this.getRecommendation(result);
-      return this.getRecommendationClass(recommendation);
-    },
-    
-    getRowTooltip(result) {
-      const recommendation = this.getRecommendation(result);
-      return this.getRecommendationTooltip(recommendation);
-    }
-  }
+  },
 };
 </script>
-
 <style scoped>
 .financial-metrics-container {
   width: 100%;

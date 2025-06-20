@@ -37,5 +37,9 @@ Route::get('liquidity', function () {
     return Inertia::render('Liquidity');
 })->middleware(['auth', 'verified']);
 
+Route::get('dividends', function () {
+    return Inertia::render('Dividends');
+})->middleware(['auth', 'verified']);
+
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';
