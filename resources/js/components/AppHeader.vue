@@ -78,6 +78,11 @@ const mainNavItems: NavItem[] = [
         href: '/dividends',
         icon: LayoutGrid,
     },
+    {
+        title: 'Leverage',
+        href: '/leverage',
+        icon: LayoutGrid,
+    },
 ];
 </script>
 
