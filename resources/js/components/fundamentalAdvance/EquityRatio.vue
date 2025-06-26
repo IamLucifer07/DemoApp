@@ -91,18 +91,18 @@ export default {
             { key: 'recommendation', label: 'Recommendation' },
           ],
           sectorMap: {
-                "Commercial Banks": "37",
-                "Development Banks": "44",
-                "Finance": "45",
-                "Microfinance": "49",
-                "Non Life Insurance": "43",
-                "Life Insurance": "50",
-                "Hydro Power": "41",
-                "Hotels And Tourism": "39",
-                "Manufacturing And Processing": "38",
-                "Tradings": "42",
-                "Investment": "67",
-                "Others": "40"
+                "37": "Commercial Banks",
+                "38": "Manufacturing And Processing",
+                "39": "Hotels And Tourism",
+                "40": "Others",
+                "41": "Hydro Power",
+                "42": "Tradings",
+                "43": "Non Life Insurance",
+                "44": "Development Banks",
+                "45": "Finance",
+                "49": "Microfinance",
+                "50": "Life Insurance",
+                "67": "Investment",
             },
             equityRatioRanges: {
               "37": { very_strong: 60, strong: [50, 60], moderate: [40, 50], weak: [30, 40], very_weak: 30 },
@@ -164,8 +164,7 @@ export default {
             this.showResults = true;
 
             try {
-                const sectorName = this.selectedSector?.toString().trim() || 'all';
-                const sectorId = this.sectorMap[sectorName] || sectorName;
+                const sectorId = this.selectedSector?.toString().trim() || 'all';
                 const url = `https://laganisutra.com/api/equity-ratio?sector=${encodeURIComponent(sectorId)}`;
                 const response = await axios.get(url);
 
@@ -201,9 +200,9 @@ export default {
         
         getRecommendation(row) {
             const sectorId = String(this.selectedSector || "").trim();
-            const sector = this.sectorMap?.[sectorId];
+          
             const value = parseFloat(row.equity_ratio);
-            const ranges = this.equityRatioRanges[sector];
+            const ranges = this.equityRatioRanges[sectorId]; 
 
 
             let Rating = '';
