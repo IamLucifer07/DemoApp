@@ -11,7 +11,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 const selectedSector = ref('37');
 const selectedCategory = ref('Profitability');
-// const selectedSubcategories = ref<string[]>(['ROE', 'ROA', 'Net Profit Margin']);
 
 const sectors = ref<{ sector_id: number; sector_description: string; symbols: string[]; companies: any[] }[]>([]);
 const allCompanies = ref<any[]>([]);
@@ -58,7 +57,6 @@ interface Company {
   symbol: string;
   script_id: string;
   company_name?: string;
-  // Add other properties you expect from the API
 }
 
 const fundamentalCategories = {
@@ -71,7 +69,6 @@ const fundamentalCategories = {
     'Growth': ['Revenue Growth', 'Earnings Growth', 'Book Value Growth', 'Cash Flow Growth']
 };
 
-// Recommendation ranges based on sectors (simplified example)
 const getRecommendationRanges = (metric: string, sectorId: string) => {
     const ranges: Record<string, any> = {
         'ROE': { excellent: [15, 100], good: [10, 15], average: [5, 10], poor: [0, 5] },
