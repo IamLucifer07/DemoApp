@@ -45,5 +45,9 @@ Route::get('leverage', function () {
     return Inertia::render('Leverage');
 })->middleware(['auth', 'verified']);
 
+Route::get('summary', function () {
+    return Inertia::render('Summary');
+})->middleware(['auth', 'verified']);
+
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

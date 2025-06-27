@@ -83,6 +83,11 @@ const mainNavItems: NavItem[] = [
         href: '/leverage',
         icon: LayoutGrid,
     },
+    {
+        title: 'Summary',
+        href: '/summary',
+        icon: LayoutGrid,
+    },
 ];
 </script>
 
