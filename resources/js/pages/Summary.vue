@@ -23,32 +23,82 @@ interface CompanyFundamentalData {
   company_name: string;
   sector_id: number;
   sector_description: string;
-  valuation_metrics: {
-    pe_ratio: number | null;
-    peg_ratio: number | null;
-    p_s_ratio?: number | null;
-    ev_ebitda?: number | null;
-    price_to_cash_flow?: number | null;
-  };
   profitability_metrics: {
-    roe: number | null;
-    roa: number | null;
-    net_profit_margin: number | null;
-    gross_profit_margin?: number | null;
+    eps?: number | null;
+    cashflow_per_share?: number | null;
+    profit_margin?: number | null;
     operating_margin?: number | null;
-    ebitda_margin?: number | null;
+    ebitda?: number | null;
+    roa?: number | null;
   };
+
   liquidity_metrics: {
-    current_ratio: number | null;
+    current_ratio?: number | null;
     quick_ratio?: number | null;
     cash_ratio?: number | null;
     cash_flow_ratio?: number | null;
-    working_capital_ratio?: number | null;
+    working_capital?: number | null;
   };
-  leverage_metrics?: {
-    debt_to_equity?: number | null;
-    debt_to_assets?: number | null;
-    interest_coverage_ratio?: number | null;
+
+  leverage_metrics: {
+    cash_debt_ratio?: number | null;
+    capital_ratio?: number | null;
+    interest_coverage?: number | null;
+    altman_z_score?: number | null;
+    debt_equity_ratio?: number | null;
+    equity_ratio?: number | null;
+    capital_intensity?: number | null;
+  };
+
+  valuation_metrics: {
+    plfv?: number | null;
+    ev_ebitda?: number | null;
+    graham_number?: number | null;
+    ps_ratio?: number | null;
+    ebitda_margin?: number | null;
+    cape_ratio?: number | null;
+    market_capitalization?: number | null;
+  };
+
+  dividends_metrics: {
+    dividend_yield?: number | null;
+    dividend_payout?: number | null;
+    dividend_coverage_ratio?: number | null;
+    cashflow_per_share?: number | null;
+    retention_ratio?: number | null;
+  };
+
+  efficiency_metrics: {
+    fixed_asset_turnover?: number | null;
+    total_asset_turnover?: number | null;
+  };
+
+  growth_metrics: {
+    revenue_growth?: number | null;
+    peg_ratio?: number | null;
+    eps_growth?: number | null;
+  };
+
+  cash_flow_metrics: {
+    operating_cash_flow?: number | null;
+    free_cash_flow?: number | null;
+    accrual_ratio?: number | null;
+  };
+
+  risk_detection_metrics: {
+    beneish_m_score?: number | null;
+  };
+
+  earning_quality_metrics: {
+    earning_stability?: number | null;
+    piotroski_f_score?: number | null;
+  };
+
+  market_performance_metrics: {
+    sharpe_ratio?: number | null;
+    pb_relative?: number | null;
+    mva?: number | null;
+    adv?: number | null;
   };
 }
 interface Company {
@@ -75,12 +125,18 @@ const fundamentalCategories = {
 
 const getRecommendationRanges = (metric: string, sectorId: string) => {
     const ranges: Record<string, any> = {
-        'ROE': { excellent: [15, 100], good: [10, 15], average: [5, 10], poor: [0, 5] },
-        'ROA': { excellent: [8, 100], good: [5, 8], average: [2, 5], poor: [0, 2] },
-        'Current Ratio': { excellent: [2, 3], good: [1.5, 2], average: [1, 1.5], poor: [0, 1] },
-        'Debt to Equity': { excellent: [0, 0.3], good: [0.3, 0.6], average: [0.6, 1], poor: [1, 100] },
-        'P/E Ratio': { excellent: [10, 15], good: [15, 20], average: [20, 25], poor: [25, 100] },
-        'Dividend Yield': { excellent: [4, 8], good: [2, 4], average: [1, 2], poor: [0, 1] }
+        epsRatingRanges:{
+        "Commercial Banks": {best: 40,better: [25, 40],good: [15, 25],neutral: [10, 15],weak: [5, 10],worst: 5},
+        "Hydro Power": {best: 30,better: [20, 30],good: [12, 20],neutral: [8, 12],weak: [4, 8],worst: 4},
+        "Non Life Insurance": {best: 25,better: [15, 25],good: [10, 15],neutral: [6, 10],weak: [3, 6],worst: 3},
+        "Life Insurance": {best: 20,better: [12, 20],good: [8, 12],neutral: [5, 8],weak: [2, 5],worst: 2},
+        "Manufacturing And Processing": {best: 15,better: [10, 15],good: [7, 10],neutral: [4, 7],weak: [2, 4],worst: 2},
+        "Tradings": {best: 12,better: [8, 12],good: [5, 8],neutral: [3, 5],weak: [1, 3],worst: 1},
+        "Hotels & Tourism": {best: 10,better: [6, 10],good: [4, 6],neutral: [2, 4],weak: [1, 2],worst: 1},
+        "Development Banks": {best: 18,better: [12, 18],good: [8, 12],neutral: [5, 8],weak: [3, 5],worst: 3},
+        "Microfinance": {best: 15,better: [10, 15],good: [6, 10],neutral: [4, 6],weak: [2, 4],worst: 2},
+        "Others": {best: 10,better: [7, 10],good: [5, 7],neutral: [3, 5],weak: [1, 3],worst: 1}
+    },
     };
     
     return ranges[metric] || { excellent: [0, 100], good: [0, 100], average: [0, 100], poor: [0, 100] };
@@ -109,12 +165,69 @@ const availableSubcategories = computed(() => {
 const getMetricValue = (company: CompanyFundamentalData, metric: string): number | null => {
     const metricMap: Record<string, string> = {
         // Profitability
-        'ROE': 'profitability_metrics.roe',
-        'ROA': 'profitability_metrics.roa',
-        'Net Profit Margin': 'profitability_metrics.net_profit_margin',
+        eps: 'growth_metrics.eps',
+        profit_margin: 'profitability_metrics.net_profit_margin',
+        operating_margin: 'profitability_metrics.operating_margin',
+        ebitda: 'other_metrics.ebitda',
+        roa: 'leverage_metrics.roa',
+
         // Liquidity
-        'Current Ratio': 'liquidity_metrics.current_ratio',
-        // Add all other metrics...
+        current_ratio: 'liquidity_metrics.current_ratio',
+        quick_ratio: 'liquidity_metrics.quick_ratio',
+        cash_ratio: 'liquidity_metrics.cash_ratio',
+        cash_flow_ratio: 'liquidity_metrics.cash_flow_ratio',
+        working_capital: 'leverage_metrics.working_capital',
+
+        // Leverage
+        capital_ratio: 'leverage_metrics.capital_ratio',
+        interest_coverage: 'leverage_metrics.interest_coverage_ratio',
+        altman_z_score: 'leverage_metrics.altman_z_score',
+        de_ratio: 'leverage_metrics.de_ratio',
+        equity_ratio: 'leverage_metrics.equity_ratio',
+        capital_intensity: 'profitability_metrics.capital_intense_ratio',
+
+        // Valuation
+        plfv: 'valuation_metrics.plfv',
+        ev_ebitda: 'valuation_metrics.ev_ebitda',
+        graham_number: 'valuation_metrics.graham_number',
+        ps_ratio: 'growth_metrics.ps_ratio',
+        ebitda_margin: 'other_metrics.ebitda_margin',
+        cape_ratio: 'valuation_metrics.cape_ratio',
+        market_capitalization: 'other_metrics.market_cap',
+
+        // Dividends
+        dividend_yield: 'dividend_metrics.dividend_yield',
+        dividend_payout: 'dividend_metrics.dividend_payout_ratio',
+        dividend_coverage_ratio: 'dividend_metrics.dividend_coverage_ratio',
+        cashflow_per_share: 'dividend_metrics.cash_flow_per_share',
+        retention_ratio: 'dividend_metrics.retention_ratio',
+
+        // Efficiency
+        fixed_asset_turnover: 'efficiency_metrics.fixed_asset_turnover',
+        total_asset_turnover: 'efficiency_metrics.total_asset_turnover',
+
+        // Growth
+        revenue_growth: 'growth_metrics.revenue_growth',
+        peg_ratio: 'valuation_metrics.peg_ratio',
+        eps_growth: 'valuation_metrics.earnings_growth_rate',
+
+        // Cash Flow
+        operating_cash_flow: 'cashflow_metrics.operating_cash_flow',
+        free_cash_flow: 'cashflow_metrics.free_cash_flow',
+        accrual_ratio: 'cashflow_metrics.accrual_ratio',
+
+        // Risk Detection
+        'beneish m-score': 'risk_metrics.m_score',
+
+        // Earning Quality
+        earning_stability: 'other_metrics.average_roa',
+        'piotroski f-score': 'risk_metrics.F_Score',
+
+        // Market Performance
+        sharpe_ratio: 'other_metrics.sharp_ratio',
+        pb_relative: 'other_metrics.pb_relative',
+        mva: 'other_metrics.MVA',
+        adv: '',
     };
 
     const path = metricMap[metric];
@@ -196,40 +309,97 @@ const fetchFundamentalData = async () => {
         //     console.error('Test API call failed:', testError);
         // }
 
-        // Fetch fundamental data for selected companies (limited to 5 for now)
         const companyDataPromises = selectedCompanies.slice(0, 5).map(async (company) => {
             try {
                 const summaryRes = await axios.get(`https://laganisutra.com/api/fundamentals/company-summary/${company.script_id}`);
                 const apiData = Array.isArray(summaryRes.data) ? summaryRes.data[0] : summaryRes.data;
-                
-                // Transform the API data to our structure
+
                 const result: CompanyFundamentalData = {
-                script_id: company.script_id,
-                symbol: company.symbol,
-                company_name: company.company_name || company.symbol,
-                sector_id: company.sector_id,
-                sector_description: company.sector_description,
-                valuation_metrics: {
-                    pe_ratio: parseFloat(apiData.growth_metrics?.pe_ratio) || null,
-                    peg_ratio: parseFloat(apiData.growth_metrics?.peg_ratio) || null,
-                  //  book_value: parseFloat(apiData.valuation_metrics?.book_value) || null,
-                    // ... other valuation metrics
-                },
-                profitability_metrics: {
-                    roe: parseFloat(apiData.profitability_metrics?.roe) || null,
-                    roa: parseFloat(apiData.leverage_metrics?.roa) || null,
-                    net_profit_margin: parseFloat(apiData.profitability_metrics?.net_profit_margin) || null,
-                    // ... other profitability metrics
-                },
-                liquidity_metrics: {
-                    current_ratio: parseFloat(apiData.liquidity_metrics?.current_ratio) || null,
-                    cash_ratio: parseFloat(apiData.liquidity_metrics?.cash_ratio) || null,
-                    // quick_ratio: parseFloat(apiData.liquidity_metrics?.quick_ratio) || null,
-                    // ... other liquidity metrics
-                },
-                // ... other categories
+                    script_id: company.script_id,
+                    symbol: company.symbol,
+                    company_name: apiData.company_name || company.symbol,
+                    sector_id: company.sector_id,
+                    sector_description: company.sector_description,
+
+                    profitability_metrics: {
+                        eps: parseFloat(apiData.growth_metrics?.eps) || null,
+                        cashflow_per_share: parseFloat(apiData.dividend_metrics?.cash_flow_per_share) || null,
+                        profit_margin: parseFloat(apiData.profitability_metrics?.net_profit_margin) || null,
+                        operating_margin: parseFloat(apiData.profitability_metrics?.operating_margin) || null,
+                        ebitda: parseFloat(apiData.other_metrics?.ebitda) || null,
+                        roa: parseFloat(apiData.leverage_metrics?.roa) || null,
+                    },
+
+                    liquidity_metrics: {
+                        current_ratio: parseFloat(apiData.liquidity_metrics?.current_ratio) || null,
+                        quick_ratio: parseFloat(apiData.liquidity_metrics?.quick_ratio) || null,
+                        cash_ratio: parseFloat(apiData.liquidity_metrics?.cash_ratio) || null,
+                        cash_flow_ratio: parseFloat(apiData.liquidity_metrics?.cash_flow_ratio) || null,
+                        working_capital: parseFloat(apiData.leverage_metrics?.working_capital) || null,
+                    },
+
+                    leverage_metrics: {
+                        cash_debt_ratio: null, // not found in API
+                        capital_ratio: parseFloat(apiData.leverage_metrics?.capital_ratio) || null,
+                        interest_coverage: parseFloat(apiData.leverage_metrics?.interest_coverage_ratio) || null,
+                        altman_z_score: parseFloat(apiData.leverage_metrics?.altman_z_score) || null,
+                        debt_equity_ratio: parseFloat(apiData.leverage_metrics?.de_ratio) || null,
+                        equity_ratio: parseFloat(apiData.leverage_metrics?.equity_ratio) || null,
+                        capital_intensity: parseFloat(apiData.profitability_metrics?.capital_intense_ratio) || null,
+                    },
+
+                    valuation_metrics: {
+                        plfv: parseFloat(apiData.valuation_metrics?.plfv) || null,
+                        ev_ebitda: parseFloat(apiData.valuation_metrics?.ev_ebitda) || null,
+                        graham_number: parseFloat(apiData.valuation_metrics?.graham_number) || null,
+                        ps_ratio: parseFloat(apiData.growth_metrics?.ps_ratio) || null,
+                        ebitda_margin: parseFloat(apiData.other_metrics?.ebitda_margin) || null,
+                        cape_ratio: parseFloat(apiData.valuation_metrics?.cape_ratio) || null,
+                        market_capitalization: parseFloat(apiData.other_metrics?.market_cap) || null,
+                    },
+
+                    dividends_metrics: {
+                        dividend_yield: parseFloat(apiData.dividend_metrics?.dividend_yield) || null,
+                        dividend_payout: parseFloat(apiData.dividend_metrics?.dividend_payout_ratio) || null,
+                        dividend_coverage_ratio: parseFloat(apiData.dividend_metrics?.dividend_coverage_ratio) || null,
+                        cashflow_per_share: parseFloat(apiData.dividend_metrics?.cash_flow_per_share) || null,
+                        retention_ratio: parseFloat(apiData.dividend_metrics?.retention_ratio) || null,
+                    },
+
+                    efficiency_metrics: {
+                        fixed_asset_turnover: parseFloat(apiData.efficiency_metrics?.fixed_asset_turnover) || null,
+                        total_asset_turnover: parseFloat(apiData.efficiency_metrics?.total_asset_turnover) || null,
+                    },
+
+                    growth_metrics: {
+                        revenue_growth: parseFloat(apiData.growth_metrics?.revenue_growth) || null,
+                        peg_ratio: parseFloat(apiData.valuation_metrics?.peg_ratio) || null,
+                        eps_growth: parseFloat(apiData.valuation_metrics?.earnings_growth_rate) || null,
+                    },
+
+                    cash_flow_metrics: {
+                        operating_cash_flow: parseFloat(apiData.cashflow_metrics?.operating_cash_flow) || null,
+                        free_cash_flow: parseFloat(apiData.cashflow_metrics?.free_cash_flow) || null,
+                        accrual_ratio: parseFloat(apiData.cashflow_metrics?.accrual_ratio) || null,
+                    },
+
+                    risk_detection_metrics: {
+                        beneish_m_score: parseFloat(apiData.risk_metrics?.m_score) || null,
+                    },
+
+                    earning_quality_metrics: {
+                        earning_stability: parseFloat(apiData.other_metrics?.average_roa) || null,
+                        piotroski_f_score: parseFloat(apiData.risk_metrics?.F_Score) || null,
+                    },
+
+                    market_performance_metrics: {
+                        sharpe_ratio: parseFloat(apiData.other_metrics?.sharp_ratio) || null,
+                        pb_relative: parseFloat(apiData.other_metrics?.pb_relative) || null,
+                        mva: parseFloat(apiData.other_metrics?.MVA) || null,
+                        adv: null,
+                    },
                 };
-                
+
                 return result;
             } catch (error) {
                 console.error(`Error processing ${company.symbol}:`, error);
@@ -332,7 +502,7 @@ onMounted(async() => {
                                 <th 
                                     v-for="subcategory in availableSubcategories"
                                     :key="subcategory"
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                    class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 >
                                     {{ subcategory }}
                                 </th>
@@ -383,7 +553,7 @@ onMounted(async() => {
             </div>
 
             <!-- Legend -->
-            <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+            <!-- <div class="mt-4 p-4 bg-gray-50 rounded-lg">
                 <h4 class="text-sm font-medium text-gray-700 mb-2">Recommendation Legend:</h4>
                 <div class="flex flex-wrap gap-4">
                     <div class="flex items-center">
@@ -411,7 +581,7 @@ onMounted(async() => {
                         <span class="text-sm text-gray-600">Below expectations</span>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </AppLayout>
 </template>
