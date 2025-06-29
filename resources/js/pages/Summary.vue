@@ -60,13 +60,17 @@ interface Company {
 }
 
 const fundamentalCategories = {
-    'Profitability': ['ROE', 'ROA', 'Net Profit Margin', 'Gross Profit Margin', 'Operating Margin', 'EBITDA Margin'],
-    'Liquidity': ['Current Ratio', 'Quick Ratio', 'Cash Ratio', 'Cash Flow Ratio', 'Working Capital Ratio'],
-    'Leverage': ['Debt to Equity', 'Debt to Assets', 'Interest Coverage Ratio', 'Debt Service Coverage', 'Equity Multiplier'],
-    'Valuation': ['P/E Ratio', 'P/B Ratio', 'P/S Ratio', 'EV/EBITDA', 'PEG Ratio', 'Price to Cash Flow'],
-    'Dividends': ['Dividend Yield', 'Dividend Payout Ratio', 'Dividend Coverage Ratio', 'Dividend Growth Rate'],
-    'Efficiency': ['Asset Turnover', 'Inventory Turnover', 'Receivables Turnover', 'Total Asset Turnover'],
-    'Growth': ['Revenue Growth', 'Earnings Growth', 'Book Value Growth', 'Cash Flow Growth']
+    'Profitability': ['EPS', 'Cashflow per Share', 'Profit Margin', 'Operating Margin', 'EBITDA','ROA',],
+    'Liquidity': ['Current Ratio', 'Quick Ratio', 'Cash Ratio', 'Cash Flow Ratio', 'Working Capital'],
+    'Leverage': ['Cash/Debt Ratio', 'Capital Ratio', 'Interest Coverage', 'Altman Z-Score', 'D/E Ratio', 'Equity Ratio', 'Capital Intensity'],
+    'Valuation': ['PLFV','EV/EBITDA', 'Graham Number', 'P/S Ratio', 'EBITDA Margin', 'Cape Ratio','Market Capitalization'],
+    'Dividends': ['Dividend Yield', 'Dividend Payout', 'Dividend Coverage Ratio', 'Cashflow per Share', 'Retention Ratio'],
+    'Efficiency': ['Fixed Asset Turnover', 'Total Asset Turnover'],
+    'Growth': ['Revenue Growth', 'PEG Ratio', 'EPS Growth'],
+    'Cash FLow': ['Operating Cash Flow', 'Free Cash Flow', 'Accrual Ratio'],
+    'Risk Detection':['Beneish M-Score'],
+    'Earning Quality':['Earning Stability', 'Piotroski F-Score'],
+    'Market Performance':['Sharpe Ratio', 'P/B Relative', 'MVA', 'ADV']
 };
 
 const getRecommendationRanges = (metric: string, sectorId: string) => {
