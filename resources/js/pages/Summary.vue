@@ -117,45 +117,209 @@ const fundamentalCategories = {
     'Dividends': ['Dividend Yield', 'Dividend Payout', 'Dividend Coverage Ratio', 'Cashflow per Share', 'Retention Ratio'],
     'Efficiency': ['Fixed Asset Turnover', 'Total Asset Turnover'],
     'Growth': ['Revenue Growth', 'PEG Ratio', 'EPS Growth'],
-    'Cash FLow': ['Operating Cash Flow', 'Free Cash Flow', 'Accrual Ratio'],
+    'Cash Flow': ['Operating Cash Flow', 'Free Cash Flow', 'Accrual Ratio'],
     'Risk Detection':['Beneish M-Score'],
     'Earning Quality':['Earning Stability', 'Piotroski F-Score'],
     'Market Performance':['Sharpe Ratio', 'P/B Relative', 'MVA', 'ADV']
 };
 
 const getRecommendationRanges = (metric: string, sectorId: string) => {
-    const ranges: Record<string, any> = {
+    const RatingRanges: Record<string, any> = {
         epsRatingRanges:{
-        "Commercial Banks": {best: 40,better: [25, 40],good: [15, 25],neutral: [10, 15],weak: [5, 10],worst: 5},
-        "Hydro Power": {best: 30,better: [20, 30],good: [12, 20],neutral: [8, 12],weak: [4, 8],worst: 4},
-        "Non Life Insurance": {best: 25,better: [15, 25],good: [10, 15],neutral: [6, 10],weak: [3, 6],worst: 3},
-        "Life Insurance": {best: 20,better: [12, 20],good: [8, 12],neutral: [5, 8],weak: [2, 5],worst: 2},
-        "Manufacturing And Processing": {best: 15,better: [10, 15],good: [7, 10],neutral: [4, 7],weak: [2, 4],worst: 2},
-        "Tradings": {best: 12,better: [8, 12],good: [5, 8],neutral: [3, 5],weak: [1, 3],worst: 1},
-        "Hotels & Tourism": {best: 10,better: [6, 10],good: [4, 6],neutral: [2, 4],weak: [1, 2],worst: 1},
-        "Development Banks": {best: 18,better: [12, 18],good: [8, 12],neutral: [5, 8],weak: [3, 5],worst: 3},
-        "Microfinance": {best: 15,better: [10, 15],good: [6, 10],neutral: [4, 6],weak: [2, 4],worst: 2},
-        "Others": {best: 10,better: [7, 10],good: [5, 7],neutral: [3, 5],weak: [1, 3],worst: 1}
-    },
+            "Commercial Banks": 
+            {best: 40,better: [25, 40],good: [15, 25],neutral: [10, 15],weak: [5, 10],worst: 5},
+            "Hydro Power": 
+            {best: 30,better: [20, 30],good: [12, 20],neutral: [8, 12],weak: [4, 8],worst: 4},
+            "Non Life Insurance": 
+            {best: 25,better: [15, 25],good: [10, 15],neutral: [6, 10],weak: [3, 6],worst: 3},
+            "Life Insurance": 
+            {best: 20,better: [12, 20],good: [8, 12],neutral: [5, 8],weak: [2, 5],worst: 2},
+            "Manufacturing And Processing": 
+            {best: 15,better: [10, 15],good: [7, 10],neutral: [4, 7],weak: [2, 4],worst: 2},
+            "Tradings": 
+            {best: 12,better: [8, 12],good: [5, 8],neutral: [3, 5],weak: [1, 3],worst: 1},
+            "Hotels And Tourism": 
+            {best: 10,better: [6, 10],good: [4, 6],neutral: [2, 4],weak: [1, 2],worst: 1},
+            "Development Banks": 
+            {best: 18,better: [12, 18],good: [8, 12],neutral: [5, 8],weak: [3, 5],worst: 3},
+            "Microfinance": 
+            {best: 15,better: [10, 15],good: [6, 10],neutral: [4, 6],weak: [2, 4],worst: 2},
+            "Others": 
+            {best: 10,better: [7, 10],good: [5, 7],neutral: [3, 5],weak: [1, 3],worst: 1}
+        },
+        operatingMarginRanges : {
+            "Commercial Banks": 
+            {excellent: 45,strong: [35, 45],average: [25, 35],weak: [15, 25],critical: 15},
+            "Development Banks": 
+            {excellent: 40,strong: [30, 40],average: [20, 30],weak: [10, 20],critical: 10},
+            "Finance": 
+            {excellent: 50,strong: [40, 50],average: [30, 40],weak: [20, 30],critical: 20},
+            "Life Insurance": 
+            {excellent: 35,strong: [25, 35],average: [15, 25],weak: [8, 15],critical: 8},
+            "Non Life Insurance": 
+            {excellent: 25,strong: [18, 25],average: [10, 18],weak: [5, 10],critical: 5},
+            "Hydro Power": 
+            {excellent: 60,strong: [50, 60],average: [40, 50],weak: [30, 40],critical: 30},
+            "Microfinance": 
+            {excellent: 30,strong: [22, 30],average: [15, 22],weak: [8, 15],critical: 8},
+            "Manufacturing And Processing": 
+            {excellent: 28,strong: [20, 28],average: [12, 20],weak: [5, 12],critical: 5},
+            "Tradings": 
+            {excellent: 20,strong: [15, 20],average: [8, 15],weak: [3, 8],critical: 3},
+            "Hotels And Tourism": 
+            {excellent: 25,strong: [18, 25],average: [10, 18],weak: [5, 10],critical: 5}
+        },
+        currentRatioRatingRanges: {
+            "Commercial Banks": {
+            high_growth: 0.25,steady_growth: [0.12, 0.25],stable: [0.05, 0.12],declining: [0.0, 0.05],loss_making: 0.0
+            },
+            "Development Banks": {
+            high_growth: 0.30,steady_growth: [0.15, 0.30],stable: [0.08, 0.15],declining: [0.0, 0.08],loss_making: 0.0
+            },
+            "Finance": {
+            high_growth: 0.30,steady_growth: [0.15, 0.30],stable: [0.08, 0.15],declining: [0.0, 0.08],loss_making: 0.0
+            },
+            "Hydro Power": {
+                high_growth: 0.35,steady_growth: [0.20, 0.35],stable: [0.10, 0.20],declining: [0.0, 0.10],loss_making: 0.0
+            },
+            "Non Life Insurance": {
+            high_growth: 0.40,steady_growth: [0.25, 0.40],stable: [0.15, 0.25],declining: [0.0, 0.15],loss_making: 0.0
+            },
+            "Life Insurance": {
+            high_growth: 0.30,steady_growth: [0.15, 0.30],stable: [0.05, 0.15],declining: [0.0, 0.05],loss_making: 0.0
+            },
+            "Manufacturing And Processing": {
+            high_growth: 0.25,steady_growth: [0.15, 0.25],stable: [0.08, 0.15],declining: [0.0, 0.08],loss_making: 0.0
+            },
+            "Tradings": {
+            high_growth: 0.20,steady_growth: [0.12, 0.20],stable: [0.05, 0.12],declining: [0.0, 0.05],loss_making: 0.0
+            },
+            "Hotels And Tourism": {
+            high_growth: 0.25,steady_growth: [0.15, 0.25],stable: [0.05, 0.15],declining: [0.0, 0.05],loss_making: 0.0
+            },
+            "Microfinance": {
+            high_growth: 0.50,steady_growth: [0.20, 0.50],stable: [0.05, 0.20],declining: [0.0, 0.05],loss_making: 0.0
+            },
+            "Investment": {
+            high_growth: 0.40,steady_growth: [0.20, 0.40],stable: [0.05, 0.20],declining: [0.0, 0.05],loss_making: 0.0
+            },
+            "Others": {
+            high_growth: 0.35,steady_growth: [0.20, 0.35],stable: [0.05, 0.20],declining: [0.0, 0.05],loss_making: 0.0
+            }
+        },
+        cashRatioRanges : {
+            "Commercial Banks": {
+            best: 0.5,better: [0.3, 0.5],good: [0.2, 0.3],neutral: [0.1, 0.2],weak: [0.05, 0.1],worst: 0.05
+            },
+            "Development Banks": {
+            best: 0.7,better: [0.5, 0.7],good: [0.3, 0.5],neutral: [0.2, 0.3],weak: [0.1, 0.2],worst: 0.1
+            },
+            "Finance": {
+            best: 0.7,better: [0.5, 0.7],good: [0.3, 0.5],neutral: [0.2, 0.3],weak: [0.1, 0.2],worst: 0.1
+            },
+            "Hydro Power": {
+            best: 0.8,better: [0.6, 0.8],good: [0.4, 0.6],neutral: [0.2, 0.4],weak: [0.1, 0.2],worst: 0.1
+            },
+            "Non Life Insurance": {
+            best: 1.2,better: [0.9, 1.2],good: [0.6, 0.9],neutral: [0.4, 0.6],weak: [0.2, 0.4],worst: 0.2
+            },
+            "Life Insurance": {
+            best: 0.9,better: [0.7, 0.9],good: [0.5, 0.7],neutral: [0.3, 0.5],weak: [0.1, 0.3],worst: 0.1
+            },
+            "Manufacturing And Processing": {
+            best: 0.6,better: [0.4, 0.6],good: [0.3, 0.4],neutral: [0.2, 0.3],weak: [0.1, 0.2],worst: 0.1
+            },
+            "Tradings": {
+            best: 0.5,better: [0.3, 0.5],good: [0.2, 0.3],neutral: [0.1, 0.2],weak: [0.05, 0.1],worst: 0.05
+            },
+            "Hotels And Tourism": {
+            best: 0.7,better: [0.5, 0.7],good: [0.3, 0.5],neutral: [0.2, 0.3],weak: [0.1, 0.2],worst: 0.1
+            },
+            "Microfinance": {
+            best: 0.4,better: [0.3, 0.4],good: [0.2, 0.3],neutral: [0.1, 0.2],weak: [0.05, 0.1],worst: 0.05
+            },
+            "Investment": {
+            best: 1.5,better: [1.0, 1.5],good: [0.7, 1.0],neutral: [0.5, 0.7],weak: [0.3, 0.5],worst: 0.3
+            },
+            "Others": {
+            best: 0.6,better: [0.4, 0.6],good: [0.3, 0.4],neutral: [0.2, 0.3],weak: [0.1, 0.2],worst: 0.1
+            }
+        },
     };
     
-    return ranges[metric] || { excellent: [0, 100], good: [0, 100], average: [0, 100], poor: [0, 100] };
+    return RatingRanges;
 };
 
-const getRecommendation = (value: number | null, metric: string, sectorId: string) => {
-    if (value === null) return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
-    
-    const ranges = getRecommendationRanges(metric, sectorId);
-    
-    if (value >= ranges.excellent[0] && value <= ranges.excellent[1]) {
-        return { text: 'Excellent', class: 'bg-green-100 text-green-800' };
-    } else if (value >= ranges.good[0] && value <= ranges.good[1]) {
-        return { text: 'Good', class: 'bg-blue-100 text-blue-800' };
-    } else if (value >= ranges.average[0] && value <= ranges.average[1]) {
-        return { text: 'Average', class: 'bg-yellow-100 text-yellow-800' };
-    } else {
-        return { text: 'Poor', class: 'bg-red-100 text-red-800' };
+const getRecommendation = (value: number | null, metric: string, sectorId: string): { text: string; class: string } => {
+    if (value === null || isNaN(value)) {
+        return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
     }
+    const sectorName = getSectorName(sectorId);
+    const RatingRanges = getRecommendationRanges(metric, sectorId);
+
+    if ( metric.trim().toLowerCase() === "operating margin" ||metric.trim().toLowerCase() === "operating_margin") {
+        const ranges = RatingRanges.operatingMarginRanges?.[sectorName];
+        if (!ranges) return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
+
+        if (value >= ranges.excellent) return { text: 'Excellent', class: 'bg-green-100 text-green-800' };
+        if (value >= ranges.strong[0]) return { text: 'Good', class: 'bg-blue-100 text-blue-800' };
+        if (value >= ranges.average[0]) return { text: 'Average', class: 'bg-yellow-100 text-yellow-800' };
+        if (value >= ranges.weak[0]) return { text: 'Weak', class: 'bg-red-100 text-red-800' };
+        if (value < ranges.weak[0]) return { text: 'Critical', class: 'bg-red-100 text-red-800' };
+    }
+    if (metric.trim().toLowerCase() === "current ratio" ||metric.trim().toLowerCase() === "current_ratio") {
+        const ranges = RatingRanges.currentRatioRatingRanges[sectorName];
+        
+        if (!ranges || isNaN(value)) return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
+        
+        if (value >= ranges.high_growth) return { text: 'Excellent', class: 'bg-green-100 text-green-800' };
+        else if (value >= ranges.steady_growth[0]) return { text: 'Good', class: 'bg-blue-100 text-blue-800' };
+        else if (value >= ranges.stable[0]) return { text: 'Average', class: 'bg-yellow-100 text-yellow-800' };
+        else if (value >= ranges.declining[0]) return { text: 'Weak', class: 'bg-red-100 text-red-800' };
+        else return { text: 'Critical', class: 'bg-red-100 text-red-800' };
+    }
+    if (metric.trim().toLowerCase() === "cash ratio" ||metric.trim().toLowerCase() === "cash_ratio") {
+        const ranges = RatingRanges.cashRatioRanges[sectorName];
+        
+        if (!ranges || isNaN(value)) return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
+        
+        if (value >= ranges.best) return { text: 'Excellent', class: 'bg-green-100 text-green-800' };
+        else if (value >= ranges.better[0]) return { text: 'Better', class: 'bg-blue-100 text-blue-800' };
+        else if (value >= ranges.good[0]) return { text: 'Good', class: 'bg-blue-100 text-blue-800' };
+        else if (value >= ranges.neutral[0]) return { text: 'Average', class: 'bg-yellow-100 text-yellow-800' };
+        else if (value >= ranges.weak[0]) return { text: 'Weak', class: 'bg-red-100 text-red-800' };
+        else return { text: 'Critical', class: 'bg-red-100 text-red-800' };
+    }
+    if (metric.trim().toLowerCase() === "eps" ) {
+        const ranges = RatingRanges.epsRatingRanges?.[sectorName];
+        if (!ranges) return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
+        
+        if (value >= ranges.best) return { text: 'Excellent', class: 'bg-green-100 text-green-800' };
+        if (value >= ranges.better[0]) return { text: 'Better', class: 'bg-blue-100 text-blue-800' };
+        if (value >= ranges.good[0]) return { text: 'Good', class: 'bg-blue-100 text-blue-800' };
+        if (value >= ranges.neutral[0]) return { text: 'Average', class: 'bg-yellow-100 text-yellow-800' };
+        if (value >= ranges.weak[0]) return { text: 'Weak', class: 'bg-red-100 text-red-800' };
+        return { text: 'Critical', class: 'bg-red-100 text-red-800' };
+    }
+
+    return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
+};
+const getSectorName = (sectorId: string): string => {
+    const sectorMap: Record<string, string> = {
+        "37": "Commercial Banks",
+        "44": "Development Banks",
+        "45": "Finance",
+        "49": "Microfinance",
+        "43": "Non Life Insurance",
+        "50": "Life Insurance",
+        "41": "Hydro Power",
+        "39": "Hotels And Tourism",
+        "38": "Manufacturing And Processing",
+        "42": "Tradings",
+        "67": "Investment",
+        "40": "Others"
+    };
+    return sectorMap[sectorId] || 'Others';
 };
 
 const availableSubcategories = computed(() => {
@@ -163,6 +327,8 @@ const availableSubcategories = computed(() => {
 });
 
 const getMetricValue = (company: CompanyFundamentalData, metric: string): number | null => {
+    const normalize = (str: string) =>
+        str.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/gi, '');
     const metricMap: Record<string, string> = {
         // Profitability
         eps: 'growth_metrics.eps',
@@ -230,13 +396,11 @@ const getMetricValue = (company: CompanyFundamentalData, metric: string): number
         adv: '',
     };
 
-    const path = metricMap[metric];
+    const normalizedMetric = normalize(metric);
+    const path = metricMap[normalizedMetric];
     if (!path) return null;
 
-    const value = path.split('.').reduce((obj, key) => {
-        return obj?.[key] ?? null;
-    }, company as any);
-
+    const value = path.split('.').reduce((obj, key) => obj?.[key], company as any);
     return typeof value === 'number' ? value : null;
 };
 
@@ -296,19 +460,6 @@ const fetchFundamentalData = async () => {
             return;
         }
 
-        // Test with just one company first
-        // const testCompany = selectedCompanies[0];
-        // console.log('Testing with company:', testCompany);
-        
-        // try {
-        //     const summaryRes = await axios.get(`https://laganisutra.com/api/fundamentals/company-summary/${testCompany.script_id}`);
-        //     console.log('Test API response:', summaryRes.data);
-        //     const companyData = Array.isArray(summaryRes.data) ? summaryRes.data[0] : summaryRes.data;
-        //     console.log('Processed company data:', companyData);
-        // } catch (testError) {
-        //     console.error('Test API call failed:', testError);
-        // }
-
         const companyDataPromises = selectedCompanies.slice(0, 5).map(async (company) => {
             try {
                 const summaryRes = await axios.get(`https://laganisutra.com/api/fundamentals/company-summary/${company.script_id}`);
@@ -339,7 +490,7 @@ const fetchFundamentalData = async () => {
                     },
 
                     leverage_metrics: {
-                        cash_debt_ratio: null, // not found in API
+                        cash_debt_ratio: null,
                         capital_ratio: parseFloat(apiData.leverage_metrics?.capital_ratio) || null,
                         interest_coverage: parseFloat(apiData.leverage_metrics?.interest_coverage_ratio) || null,
                         altman_z_score: parseFloat(apiData.leverage_metrics?.altman_z_score) || null,
@@ -415,7 +566,6 @@ const fetchFundamentalData = async () => {
             )
             .map(result => result.value);
             
-        // console.log('Final processed data:', processedData);
         fundamentalData.value = processedData;
             
     } catch (error) {
@@ -537,12 +687,21 @@ onMounted(async() => {
                                     {{ getMetricValue(company, subcategory)?.toFixed(2) ?? 'N/A' }}
                                 </div>
                                 <span 
+                                    v-if="getMetricValue(company, subcategory) !== null"
                                     :class="[
-                                    'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
-                                    getRecommendation(getMetricValue(company, subcategory), subcategory, selectedSector).class
+                                        'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
+                                        getRecommendation(
+                                            getMetricValue(company, subcategory) as number, 
+                                            subcategory, 
+                                            selectedSector
+                                        ).class
                                     ]"
                                 >
-                                    {{ getRecommendation(getMetricValue(company, subcategory), subcategory, selectedSector).text }}
+                                    {{ getRecommendation(
+                                        getMetricValue(company, subcategory) as number, 
+                                        subcategory, 
+                                        selectedSector
+                                    ).text }}
                                 </span>
                                 </div>
                             </td>
