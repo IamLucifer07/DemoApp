@@ -710,37 +710,6 @@ onMounted(async() => {
                     </table>
                 </div>
             </div>
-
-            <!-- Legend -->
-            <!-- <div class="mt-4 p-4 bg-gray-50 rounded-lg">
-                <h4 class="text-sm font-medium text-gray-700 mb-2">Recommendation Legend:</h4>
-                <div class="flex flex-wrap gap-4">
-                    <div class="flex items-center">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 mr-2">
-                            Excellent
-                        </span>
-                        <span class="text-sm text-gray-600">Strong performance</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 mr-2">
-                            Good
-                        </span>
-                        <span class="text-sm text-gray-600">Above average</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mr-2">
-                            Average
-                        </span>
-                        <span class="text-sm text-gray-600">Market average</span>
-                    </div>
-                    <div class="flex items-center">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 mr-2">
-                            Poor
-                        </span>
-                        <span class="text-sm text-gray-600">Below expectations</span>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </AppLayout>
 </template>
