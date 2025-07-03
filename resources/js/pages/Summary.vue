@@ -295,11 +295,11 @@ const getRecommendation = (value: number | null, metric: string, sectorId: strin
         if (!ranges) return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
         
         if (value >= ranges.best) return { text: 'Excellent', class: 'bg-green-100 text-green-800' };
-        if (value >= ranges.better[0]) return { text: 'Better', class: 'bg-blue-100 text-blue-800' };
-        if (value >= ranges.good[0]) return { text: 'Good', class: 'bg-blue-100 text-blue-800' };
-        if (value >= ranges.neutral[0]) return { text: 'Average', class: 'bg-yellow-100 text-yellow-800' };
-        if (value >= ranges.weak[0]) return { text: 'Weak', class: 'bg-red-100 text-red-800' };
-        return { text: 'Critical', class: 'bg-red-100 text-red-800' };
+        else if (value >= ranges.better[0]) return { text: 'Better', class: 'bg-blue-100 text-blue-800' };
+        else if (value >= ranges.good[0]) return { text: 'Good', class: 'bg-blue-100 text-blue-800' };
+        else if (value >= ranges.neutral[0]) return { text: 'Average', class: 'bg-yellow-100 text-yellow-800' };
+        else if (value >= ranges.weak[0]) return { text: 'Weak', class: 'bg-red-100 text-red-800' };
+        else return { text: 'Critical', class: 'bg-red-100 text-red-800' };
     }
 
     return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
@@ -330,69 +330,61 @@ const getMetricValue = (company: CompanyFundamentalData, metric: string): number
     const normalize = (str: string) =>
         str.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/gi, '');
     const metricMap: Record<string, string> = {
-        // Profitability
-        eps: 'growth_metrics.eps',
-        profit_margin: 'profitability_metrics.net_profit_margin',
+         // profitability
+        eps: 'profitability_metrics.eps',
+        cash_flow_per_share: 'profitability_metrics.cash_flow_per_share',
+        profit_margin: 'profitability_metrics.profit_margin',
         operating_margin: 'profitability_metrics.operating_margin',
-        ebitda: 'other_metrics.ebitda',
-        roa: 'leverage_metrics.roa',
-
-        // Liquidity
+        ebitda: 'profitability_metrics.ebitda',
+        roa: 'profitability_metrics.roa', 
+        // liquidity
         current_ratio: 'liquidity_metrics.current_ratio',
         quick_ratio: 'liquidity_metrics.quick_ratio',
         cash_ratio: 'liquidity_metrics.cash_ratio',
         cash_flow_ratio: 'liquidity_metrics.cash_flow_ratio',
-        working_capital: 'leverage_metrics.working_capital',
-
-        // Leverage
+        working_capital: 'liquidity_metrics.working_capital',
+        // leverage
+        cash_flow_to_debt_ratio: 'leverage_metrics.cash_flow_to_debt_ratio',
         capital_ratio: 'leverage_metrics.capital_ratio',
         interest_coverage: 'leverage_metrics.interest_coverage_ratio',
         altman_z_score: 'leverage_metrics.altman_z_score',
         de_ratio: 'leverage_metrics.de_ratio',
         equity_ratio: 'leverage_metrics.equity_ratio',
-        capital_intensity: 'profitability_metrics.capital_intense_ratio',
-
-        // Valuation
+        capital_intense_ratio: 'leverage_metrics.capital_intense_ratio',
+        // valuation
         plfv: 'valuation_metrics.plfv',
         ev_ebitda: 'valuation_metrics.ev_ebitda',
         graham_number: 'valuation_metrics.graham_number',
-        ps_ratio: 'growth_metrics.ps_ratio',
-        ebitda_margin: 'other_metrics.ebitda_margin',
+        ps_ratio: 'valuation_metrics.ps_ratio',
+        ebitda_margin: 'valuation_metrics.ebitda_margin',
         cape_ratio: 'valuation_metrics.cape_ratio',
-        market_capitalization: 'other_metrics.market_cap',
-
-        // Dividends
+        market_capitalization: 'valuation_metrics.market_cap',
+        // dividends
         dividend_yield: 'dividend_metrics.dividend_yield',
         dividend_payout: 'dividend_metrics.dividend_payout_ratio',
         dividend_coverage_ratio: 'dividend_metrics.dividend_coverage_ratio',
-        cashflow_per_share: 'dividend_metrics.cash_flow_per_share',
+        cashflow_per_share: 'dividend_metrics.cashflow_per_share',
         retention_ratio: 'dividend_metrics.retention_ratio',
-
         // Efficiency
         fixed_asset_turnover: 'efficiency_metrics.fixed_asset_turnover',
         total_asset_turnover: 'efficiency_metrics.total_asset_turnover',
-
         // Growth
         revenue_growth: 'growth_metrics.revenue_growth',
-        peg_ratio: 'valuation_metrics.peg_ratio',
-        eps_growth: 'valuation_metrics.earnings_growth_rate',
-
+        peg_ratio: 'growth_metrics.peg_ratio',
+        eps_growth: 'growth_metrics.earnings_growth_rate',
         // Cash Flow
         operating_cash_flow: 'cashflow_metrics.operating_cash_flow',
         free_cash_flow: 'cashflow_metrics.free_cash_flow',
         accrual_ratio: 'cashflow_metrics.accrual_ratio',
-
         // Risk Detection
-        'beneish m-score': 'risk_metrics.m_score',
-
+        beneish_m_score: 'risk_metrics.m_score',
         // Earning Quality
-        earning_stability: 'other_metrics.average_roa',
-        'piotroski f-score': 'risk_metrics.F_Score',
-
+        earning_stability: 'earning_quality_metrics.average_roa',
+        piotroski_f_score: 'earning_quality_metrics.F_Score',
         // Market Performance
-        sharpe_ratio: 'other_metrics.sharp_ratio',
-        pb_relative: 'other_metrics.pb_relative',
-        mva: 'other_metrics.MVA',
+        sharpe_ratio: 'market_performance_metrics.sharp_ratio',
+        pb_relative: 'market_performance_metrics.pb_relative',
+        mva: 'market_performance_metrics.MVA',
         adv: '',
     };
 
@@ -460,7 +452,7 @@ const fetchFundamentalData = async () => {
             return;
         }
 
-        const companyDataPromises = selectedCompanies.slice(0, 5).map(async (company) => {
+        const companyDataPromises = selectedCompanies.map(async (company) => {
             try {
                 const summaryRes = await axios.get(`https://laganisutra.com/api/fundamentals/company-summary/${company.script_id}`);
                 const apiData = Array.isArray(summaryRes.data) ? summaryRes.data[0] : summaryRes.data;
