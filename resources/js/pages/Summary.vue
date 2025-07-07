@@ -580,6 +580,119 @@ onMounted(async() => {
    await fetchSectors();
    await fetchFundamentalData();
 });
+
+// async fetchFundamentalData() {
+        //     this.loading = true;
+        //     try {
+        //         let selectedCompanies = [];
+        //         if (this.selectedSector === 'all') {
+        //             selectedCompanies = this.allCompanies.slice(0, 15);
+        //         } else {
+        //             const sector = this.sectors.find(s => 
+        //                 s.sector_id.toString() === this.selectedSector.toString()
+        //             );
+        //             selectedCompanies = sector ? sector.companies : [];
+        //         }
+        //         if (selectedCompanies.length === 0) {
+        //             this.fundamentalData = [];
+        //             return;
+        //         }
+        //         const companyDataPromises = selectedCompanies.map(async (company) => {
+        //             try {
+        //                 const summaryRes = await axios.get(`https://laganisutra.com/api/fundamentals/company-summary/${company.script_id}`);
+        //                 const apiData = Array.isArray(summaryRes.data) ? summaryRes.data[0] : summaryRes.data;
+        //                 return {
+        //                     script_id: company.script_id,
+        //                     symbol: company.symbol,
+        //                     company_name: apiData.company_name || company.symbol,
+        //                     sector_id: company.sector_id,
+        //                     sector_description: company.sector_description,
+        //                     valuation_metrics: {
+        //                         plfv: this.parseMetric(apiData.valuation_metrics?.plfv),
+        //                         ev_ebitda: this.parseMetric(apiData.valuation_metrics?.ev_ebitda),
+        //                         graham_number: this.parseMetric(apiData.valuation_metrics?.graham_number),
+        //                         cape_ratio: this.parseMetric(apiData.valuation_metrics?.cape_ratio),
+        //                         ps_ratio: this.parseMetric(apiData.growth_metrics?.ps_ratio),
+        //                         pb_relative: this.parseMetric(apiData.other_metrics?.pb_relative),
+        //                         pe_ratio: this.parseMetric(apiData.growth_metrics?.pe_ratio),
+        //                         MVA: this.parseMetric(apiData.other_metrics?.MVA),
+        //                     },
+        //                     profitability_metrics: {
+        //                         eps: this.parseMetric(apiData.growth_metrics?.eps),
+        //                         profit_margin: this.parseMetric(apiData.profitability_metrics?.net_profit_margin),
+        //                         operating_margin: this.parseMetric(apiData.profitability_metrics?.operating_margin),
+        //                         ebitda_margin: this.parseMetric(apiData.other_metrics?.ebitda_margin),
+        //                         ebitda: this.parseMetric(apiData.other_metrics?.ebitda),
+        //                         roa: this.parseMetric(apiData.leverage_metrics?.roa),
+        //                     },
+        //                     liquidity_metrics: {
+        //                         current_ratio: this.parseMetric(apiData.liquidity_metrics?.current_ratio),
+        //                         quick_ratio: this.parseMetric(apiData.liquidity_metrics?.quick_ratio),
+        //                         cash_ratio: this.parseMetric(apiData.liquidity_metrics?.cash_ratio),
+        //                         cash_flow_ratio: this.parseMetric(apiData.liquidity_metrics?.cash_flow_ratio),
+        //                         working_capital: this.parseMetric(apiData.liquidity_metrics?.working_capital),
+        //                         adv:null, // not available in the API
+        //                     },
+        //                     leverage_metrics: {
+        //                         interest_coverage_ratio: this.parseMetric(apiData.leverage_metrics?.interest_coverage_ratio),
+        //                         cash_flow_to_debt_ratio: this.parseMetric(apiData.liquidity_metrics.cash_flow_to_debt_ratio),
+        //                         capital_ratio: this.parseMetric(apiData.leverage_metrics?.capital_ratio),
+        //                         altman_z_score: this.parseMetric(apiData.leverage_metrics?.altman_z_score),
+        //                         de_ratio: this.parseMetric(apiData.leverage_metrics?.de_ratio),
+        //                         equity_ratio: this.parseMetric(apiData.leverage_metrics?.equity_ratio),
+        //                     },
+        //                     efficiency_metrics: {
+        //                         fixed_asset_turnover: this.parseMetric(apiData.efficiency_metrics?.fixed_asset_turnover),
+        //                         total_asset_turnover: this.parseMetric(apiData.efficiency_metrics?.total_asset_turnover),
+        //                         capital_intense_ratio: this.parseMetric(apiData.profitability_metrics?.capital_intense_ratio),
+        //                     },
+        //                     dividend_metrics: {
+        //                         dividend_yield: this.parseMetric(apiData.dividend_metrics?.dividend_yield),
+        //                         dividend_payout_ratio: this.parseMetric(apiData.dividend_metrics?.dividend_payout_ratio),
+        //                         dividend_coverage_ratio: this.parseMetric(apiData.dividend_metrics?.dividend_coverage_ratio),
+        //                         retention_ratio: this.parseMetric(apiData.dividend_metrics?.retention_ratio),
+        //                     },
+        //                     growth_metrics: {
+        //                         revenue_growth: this.parseMetric(apiData.valuation_metrics?.revenue_growth),
+        //                         peg_ratio: this.parseMetric(apiData.valuation_metrics?.peg_ratio),
+        //                         earnings_growth_rate: this.parseMetric(apiData.valuation_metrics?.earnings_growth_rate),
+        //                     },
+        //                     cashflow_metrics: {
+        //                         operating_cash_flow: this.parseMetric(apiData.cashflow_metrics?.operating_cash_flow),
+        //                         free_cash_flow: this.parseMetric(apiData.cashflow_metrics?.free_cash_flow),
+        //                         accrual_ratio: this.parseMetric(apiData.cashflow_metrics?.accrual_ratio),
+        //                     },
+        //                     risk_detection_metrics: {
+        //                         m_score: this.parseMetric(apiData.risk_metrics?.m_score),
+        //                         financial_leverage_ratio: this.parseMetric(apiData.leverage_metrics?.financial_leverage_ratio),
+        //                     },
+        //                     earning_quality_metrics: {
+        //                         average_roa: this.parseMetric(apiData.other_metrics?.average_roa),
+        //                         F_Score: this.parseMetric(apiData.risk_metrics?.F_Score),
+        //                     },
+        //                     market_performance_metrics: {
+        //                         sharp_ratio: this.parseMetric(apiData.other_metrics?.sharp_ratio),
+        //                         sortino_ratio: this.parseMetric(apiData.other_metrics?.sortino_ratio),
+        //                         market_cap: this.parseMetric(apiData.other_metrics?.market_cap),
+        //                         total_shares: this.parseMetric(apiData.valuation_metrics?.total_shares),
+        //                     },
+        //                 };
+        //             } catch (error) {
+        //                 console.error(`Error processing ${company.symbol}:`, error);
+        //                 return null;
+        //             }
+        //         });
+        //         const results = await Promise.allSettled(companyDataPromises);
+        //         this.fundamentalData = results
+        //             .filter(result => result.status === 'fulfilled' && result.value !== null)
+        //             .map(result => result.value);
+        //     } catch (error) {
+        //         console.error('Error fetching fundamental data:', error);
+        //         this.fundamentalData = [];
+        //     } finally {
+        //         this.loading = false;
+        //     }
+        // },
 </script>
 
 <template>
