@@ -123,7 +123,7 @@ const fundamentalCategories = {
     'Market Performance':['Sharpe Ratio', 'P/B Relative', 'MVA', 'ADV']
 };
 
-const getRecommendationRanges = (metric: string, sectorId: string) => {
+const getRecommendationRanges = () => {
     const RatingRanges: Record<string, any> = {
         epsRatingRanges:{
             "Commercial Banks": 
@@ -255,7 +255,7 @@ const getRecommendation = (value: number | null, metric: string, sectorId: strin
         return { text: 'N/A', class: 'bg-gray-100 text-gray-600' };
     }
     const sectorName = getSectorName(sectorId);
-    const RatingRanges = getRecommendationRanges(metric, sectorId);
+    const RatingRanges = getRecommendationRanges();
 
     if ( metric.trim().toLowerCase() === "operating margin" ||metric.trim().toLowerCase() === "operating_margin") {
         const ranges = RatingRanges.operatingMarginRanges?.[sectorName];
