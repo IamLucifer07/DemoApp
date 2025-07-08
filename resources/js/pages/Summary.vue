@@ -765,10 +765,8 @@ onMounted(async() => {
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                             <tr v-if="loading">
-                            <!-- Loading state -->
                             </tr>
                             <tr v-else-if="fundamentalData.length === 0">
-                            <!-- No data state -->
                             </tr>
                             <tr 
                             v-else
@@ -779,7 +777,6 @@ onMounted(async() => {
                             <td class="px-6 py-4 whitespace-nowrap sticky left-0 bg-white z-10 border-r">
                                 <div>
                                 <div class="text-sm font-medium text-gray-900">{{ company.symbol }}</div>
-                                <!-- <div class="text-sm text-gray-500">{{ company.company_name }}</div> -->
                                 </div>
                             </td>
                             <td 
